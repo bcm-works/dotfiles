@@ -1,6 +1,0 @@
-## Summary
-
-- 
-## Goals
-
-1. 

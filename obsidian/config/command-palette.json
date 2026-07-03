@@ -1,9 +1,0 @@
-{
-  "pinned": [
-    "editor:attach-file",
-    "markdown:add-metadata-property",
-    "file-explorer:move-file",
-    "workspace:copy-url",
-    "switcher:open"
-  ]
-}
