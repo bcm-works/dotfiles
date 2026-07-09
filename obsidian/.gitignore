@@ -1,0 +1,22 @@
+# Ignore sensitive files
+config/bookmarks.json
+config/starred.json
+config/workspace
+config/workspace.json
+config/workspace-mobile.json
+config/workspaces.json
+config/publish.json
+config/graph.json
+config/types.json
+config/plugins/*/data.json
+
+# Allow specific non-sensitive files
+!config/plugins/calendar/data.json
+!config/plugins/dataview/data.json
+!config/plugins/homepage/data.json
+!config/plugins/customizable-page-header-buttons/data.json
+!config/plugins/obsidian-minimal-settings/data.json
+!config/plugins/obsidian-show-file-path/data.json
+
+# Ignore configuration directory in the example note vault
+example/.obsidian

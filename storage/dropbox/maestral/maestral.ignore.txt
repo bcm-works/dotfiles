@@ -1,0 +1,13 @@
+**/node_modules
+**/vendor
+**/.cache
+.*-cache/
+$RECYCLE.BIN/
+.DS_Store
+tmp
+temp
+.tmp
+.temp
+*.tmp
+*.swp
+*.sock

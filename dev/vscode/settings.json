@@ -1,0 +1,190 @@
+{
+  "workbench.colorTheme": "Dark 2026",
+  "editor.fontFamily": "CommitMono Nerd Font",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 18,
+  "clock.alignment": "Right",
+  "clock.format": "h:MMtt",
+  "clock.iconName": "none",
+  "css.validate": false,
+  "debug.console.fontSize": 18,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "docker.extension.enableComposeLanguageServer": false,
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.inlineSuggest.enabled": false,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.quickSuggestions": {
+    "comments": false,
+    "other": true,
+    "strings": false
+  },
+  "editor.quickSuggestionsDelay": 4000,
+  "editor.stickyScroll.enabled": true,
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "comments": "#666",
+    "textMateRules": [
+      {
+        "scope": [
+          "comment"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.wordWrap": "on",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
+  "files.eol": "\n",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.inputValidation": false,
+  "git.inputValidationLength": 150,
+  "git.inputValidationSubjectLength": null,
+  "git.openRepositoryInParentFolders": "never",
+  "indentRainbow.colors": [
+    "rgba(255,255,64,0.04)",
+    "rgba(127,255,127,0.04)",
+    "rgba(255,127,255,0.04)",
+    "rgba(79,236,236,0.04)"
+  ],
+  "indentRainbow.errorColor": "rgba(128,32,32,0.5)",
+  "indentRainbow.tabmixColor": "rgba(128,32,96,0.5)",
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "deno.json",
+        "deno.jsonc"
+      ],
+      "url": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json"
+    },
+    {
+      "fileMatch": [
+        "package.json"
+      ],
+      "url": "https://www.schemastore.org/package"
+    }
+  ],
+  "markdown.preview.fontFamily": "CommitMono Nerd Font",
+  "markdown.preview.fontSize": 18,
+  "security.promptForLocalFileProtocolHandling": false,
+  "security.workspace.trust.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "docker-desktop"
+  ],
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.fontFamily": "CommitMono Nerd Font",
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.scrollback": 2500,
+  "terminal.integrated.tabs.defaultColor": "terminal.ansiCyan",
+  "terminal.integrated.tabStopWidth": 4,
+  "update.mode": "manual",
+  "window.commandCenter": true,
+  "window.confirmSaveUntitledWorkspace": false,
+  "window.customTitleBarVisibility": "auto",
+  "window.menuBarVisibility": "visible",
+  "workbench.activityBar.location": "top",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBorder": "#23c5b0",
+    "activityBar.background": "#000",
+    "activityBar.foreground": "#23c5b0",
+    "activityBar.inactiveForeground": "#666",
+    "activityBarBadge.background": "#23c5b0",
+    "activityBarBadge.foreground": "#000",
+    "contrastBorder": "#222",
+    "editor.background": "#000",
+    "editorLineNumber.activeForeground": "#888888",
+    "editorLineNumber.foreground": "#444444",
+    "sideBar.background": "#000",
+    "sideBar.foreground": "#FFF",
+    "sideBarSectionHeader.background": "#000",
+    "sideBarSectionHeader.foreground": "#23c5b0",
+    "statusBar.background": "#000",
+    "statusBar.debuggingBackground": "#000",
+    "statusBar.noFolderBackground": "#000",
+    "tab.activeBackground": "#000",
+    "tab.activeBorderTop": "#23c5b0",
+    "tab.inactiveBackground": "#111",
+    "window.activeBorder": "#000",
+    "window.inactiveBorder": "#000"
+  },
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.list.openMode": "doubleClick",
+  "workbench.sideBar.location": "left",
+  "files.exclude": {
+    "**/.zed/**": true
+  },
+  "files.watcherExclude": {
+    "**/.zed/**": true
+  },
+  "git.blame.statusBarItem.enabled": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.formatOnSave": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "other": "off",
+      "strings": "off"
+    },
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.wordWrap": "on"
+  },
+  "accessibility.signals.lineHasInlineSuggestion": {
+    "sound": "off"
+  },
+  "docker.extension.dockerEngineAvailabilityPrompt": false,
+  "terminal.integrated.shellIntegration.history": 1000,
+  "terminal.integrated.bellDuration": 0,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "scm.inputFontSize": 0,
+  "chat.editor.fontSize": 18,
+  "chat.fontSize": 18,
+  "terminal.integrated.initialHint": false,
+  "screencastMode.fontSize": 35,
+  "git.branchSortOrder": "alphabetically",
+  "git.openAfterClone": "alwaysNewWindow",
+  "git.untrackedChanges": "separate",
+  "workbench.startupEditor": "none",
+  "claudeCode.preferredLocation": "sidebar",
+  "chat.editor.wordWrap": "on",
+  "chat.disableAIFeatures": true
+}

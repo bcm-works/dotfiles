@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Dropbox
+GenericName=Dropbox
+Comment=Launch Dropbox
+Icon=dropbox
+Categories=Network;
+Exec=flatpak run com.dropbox.Client start
+Hidden=false
+Terminal=false
+X-GNOME-Autostart-Delay=3

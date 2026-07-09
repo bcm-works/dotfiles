@@ -1,0 +1,17 @@
+;
+;
+; Service Timer: Runs on user login
+;   - Update content here, then copy to "/etc/systemd/system"
+;   - Then add it to the system's scheduler:
+;     sudo systemctl daemon-reload && sudo systemctl enable --now backup-linux-dir.timer
+;
+;
+[Unit]
+Description=Run backup-linux-dir service daily at 7pm
+
+[Timer]
+OnCalendar=*-*-* 19:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
