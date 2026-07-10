@@ -68,7 +68,6 @@ if command -v flatpak > /dev/null 2>&1 ; then
 
   flatpak install -y --user flathub org.gimp.GIMP > /dev/null 2>&1
   flatpak install -y --user flathub org.libreoffice.LibreOffice > /dev/null 2>&1
-  flatpak install -y --user flathub com.fastmail.Fastmail > /dev/null 2>&1
   flatpak install -y --user flathub com.rafaelmardojai.Blanket > /dev/null 2>&1
   flatpak install -y --user flathub com.usebruno.Bruno > /dev/null 2>&1
 fi
