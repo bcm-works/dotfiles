@@ -34,7 +34,7 @@ git clone --quiet "https://github.com/nvm-sh/nvm.git" "$NVM_DIR"
 
 info 'Load NVM'
 
-source "${HOME}/.nvm/nvm.sh"
+source "$NVM_DIR/nvm.sh" > /dev/null 2>&1
 
 info 'Installing Node v26 as the default version'
 
