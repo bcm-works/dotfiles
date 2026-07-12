@@ -109,22 +109,20 @@ ip:
 update:
   #!/usr/bin/env bash
   OS=$(just --justfile "{{ justfile() }}" os);
+  echo "=> Update: Requesting sudo";
+  sudo -v;
   if [[ "$OS" == 'EndeavourOS' ]]; then
     echo '=> EndeavourOS: System updates';
     sudo pacman -Syu --noconfirm > /dev/null 2>&1;
     echo '=> EndeavourOS: Package updates';
     yay -Sua --noconfirm > /dev/null 2>&1;
   elif [[ "$OS" == 'Fedora' ]]; then
-    echo '=> Fedora: Requesting sudo';
-    sudo -v;
     echo '=> Fedora: Updating packages';
     sudo dnf upgrade --refresh -y > /dev/null 2>&1;
     echo '=> Fedora: Updating firmware';
     sudo fwupdmgr get-updates > /dev/null 2>&1;
     sudo fwupdmgr update -y > /dev/null 2>&1;
   elif [ "$(just --justfile "{{ justfile() }}" os_debian_based)" ]; then
-    echo "=> $OS: Requesting sudo";
-    sudo -v;
     echo "=> $OS: Updating APT packages";
     sudo apt update -y -qq > /dev/null 2>&1;
     sudo apt upgrade -y -qq > /dev/null 2>&1;
@@ -139,10 +137,6 @@ update:
   fi
   if command -v brew > /dev/null 2>&1 ; then
     echo '=> Homebrew: Updating packages';
-    export HOMEBREW_NO_UPDATE_REPORT_FORMULAE=1
-    export HOMEBREW_NO_UPDATE_REPORT_CASKS=1
-    export HOMEBREW_NO_ENV_HINTS=1
-    export HOMEBREW_NO_ANALYTICS=1
     brew update > /dev/null 2>&1;
     brew upgrade > /dev/null 2>&1;
   fi
@@ -156,9 +150,9 @@ update:
 clean:
   #!/usr/bin/env bash
   OS=$(just os);
+  echo '=> Clean: Requesting sudo';
+  sudo -v;
   if [[ "$OS" == 'EndeavourOS' ]]; then
-    echo '=> EndeavourOS: Requesting sudo';
-    sudo -v;
     echo '=> EndeavourOS: Cleanup packages';
     paccache -rvk2 > /dev/null 2>&1;
     paccache -ruk0 > /dev/null 2>&1;
@@ -166,14 +160,10 @@ clean:
     echo '=> EndeavourOS: Empty cache';
     rm -rf "$HOME/.cache/"*;
   elif [[ "$OS" == 'Fedora' ]]; then
-    echo '=> Fedora: Requesting sudo';
-    sudo -v;
     echo '=> Fedora: Cleanup packages';
     sudo dnf autoremove -y > /dev/null 2>&1;
     sudo dnf clean all > /dev/null 2>&1;
   elif [ "$(just --justfile "{{ justfile() }}" os_debian_based)" ]; then
-    echo "=> $OS: Requesting sudo";
-    sudo -v
     echo "=> $OS: Cleanup APT packages";
     sudo apt autoremove -y > /dev/null 2>&1;
     sudo apt clean -y > /dev/null 2>&1;
@@ -192,8 +182,12 @@ clean:
   fi
   if command -v snap > /dev/null 2>&1 ; then
     echo '=> Snap: Cleanup packages';
-    sudo snap set system refresh.retain=2 > /dev/null 2>&1;
     sudo rm -rf '/var/lib/snapd/cache/*' > /dev/null 2>&1;
+    # From https://github.com/sakibulalikhan/snap-cleaner/blob/main/snap-cleaner.sh
+    snap list --all | awk '/disabled/{print $1, $3}' |
+      while read -r snapname revision; do
+        sudo snap remove "$snapname" --revision="$revision" > /dev/null 2>&1;
+      done
   fi
 
 # Info about Just and the system

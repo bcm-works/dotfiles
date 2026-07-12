@@ -49,6 +49,10 @@ info 'Ubuntu: Fix Security Center display of Ubuntu Pro status'
 
 sudo snap connect desktop-security-center:system-observe
 
+info 'Ubuntu: Update Snap config to only keep two older versions of packages'
+
+sudo snap set system refresh.retain=2 > /dev/null 2>&1;
+
 info 'Ubuntu: Install ddcutil to allow for screen brightness control'
 
 sudo apt -qq --assume-yes install ddcutil > /dev/null 2>&1
