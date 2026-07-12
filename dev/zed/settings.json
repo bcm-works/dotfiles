@@ -96,6 +96,11 @@
 			"auto_indent": "syntax_aware",
 			"tab_size": 2
 		},
+		"HTML": {
+			"language_servers": [
+				"!vscode-html"
+			]
+		},
 		"Just": {
 			"format_on_save": "on",
 			"auto_indent_on_paste": true,
