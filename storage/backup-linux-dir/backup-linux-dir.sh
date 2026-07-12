@@ -15,13 +15,11 @@
 DIR="$(dirname "$(readlink -f "$0")")"
 REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 source "$REPO/bin/.helper.sh"
-OS="$(os)"
-OS_CLEAN="$(os_clean)"
-
-cd "$DIR"
 
 LOG_FILE="$DIR/backup-linux-dir.log"
 LOG_FMT="+%Y-%m-%d %H:%M:%S"
+
+cd "$DIR"
 touch "$LOG_FILE"
 
 # If the first parameter sent to this script is set, use that as the ENV file name,
@@ -40,7 +38,7 @@ source "$ENV_FILE_PATH"
 
 mkdir -p "$BACKUP_DIR"
 
-BACKUP_FILE="${OS_CLEAN}-${BACKUP_FILE_PREFIX}_$(date +%Y%m%d-%H%M%S).zip"
+BACKUP_FILE="${BACKUP_FILE_PREFIX}_$(date +%Y%m%d-%H%M%S).zip"
 BACKUP_FILE_PATH="$BACKUP_DIR/$BACKUP_FILE"
 
 # Exit if the source directory doesn't exist
