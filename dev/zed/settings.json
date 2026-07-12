@@ -250,7 +250,6 @@
 		"commit_title_max_length": 0,
 		"fallback_branch_name": "develop",
 		"dock": "left",
-		"sort_by_path": false,
 		"status_style": "label_color",
 		"button": true,
 		"file_icons": true,
