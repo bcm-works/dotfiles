@@ -16,7 +16,7 @@ bash "$REPO/dev/git/git-bash-setup.sh"
 
 info "Set global Git Config"
 
-git config --global init.defaultBranch "develop"
+git config --global init.defaultBranch "main"
 git config --global push.default "simple"
 git config --global push.followtags "false"
 git config --global push.autosetupremote "true"
