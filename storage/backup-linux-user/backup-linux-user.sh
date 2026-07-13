@@ -115,6 +115,21 @@ if command -v dconf > /dev/null 2>&1 ; then
   dconf dump / > "$CONFIG_BACKUP_DIR/dconf-user-export.conf"
 fi
 
+# Save a copy of the user's profile image(s)
+
+if [ -f "$HOME/.face" ]; then
+  cp "$HOME/.face" "$CONFIG_BACKUP_DIR/.face"
+fi
+if [ -f "$HOME/.face.icon" ]; then
+  cp "$HOME/.face.icon" "$CONFIG_BACKUP_DIR/.face.icon"
+fi
+if [ -f "$HOME/profile.png" ]; then
+  cp "$HOME/profile.png" "$CONFIG_BACKUP_DIR/profile.png"
+fi
+if [ -f "/var/lib/AccountsService/icons/$BACKUP_USER_NAME" ]; then
+  cp "/var/lib/AccountsService/icons/$BACKUP_USER_NAME" "$CONFIG_BACKUP_DIR/$BACKUP_USER_NAME"
+fi
+
 # Run the ZIP command with specific inclusions and exclusions
 
 cd $SOURCE_DIR
