@@ -35,7 +35,7 @@ else
   if [[ "$OS" == "EndeavourOS" ]]; then
   	# From https://ghostty.org/docs/install/binary#arch-linux
    	sudo pacman -Syu --noconfirm ghostty
-  elif [[ "$OS" == "Ubuntu" || "$OS" == "Mint" ]]; then
+  elif [[ "$(os_debian_based)" ]]; then
     # From https://ghostty.org/docs/install/binary#ubuntu
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
   elif [[ "$OS" == "Fedora" ]]; then

@@ -47,6 +47,8 @@ os:
       echo 'Debian';
     elif [[ "$DISTRO_NAME" == 'Linux Mint' ]]; then
       echo 'Mint';
+    elif [[ "$DISTRO_NAME" == 'Pop!_OS' ]]; then
+      echo 'PopOS';
     else
       echo "${DISTRO_NAME}";
     fi
@@ -163,7 +165,7 @@ clean:
     echo '=> Fedora: Cleanup packages';
     sudo dnf autoremove -y > /dev/null 2>&1;
     sudo dnf clean all > /dev/null 2>&1;
-  elif [ "$(just --justfile "{{ justfile() }}" os_debian_based)" ]; then
+  elif [ "$(just os_debian_based)" ]; then
     echo "=> $OS: Cleanup APT packages";
     sudo apt autoremove -y > /dev/null 2>&1;
     sudo apt clean -y > /dev/null 2>&1;

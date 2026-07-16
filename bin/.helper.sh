@@ -23,6 +23,8 @@ os() {
       echo 'Debian';
     elif [[ "$DISTRO_NAME" == 'Linux Mint' ]]; then
       echo 'Mint';
+    elif [[ "$DISTRO_NAME" == 'Pop!_OS' ]]; then
+      echo 'PopOS';
     else
       echo "${DISTRO_NAME}";
     fi
