@@ -62,11 +62,11 @@ if [ -n "$SSH_PUBLIC_KEY_PATH" ]; then
 
 	touch $HOME/.ssh/allowed_signers
 
-	git config --global gpg.format=ssh
-	git config --global commit.gpgsign=true
-	git config --global user.signingkey=$SSH_PUBLIC_KEY_PATH
-	git config --global credential.helper=store
-	git config --global gpg.ssh.allowedsignersfile=$HOME/.ssh/allowed_signers
+	git config --global gpg.format ssh
+	git config --global commit.gpgsign true
+	git config --global user.signingkey $SSH_PUBLIC_KEY_PATH
+	git config --global credential.helper store
+	git config --global gpg.ssh.allowedsignersfile $HOME/.ssh/allowed_signers
 
 	echo "$(git config --get user.email) namespaces=\"git\" $(cat $SSH_PUBLIC_KEY_PATH)" >> $HOME/.ssh/allowed_signers
 else
