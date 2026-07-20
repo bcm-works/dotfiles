@@ -6,3 +6,4 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 - **[bin](bin/)**: Bash utility scripts
 - **[bin/setup.sh](bin/setup.sh)**: Interactive initial setup script
 - **[setup](setup/)**: Setup scripts
+- **[templates](templates/)**: Custom templates to simplify new project creation
