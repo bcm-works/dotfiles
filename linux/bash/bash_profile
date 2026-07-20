@@ -157,9 +157,3 @@ alias hist-search='history | cut -c 8- | grep'
 if command -v zeditor > /dev/null 2>&1; then
   alias zed='zeditor'
 fi
-. "$HOME/.cargo/env"
-. "/home/user.ubuntu/.deno/env"
-
-
-# Added by Antigravity CLI installer
-export PATH="/home/user.ubuntu/.local/bin:$PATH"
