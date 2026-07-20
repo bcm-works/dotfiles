@@ -1,0 +1,5 @@
+# GitHub repo linguist configuration
+
+templates/** -linguist-detectable
+.* -linguist-detectable
+.*.* -linguist-detectable
