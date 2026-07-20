@@ -9,6 +9,11 @@ Thumbs.db
 node_modules/
 vendor/
 
+config/
+
+backup/
+*.bak
+
 .env
 *.env
 *.env.*

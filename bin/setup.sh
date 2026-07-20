@@ -7,7 +7,7 @@
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO"
-source "$REPO/bin/.helper.sh"
+source "$REPO/bin/utils.sh"
 OS="$(os)"
 
 if [[ "$OS" == "Windows" ]]; then
@@ -26,10 +26,28 @@ if [[ "$CONTINUE_SETUP" != "y" ]]; then
 fi
 
 echo ''
+info 'Checking for custom config dir'
+
+if [ -f "$DIR/.env" ]; then
+	if [ -d "$DOTFILES_CONFIG_DIR" ]; then
+		info "Setup symlink: '$DOTFILES_CONFIG_DIR' > '$REPO/config'"
+		ln -s "$DOTFILES_CONFIG_DIR" "$REPO/config"
+	else
+		error "Custom config dir '$DOTFILES_CONFIG_DIR' does not exist"
+		exit 1
+	fi
+else
+	if [ -d "$REPO/config" ]; then
+		warn "File not found at '$DIR/.env', using '$REPO/config' for config"
+	else
+		error "File not found at '$DIR/.env' and '$REPO/config' does not exist."
+		exit 1
+	fi
+fi
 
 if [ ! -d "$HOME/Dotfiles" ]; then
-  info "Setup symlink: '$HOME/Dotfiles' > '$REPO_REPO'"
-  ln -s "$REPO_REPO" "$HOME/Dotfiles"
+  info "Setup symlink: '$HOME/Dotfiles' > '$REPO'"
+  ln -s "$REPO" "$HOME/Dotfiles"
 else
   warn "Skipped symlink, '$HOME/Dotfiles' already exists"
 fi
@@ -42,7 +60,7 @@ else
   warn 'Install Homebrew to the default location?'
   read -n 1 -rp '  [y/N] > ' BREW_DEFAULT
   if [[ "$BREW_DEFAULT" == "y" ]]; then
-    bash "$REPO/homebrew/homebrew-setup.sh"
+    bash "$REPO/setup/homebrew/homebrew-setup.sh"
   else
     echo ''
     warn 'Install Homebrew to the default location?'
@@ -50,12 +68,12 @@ else
     if [[ "$BREW_USER" == "y" ]]; then
       echo ''
       if [[ "$OS" == "macOS" ]]; then
-        bash "$REPO/homebrew/homebrew-setup-user.macos.sh"
+        bash "$REPO/setup/homebrew/homebrew-setup-user.macos.sh"
       else
-        bash "$REPO/homebrew/homebrew-setup-user.linux.sh"
+        bash "$REPO/setup/homebrew/homebrew-setup-user.linux.sh"
       fi
     else
-      echo ''
+    	echo ''
       error 'Homebrew is required for various scripts'
       exit 1
     fi
@@ -64,7 +82,7 @@ fi
 
 info 'Just command runner setup'
 
-bash "$REPO/just/just-setup.sh"
+bash "$REPO/setup/just/just-setup.sh"
 
 info 'Base tools install completed.'
 info 'Now you can run the setup scripts that suit your needs.'

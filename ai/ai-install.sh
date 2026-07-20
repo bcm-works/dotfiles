@@ -13,7 +13,7 @@
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO"
-source "$REPO/bin/.helper.sh"
+source "$REPO/bin/utils.sh"
 
 # Google Antigravity CLI - https://antigravity.google/product/antigravity-cli
 

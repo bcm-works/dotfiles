@@ -1,0 +1,9 @@
+node_modules/
+
+$RECYCLE.BIN/
+.DS_Store
+cache
+temp
+
+backups/
+*.bak
