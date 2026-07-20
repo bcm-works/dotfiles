@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 #
 #
-# Setup basic config files for a new Linux User
+# Linux: Setup user config
 #
 #
 
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$REPO"
-DOTFILES="/home/media/Git/dotfiles"
-source "$DOTFILES/bin/.helper.sh"
+source "$REPO/bin/utils.sh"
 OS="$(os)"
-OS_CLEAN="$(os_clean)"
-OS_DESKTOP="$(os_desktop)"
-bash "$REPO/bin/backup.sh"
+
+if [[ "$OS" == "macOS" ]] || [[ "$OS" == "Windows" ]]; then
+  echo "This script requires Linux."
+  exit 0
+fi
 
 info "Requesting sudo"
 
