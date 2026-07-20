@@ -31,6 +31,12 @@ bash "$REPO/setup/dev/python/python-setup.sh"
 info 'Run: setup/dev/rust/rust-setup.sh'
 bash "$REPO/setup/dev/rust/rust-setup.sh"
 
+info 'Run: setup/dev/ghostty/ghostty-setup.sh'
+bash "$REPO/setup/dev/ghostty/ghostty-setup.sh"
+
+info 'Run: setup/dev/zed/zed-setup.sh'
+bash "$REPO/setup/dev/zed/zed-setup.sh"
+
 if grep -q "127.0.0.1 site.local" "/etc/hosts"; then
 	success "Found current setup for 'site.local' as an alias for 'localhost'"
 else

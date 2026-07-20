@@ -26,27 +26,35 @@ if [[ "$CONTINUE_SETUP" != "y" ]]; then
 fi
 
 echo ''
+bash "$REPO/bin/backup-config.sh"
+
 info 'Checking for custom config dir'
 
-if [ -f "$DIR/.env" ]; then
+if [ -f "$REPO/.env" ]; then
+	source "$REPO/.env"
+
 	if [ -d "$DOTFILES_CONFIG_DIR" ]; then
-		info "Setup symlink: '$DOTFILES_CONFIG_DIR' > '$REPO/config'"
-		ln -s "$DOTFILES_CONFIG_DIR" "$REPO/config"
+		if [ -d "$REPO/config" ]; then
+			warn "Skipped symlink, '$REPO/config' already exists"
+		else
+			success "Setup symlink: '$DOTFILES_CONFIG_DIR' > '$REPO/config'"
+			ln -s "$DOTFILES_CONFIG_DIR" "$REPO/config"
+		fi
 	else
 		error "Custom config dir '$DOTFILES_CONFIG_DIR' does not exist"
 		exit 1
 	fi
 else
 	if [ -d "$REPO/config" ]; then
-		warn "File not found at '$DIR/.env', using '$REPO/config' for config"
+		warn "File not found at '$REPO/.env', using '$REPO/config' for config"
 	else
-		error "File not found at '$DIR/.env' and '$REPO/config' does not exist."
+		error "File not found at '$REPO/.env' and '$REPO/config' does not exist."
 		exit 1
 	fi
 fi
 
 if [ ! -d "$HOME/Dotfiles" ]; then
-  info "Setup symlink: '$HOME/Dotfiles' > '$REPO'"
+  success "Setup symlink: '$HOME/Dotfiles' > '$REPO'"
   ln -s "$REPO" "$HOME/Dotfiles"
 else
   warn "Skipped symlink, '$HOME/Dotfiles' already exists"
@@ -84,5 +92,5 @@ info 'Just command runner setup'
 
 bash "$REPO/setup/just/just-setup.sh"
 
-info 'Base tools install completed.'
-info 'Now you can run the setup scripts that suit your needs.'
+success 'Base tools install completed.'
+success 'Now you can run the setup scripts that suit your needs.'

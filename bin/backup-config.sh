@@ -7,13 +7,12 @@
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO"
-DOTFILES="/home/media/Git/dotfiles"
-source "$DOTFILES/bin/.helper.sh"
+source "$REPO/bin/utils.sh"
 OS="$(os)"
 OS_CLEAN="$(os_clean)"
 
 NOW=$(date "+%Y%m%d-%H%M%S")
-BACKUPS="$REPO/backups/$NOW"
+BACKUPS="$REPO/config/backups/$NOW"
 
 mkdir -p "$BACKUPS"
 
@@ -44,4 +43,4 @@ mkdir -p "$BACKUPS/.config"
 cp -r "$HOME/.config/user-dirs.dirs" "$BACKUPS/.config"
 cp -r "$HOME/.config/user-dirs.locale" "$BACKUPS/.config"
 
-success "New backup directory created at $BACKUPS"
+success "New config backup saved in '$BACKUPS'"

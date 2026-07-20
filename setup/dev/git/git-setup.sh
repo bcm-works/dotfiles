@@ -57,18 +57,4 @@ git config --global alias.cbr "checkout -b"
 git config --global alias.lg "log --pretty=format:'%Cblue%h%Creset %s %Cgreen%an, %cr %Creset' --abbrev-commit --date=relative"
 git config --global alias.graph "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
-if [ -n "$SSH_PUBLIC_KEY_PATH" ]; then
-	info "Configuring commit signing for '$SSH_PUBLIC_KEY_PATH'"
-
-	touch $HOME/.ssh/allowed_signers
-
-	git config --global gpg.format ssh
-	git config --global commit.gpgsign true
-	git config --global user.signingkey $SSH_PUBLIC_KEY_PATH
-	git config --global credential.helper store
-	git config --global gpg.ssh.allowedsignersfile $HOME/.ssh/allowed_signers
-
-	echo "$(git config --get user.email) namespaces=\"git\" $(cat $SSH_PUBLIC_KEY_PATH)" >> $HOME/.ssh/allowed_signers
-else
-	warn "Skipping commit signing. Requires 'SSH_PUBLIC_KEY_PATH' var to be exported when running this script."
-fi
+warn "If you use GitHub, you may want to run: bash $REPO/setup/dev/git/github-setup.sh"

@@ -6,12 +6,12 @@
 ehthumbs.db
 Thumbs.db
 
-node_modules/
-vendor/
+node_modules
+vendor
 
-config/
+config
 
-backup/
+backups
 *.bak
 
 .env
@@ -25,9 +25,9 @@ backup/
 *.log
 *.out
 
-tmp/
+tmp
 .tags
 .tags_swap
 
-.zed/
-.vscode/
+.zed
+.vscode
