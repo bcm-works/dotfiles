@@ -67,7 +67,6 @@ os_clean:
   echo "$(just --justfile "{{ justfile() }}" os | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
 
 # Checks if the OS is Debian based, returns "true" or "false" as strings.
-# Get the OS name, in lowercase and with dashes instead of spaces
 [group('system')]
 os_debian_based:
 	#!/usr/bin/env bash
