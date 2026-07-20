@@ -11,6 +11,7 @@ REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$REPO"
 source "$REPO/bin/.helper.sh"
 OS="$(os)"
+OS_DESKTOP="$(os_desktop)"
 BIN="$REPO/bin"
 
 if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
@@ -18,8 +19,8 @@ if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
   exit 0
 fi
 
-if [[ -z $(pgrep -x "gnome-shell") ]]; then
-  echo "Cancelled, Gnome Shell isn't running."
+if [[ ! "$OS_DESKTOP" == "gnome" ]]; then
+  echo "This script requires Gnome to be set as the Linux Desktop Environment."
   exit 0
 fi
 

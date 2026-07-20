@@ -85,6 +85,12 @@ os_debian_based:
 		echo "false";
 	fi
 
+# Get the name of the Linux Desktop Environment
+[group('system')]
+os_desktop:
+	#!/usr/bin/env bash
+	echo "$(echo $XDG_CURRENT_DESKTOP | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
+
 # List local users
 [group('system')]
 users:
