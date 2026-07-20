@@ -65,5 +65,5 @@ os_debian_based() {
 
 # Get the name of the Linux Desktop Environment
 os_desktop() {
-	echo "$(echo $XDG_CURRENT_DESKTOP | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
+  echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:} | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
 }

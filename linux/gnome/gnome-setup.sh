@@ -19,7 +19,7 @@ if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
   exit 0
 fi
 
-if [[ ! "$OS_DESKTOP" == "gnome" ]]; then
+if [[ "$OS_DESKTOP" != "gnome" ]]; then
   echo "This script requires Gnome to be set as the Linux Desktop Environment."
   exit 0
 fi

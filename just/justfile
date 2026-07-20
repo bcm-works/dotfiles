@@ -69,26 +69,26 @@ os_clean:
 # Checks if the OS is Debian based, returns "true" or "false" as strings.
 [group('system')]
 os_debian_based:
-	#!/usr/bin/env bash
-	OS="$(just --justfile "{{ justfile() }}" os)";
-	if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
-		echo "false";
-	fi
-	if [ ! -f "/etc/os-release" ]; then
-		echo "false";
-	fi
-	source "/etc/os-release";
-	if [[ "$ID" == "debian" || "$ID_LIKE" == *"debian"* ]]; then
-		echo "true";
-	else
-		echo "false";
-	fi
+  #!/usr/bin/env bash
+  OS="$(just --justfile "{{ justfile() }}" os)";
+  if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
+    echo "false";
+  fi
+  if [ ! -f "/etc/os-release" ]; then
+    echo "false";
+  fi
+  source "/etc/os-release";
+  if [[ "$ID" == "debian" || "$ID_LIKE" == *"debian"* ]]; then
+    echo "true";
+  else
+    echo "false";
+  fi
 
 # Get the name of the Linux Desktop Environment
 [group('system')]
 os_desktop:
-	#!/usr/bin/env bash
-	echo "$(echo $XDG_CURRENT_DESKTOP | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
+  #!/usr/bin/env bash
+  echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:} | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
 
 # List local users
 [group('system')]
