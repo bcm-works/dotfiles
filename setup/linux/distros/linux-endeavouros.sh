@@ -30,15 +30,9 @@ sudo pacman -Syu --noconfirm \
   wl-clipboard \
   flatpak > /dev/null 2>&1
 
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+info 'EndeavourOS: Setup Flatpak'
 
-info 'EndeavourOS: Installing Flatpak apps'
-
-flatpak install --user --reinstall -y flathub net.nokyan.Resources > /dev/null 2>&1
-flatpak install --user --reinstall -y flathub com.github.tchx84.Flatseal > /dev/null 2>&1
-flatpak install --user --reinstall -y flathub com.mattjakeman.ExtensionManager > /dev/null 2>&1
-flatpak install --user --reinstall -y flathub ca.desrt.dconf-editor > /dev/null 2>&1
+bash "$REPO/setup/linux/linux-flatpak.sh"
 
 success 'EndeavourOS: Setup complete, a restart is required to apply changes to the system'
 

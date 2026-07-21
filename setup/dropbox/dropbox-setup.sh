@@ -6,7 +6,7 @@
 #
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
+REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$REPO"
 source "$REPO/bin/utils.sh"
 OS="$(os)"
@@ -56,3 +56,9 @@ else
   echo "Please copy over '$DIR/rules.dropboxignore.txt' to your Dropbox directory,"
   echo "then rename it to 'rules.dropboxignore'."
 fi
+
+info 'Configure Dropbox to start on login and disable transfer speed limits'
+
+dropbox autostart y
+dropbox throttle unlimited unlimited
+dropbox start

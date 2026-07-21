@@ -51,14 +51,6 @@ info 'Debian: Setup Flatpak'
 
 bash "$REPO/setup/linux/linux-flatpak.sh"
 
-if command -v flatpak > /dev/null 2>&1 ; then
-  info 'Debian: Installing Flatpak apps'
-
-  flatpak install --reinstall -y flathub com.mattjakeman.ExtensionManager > /dev/null 2>&1
-  flatpak install --reinstall -y flathub io.missioncenter.MissionCenter > /dev/null 2>&1
-  flatpak install --reinstall -y flathub ca.desrt.dconf-editor > /dev/null 2>&1
-fi
-
 info 'Debian: Installing Gnome Sushi document preview app'
 
 sudo apt -qq --assume-yes install gnome-sushi

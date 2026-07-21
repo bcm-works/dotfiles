@@ -58,22 +58,8 @@ info 'Ubuntu: Install ddcutil to allow for screen brightness control'
 sudo apt -qq --assume-yes install ddcutil > /dev/null 2>&1
 sudo gpasswd --add $USER i2c > /dev/null 2>&1
 
-if command -v flatpak > /dev/null 2>&1 ; then
-  info 'Ubuntu: Installing Flatpak apps'
+info 'Ubuntu: Setup Flatpak'
 
-  flatpak install -y --system flathub net.nokyan.Resources > /dev/null 2>&1
-  flatpak install -y --system flathub io.missioncenter.MissionCenter > /dev/null 2>&1
-  flatpak install -y --system flathub com.github.tchx84.Flatseal > /dev/null 2>&1
-  flatpak install -y --system flathub com.mattjakeman.ExtensionManager > /dev/null 2>&1
-  flatpak install -y --system flathub ca.desrt.dconf-editor > /dev/null 2>&1
-  flatpak install -y --system flathub com.usebottles.bottles > /dev/null 2>&1
-  flatpak install -y --system flathub org.gnome.Boxes > /dev/null 2>&1
-  flatpak install -y --system flathub org.fedoraproject.MediaWriter > /dev/null 2>&1
-
-  flatpak install -y --user flathub org.gimp.GIMP > /dev/null 2>&1
-  flatpak install -y --user flathub org.libreoffice.LibreOffice > /dev/null 2>&1
-  flatpak install -y --user flathub com.rafaelmardojai.Blanket > /dev/null 2>&1
-  flatpak install -y --user flathub com.usebruno.Bruno > /dev/null 2>&1
-fi
+bash "$REPO/setup/linux/linux-flatpak.sh"
 
 warn "You might also want to run Gnome Setup: bash $REPO/setup/linux/gnome/gnome-setup.sh"

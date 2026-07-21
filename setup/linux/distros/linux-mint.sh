@@ -23,13 +23,9 @@ info 'Linux Mint: Update package lists'
 
 sudo apt update -qq > /dev/null 2>&1
 
-if command -v flatpak > /dev/null 2>&1 ; then
-  info 'Linux Mint: Installing Flatpak apps'
+info 'Linux Mint: Setup Flatpak'
 
-  flatpak install -y io.missioncenter.MissionCenter > /dev/null 2>&1
-  flatpak install -y net.nokyan.Resources > /dev/null 2>&1
-  flatpak install -y com.github.tchx84.Flatseal > /dev/null 2>&1
-fi
+bash "$REPO/setup/linux/linux-flatpak.sh"
 
 info 'Linux Mint: Installing Nemo Preview document preview app'
 

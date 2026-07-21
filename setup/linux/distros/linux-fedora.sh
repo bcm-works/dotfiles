@@ -33,11 +33,6 @@ info 'Fedora: Installing Gnome Sushi document preview app'
 
 sudo dnf install -y sushi > /dev/null 2>&1
 
-if command -v flatpak > /dev/null 2>&1 ; then
-  info 'Fedora: Installing Flatpak apps'
+info 'Fedora: Setup Flatpak'
 
-  flatpak install --user -y flathub net.nokyan.Resources > /dev/null 2>&1
-  flatpak install --user -y flathub com.github.tchx84.Flatseal > /dev/null 2>&1
-  flatpak install --user -y flathub com.mattjakeman.ExtensionManager > /dev/null 2>&1
-  flatpak install --user -y flathub ca.desrt.dconf-editor > /dev/null 2>&1
-fi
+bash "$REPO/setup/linux/linux-flatpak.sh"
