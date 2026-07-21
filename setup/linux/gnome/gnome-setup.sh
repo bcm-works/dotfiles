@@ -50,11 +50,11 @@ fi
 pipx ensurepath > /dev/null 2>&1
 pipx install --force gnome-extensions-cli --system-site-packages > /dev/null 2>&1
 
-if [[ -f "$REPO/config/gnome/extensions.list.txt" ]]; then
-	info "Installing Gnome Shell Extensions from '$REPO/config/gnome/extensions.list.txt'"
-	xargs -I {} gnome-extensions-cli install {} < "$REPO/config/gnome/extensions.list.txt"
+if [[ -f "$REPO/config/gnome/extension.list.txt" ]]; then
+	info "Installing Gnome Shell Extensions from '$REPO/config/gnome/extension.list.txt'"
+	xargs -I {} gnome-extensions-cli install {} < "$REPO/config/gnome/extension.list.txt"
 else
-	warn "Skipping Gnome Shell Extensions installs, file not found at '$REPO/config/gnome/extensions.list.txt'"
+	warn "Skipping Gnome Shell Extensions installs, file not found at '$REPO/config/gnome/extension.list.txt'"
 fi
 
 # Helper function to check if a Dconf Settings Schema exists
