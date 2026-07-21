@@ -50,16 +50,11 @@ fi
 pipx ensurepath > /dev/null 2>&1
 pipx install --force gnome-extensions-cli --system-site-packages > /dev/null 2>&1
 
-echo 'Installing some Gnome Shell Extensions'
-
-gnome-extensions-cli install "appindicatorsupport@rgcjonas.gmail.com" > /dev/null 2>&1
-gnome-extensions-cli install "arcmenu@arcmenu.com" > /dev/null 2>&1
-gnome-extensions-cli install "dash-to-panel@jderose9.github.com" > /dev/null 2>&1
-gnome-extensions-cli install "just-perfection-desktop@just-perfection" > /dev/null 2>&1
-
-if [[ "$OS" == "Fedora" ]]; then
-	gnome-extensions-cli install "smarttiling@samuelnovaes" > /dev/null 2>&1
-  gnome-extensions-cli install "accent-directories@taiwbi.com" > /dev/null 2>&1
+if [[ -f "$REPO/config/gnome/extensions.list.txt" ]]; then
+	info "Installing Gnome Shell Extensions from '$REPO/config/gnome/extensions.list.txt'"
+	xargs -I {} gnome-extensions-cli install {} < "$REPO/config/gnome/extensions.list.txt"
+else
+	warn "Skipping Gnome Shell Extensions installs, file not found at '$REPO/config/gnome/extensions.list.txt'"
 fi
 
 # Helper function to check if a Dconf Settings Schema exists
@@ -93,13 +88,6 @@ elif [[ "$OS" == "Ubuntu" ]]; then
   gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
   gsettings set org.gnome.desktop.interface cursor-size 24
 fi
-
-# Desktop and screensaver
-
-gsettings set org.gnome.desktop.background picture-uri 'none'
-gsettings set org.gnome.desktop.background picture-uri-dark 'none'
-gsettings set org.gnome.desktop.background primary-color '#000000'
-gsettings set org.gnome.desktop.screensaver primary-color '#000000'
 
 # Interface customisations
 
@@ -137,75 +125,6 @@ gsettings set org.gnome.shell allow-extension-installation true
 gsettings set org.gnome.shell disable-user-extensions false
 gsettings set org.gnome.shell always-show-log-out true
 gsettings set org.gnome.shell development-tools true
-
-# Extension: Arc Menu
-
-if has_schema "org.gnome.shell.extensions.arcmenu"; then
-  gsettings set org.gnome.shell.extensions.arcmenu az-layout-merge-panels=false
-  gsettings set org.gnome.shell.extensions.arcmenu category-icon-type='Full_Color'
-  gsettings set org.gnome.shell.extensions.arcmenu eleven-show-frequent-apps=false
-  gsettings set org.gnome.shell.extensions.arcmenu force-menu-location='MonitorCentered'
-  gsettings set org.gnome.shell.extensions.arcmenu hide-overview-on-arcmenu-open=true
-  gsettings set org.gnome.shell.extensions.arcmenu hide-overview-on-startup=true
-  gsettings set org.gnome.shell.extensions.arcmenu left-panel-width=300
-  gsettings set org.gnome.shell.extensions.arcmenu menu-button-appearance='Icon'
-  gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon='resource:///org/gnome/shell/extensions/arcmenu/icons/scalable/actions/distro-gnome-symbolic.svg'
-  gsettings set org.gnome.shell.extensions.arcmenu menu-button-icon-size=23
-  gsettings set org.gnome.shell.extensions.arcmenu menu-button-padding=6
-  gsettings set org.gnome.shell.extensions.arcmenu menu-button-position-offset=0
-  gsettings set org.gnome.shell.extensions.arcmenu menu-height=650
-  gsettings set org.gnome.shell.extensions.arcmenu menu-item-grid-icon-size='Large'
-  gsettings set org.gnome.shell.extensions.arcmenu menu-item-icon-size='Large'
-  gsettings set org.gnome.shell.extensions.arcmenu menu-layout='AZ'
-  gsettings set org.gnome.shell.extensions.arcmenu menu-width-adjustment=250
-  gsettings set org.gnome.shell.extensions.arcmenu misc-item-icon-size='Default'
-  gsettings set org.gnome.shell.extensions.arcmenu power-display-style='In_Line'
-  gsettings set org.gnome.shell.extensions.arcmenu power-options='[(1, true), (7, true), (0, true), (2, true), (3, true), (4, false), (5, false), (6, false)]'
-  gsettings set org.gnome.shell.extensions.arcmenu prefs-visible-page=0
-  gsettings set org.gnome.shell.extensions.arcmenu right-panel-width=300
-  gsettings set org.gnome.shell.extensions.arcmenu runner-position='Centered'
-  gsettings set org.gnome.shell.extensions.arcmenu search-entry-border-radius='(true, 8)'
-  gsettings set org.gnome.shell.extensions.arcmenu searchbar-default-top-location='Top'
-  gsettings set org.gnome.shell.extensions.arcmenu shortcut-icon-type='Full_Color'
-  gsettings set org.gnome.shell.extensions.arcmenu show-recently-installed-apps=false
-fi
-
-# Extension: Dash to Panel
-
-if has_schema "org.gnome.shell.extensions.dash-to-panel"; then
-  gsettings set org.gnome.shell.extensions.dash-to-panel animate-app-switch=false
-  gsettings set org.gnome.shell.extensions.dash-to-panel animate-appicon-hover-animation-extent='{"RIPPLE": "4", "PLANK": "4", "SIMPLE": "1"}'
-  gsettings set org.gnome.shell.extensions.dash-to-panel animate-window-launch=false
-  gsettings set org.gnome.shell.extensions.dash-to-panel dot-color-dominant=true
-  gsettings set org.gnome.shell.extensions.dash-to-panel dot-color-override=false
-  gsettings set org.gnome.shell.extensions.dash-to-panel dot-position='TOP'
-  gsettings set org.gnome.shell.extensions.dash-to-panel dot-size=1
-  gsettings set org.gnome.shell.extensions.dash-to-panel dot-style-focused='SOLID'
-  gsettings set org.gnome.shell.extensions.dash-to-panel dot-style-unfocused='SOLID'
-  gsettings set org.gnome.shell.extensions.dash-to-panel focus-highlight=true
-  gsettings set org.gnome.shell.extensions.dash-to-panel focus-highlight-dominant=true
-  gsettings set org.gnome.shell.extensions.dash-to-panel focus-highlight-opacity=20
-  gsettings set org.gnome.shell.extensions.dash-to-panel hotkeys-overlay-combo='TEMPORARILY'
-  gsettings set org.gnome.shell.extensions.dash-to-panel leftbox-size=0
-  gsettings set org.gnome.shell.extensions.dash-to-panel panel-anchors='{"LHC-0000000000000":"MIDDLE"}'
-  gsettings set org.gnome.shell.extensions.dash-to-panel panel-lengths='{}'
-  gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions='{}'
-  gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes='{"LHC-0000000000000":42}'
-  gsettings set org.gnome.shell.extensions.dash-to-panel prefs-opened=true
-  gsettings set org.gnome.shell.extensions.dash-to-panel scroll-icon-action='NOTHING'
-  gsettings set org.gnome.shell.extensions.dash-to-panel scroll-panel-action='NOTHING'
-  gsettings set org.gnome.shell.extensions.dash-to-panel secondarymenu-contains-showdetails=true
-  gsettings set org.gnome.shell.extensions.dash-to-panel trans-border-custom-color='rgb(54,54,54)'
-  gsettings set org.gnome.shell.extensions.dash-to-panel trans-border-use-custom-color=true
-  gsettings set org.gnome.shell.extensions.dash-to-panel trans-border-width=1
-  gsettings set org.gnome.shell.extensions.dash-to-panel trans-panel-opacity='0.0'
-  gsettings set org.gnome.shell.extensions.dash-to-panel trans-use-border=true
-  gsettings set org.gnome.shell.extensions.dash-to-panel trans-use-custom-bg=true
-  gsettings set org.gnome.shell.extensions.dash-to-panel trans-use-custom-opacity=false
-  gsettings set org.gnome.shell.extensions.dash-to-panel trans-use-dynamic-opacity=false
-  gsettings set org.gnome.shell.extensions.dash-to-panel tray-size=0
-  gsettings set org.gnome.shell.extensions.dash-to-panel window-preview-title-position='TOP'
-fi
 
 # App: Nautilus
 

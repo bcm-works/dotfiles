@@ -15,5 +15,6 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 - Setup your `config` directory (git ignored):
   - `profile.png`: Square PNG image to use for your user profile image
   - `wallpaper.jpg`: JPG image to use for desktop wallpaper
-  - `crontab.txt`: Crontab config, add your current setup by saving the output of `crontab -l`
+  - `crontab.txt`: Crontab config, add current setup by saving the output of `crontab -l`
+	- `gnome/extensions.list.txt`: Gnome Shell Extensions list, add current items by saving the output of `gnome-extensions list --user`
 - Run [bin/setup.sh](bin/setup.sh): `bash ./bin/setup.sh`
