@@ -14,7 +14,7 @@
 
 DIR="$(dirname "$(readlink -f "$0")")"
 REPO="$(cd "$(dirname "$0")/../.." && pwd)"
-source "$REPO/bin/.helper.sh"
+source "$REPO/bin/utils.sh"
 OS="$(os)"
 OS_CLEAN="$(os_clean)"
 

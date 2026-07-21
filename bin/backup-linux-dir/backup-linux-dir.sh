@@ -14,7 +14,7 @@
 
 DIR="$(dirname "$(readlink -f "$0")")"
 REPO="$(cd "$(dirname "$0")/../.." && pwd)"
-source "$REPO/bin/.helper.sh"
+source "$REPO/bin/utils.sh"
 
 LOG_FILE="$DIR/backup-linux-dir.log"
 LOG_FMT="+%Y-%m-%d %H:%M:%S"
