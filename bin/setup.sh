@@ -53,6 +53,11 @@ else
 	fi
 fi
 
+info 'Ensure required config sub-directories exist'
+
+mkdir -p "$REPO/config/backups"
+mkdir -p "$REPO/config/packages"
+
 if [ ! -d "$HOME/Dotfiles" ]; then
   success "Setup symlink: '$HOME/Dotfiles' > '$REPO'"
   ln -s "$REPO" "$HOME/Dotfiles"
@@ -92,5 +97,5 @@ info 'Just command runner setup'
 
 bash "$REPO/setup/just/just-setup.sh"
 
-success 'Base tools install completed.'
+success 'Initial setup completed.'
 success 'Now you can run the setup scripts that suit your needs.'
