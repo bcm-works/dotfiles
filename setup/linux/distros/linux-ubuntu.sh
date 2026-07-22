@@ -41,6 +41,10 @@ sudo apt -qq --assume-yes install \
   pipx \
   xclip > /dev/null 2>&1
 
+info 'Ubuntu: Restore the updates status icon'
+
+gsettings set com.ubuntu.update-notifier show-updates-status-icon true
+
 info 'Ubuntu: Prompt Ubuntu Pro setup process'
 
 sudo pro attach
