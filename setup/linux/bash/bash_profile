@@ -33,8 +33,9 @@ pathadd() {
 pathadd "/usr/local/bin"
 pathadd "$HOME/bin"
 pathadd "$HOME/.local/bin"
-pathadd "$HOME/.deno/bin"
 pathadd "$HOME/.cargo/bin"
+pathadd "$HOME/.deno/bin"
+pathadd "$HOME/.nub/bin"
 
 # Deno - Configure if it's installed to the default location
 
