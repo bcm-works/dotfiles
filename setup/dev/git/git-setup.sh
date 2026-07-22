@@ -24,6 +24,7 @@ git config --global merge.ff "only"
 git config --global pull.ff "only"
 git config --global merge.commit no
 git config --global merge.ff no
+git config --global remote.origin.tagOpt --tags
 
 git config --global core.whitespace "fix,-indent-with-non-tab,trailing-space,cr-at-eol"
 git config --global core.ignorecase "false"
