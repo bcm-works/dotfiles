@@ -505,6 +505,7 @@
 	"auto_install_extensions": {
 		"charmed-icons": true,
 		"codeowners": true,
+		"color-highlight": true,
 		"comment": true,
 		"csv": true,
 		"deno": true,
