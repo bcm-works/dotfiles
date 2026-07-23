@@ -187,9 +187,6 @@
 		"enabled": true,
 		"coloring": "disabled",
 	},
-	"message_editor": {
-		"auto_replace_emoji_shortcode": false,
-	},
 	"autosave": "off",
 	"show_whitespaces": "trailing",
 	"whitespace_map": {
