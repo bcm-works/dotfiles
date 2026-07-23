@@ -33,6 +33,7 @@ sudo apt -qq --assume-yes install \
   git \
   zip \
   vim \
+  gnome-terminal \
   gnome-sushi \
   gnome-browser-connector \
   python3 \
