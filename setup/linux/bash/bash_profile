@@ -75,12 +75,6 @@ if command -v fzf > /dev/null 2>&1; then
 	eval "$(fzf --bash)"
 fi
 
-# Mise - Configure if it's installed to the default location
-
-if command -v mise > /dev/null 2>&1 && [ -f "$HOME/.local/bin/mise" ]; then
-	eval "$($HOME/.local/bin/mise activate bash)"
-fi
-
 # Just - Add 'ujust' alias if suitable
 
 if [ -e "$HOME/justfile" ]; then

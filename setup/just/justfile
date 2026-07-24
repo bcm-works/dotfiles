@@ -147,10 +147,6 @@ update:
     brew update > /dev/null 2>&1;
     brew upgrade > /dev/null 2>&1;
   fi
-  if command -v mise > /dev/null 2>&1 ; then
-    echo '=> Mise: Updating packages';
-    mise upgrade --bump > /dev/null 2>&1;
-  fi
 
 # Clean packages and temp files
 [group('system')]
