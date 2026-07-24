@@ -36,6 +36,7 @@ pathadd "$HOME/.local/bin"
 pathadd "$HOME/.cargo/bin"
 pathadd "$HOME/.deno/bin"
 pathadd "$HOME/.nub/bin"
+pathadd "$HOME/.nub/node-shim"
 
 # Deno - Configure if it's installed to the default location
 

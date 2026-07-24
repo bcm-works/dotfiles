@@ -1,25 +1,35 @@
 {
 	"compilerOptions": {
-		"target": "es2022",
 		"module": "nodenext",
 		"moduleResolution": "nodenext",
+		"target": "es2024",
 		"lib": [
-			"es2022"
+			"es2024"
 		],
-		"strict": true,
+		"types": [
+			"node",
+			"@nubjs/types"
+		],
+		"moduleDetection": "force",
+		"allowImportingTsExtensions": true,
+		"verbatimModuleSyntax": true,
+		"isolatedModules": true,
+		"noUncheckedSideEffectImports": true,
+		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"outDir": "./dist",
-		"rootDir": "./src",
-		"types": [
-			"node"
-		],
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"exactOptionalPropertyTypes": true,
+		"noEmit": true
 	},
 	"include": [
-		"src/**/*"
+		"src/*.ts",
+		"src/**/*.ts",
 	],
 	"exclude": [
-		"src/vendor"
-	]
+		"node_modules",
+		"build",
+		"public"
+	],
 }
