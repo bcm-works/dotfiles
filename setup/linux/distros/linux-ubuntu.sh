@@ -33,9 +33,20 @@ sudo apt -qq --assume-yes install \
   git \
   zip \
   vim \
-  gnome-terminal \
-  gnome-sushi \
+  ddcutil \
+  language-pack-en \
+  language-pack-en-base \
+  language-pack-gnome-en \
+  language-pack-gnome-en-base \
+  hunspell-en-au \
+  hunspell-en-gb \
   gnome-browser-connector \
+  gnome-console \
+  gnome-software \
+  gnome-system-monitor \
+  gnome-sushi \
+  gnome-terminal \
+  gnome-tweaks \
   python3 \
   python3-gpg \
   python-is-python3 \
@@ -58,9 +69,8 @@ info 'Ubuntu: Update Snap config to only keep two older versions of packages'
 
 sudo snap set system refresh.retain=2 > /dev/null 2>&1;
 
-info 'Ubuntu: Install ddcutil to allow for screen brightness control'
+info 'Ubuntu: Configure ddcutil to allow for screen brightness control'
 
-sudo apt -qq --assume-yes install ddcutil > /dev/null 2>&1
 sudo gpasswd --add $USER i2c > /dev/null 2>&1
 
 info 'Ubuntu: Setup Flatpak'
