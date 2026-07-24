@@ -26,32 +26,19 @@ sudo apt update -qq > /dev/null 2>&1
 info 'Ubuntu: Install base system packages'
 
 sudo apt -qq --assume-yes install \
-  gnome-software \
-  software-properties-gtk \
-  gnome-tweaks \
-  curl \
-  git \
-  zip \
-  vim \
-  ddcutil \
-  language-pack-en \
-  language-pack-en-base \
-  language-pack-gnome-en \
-  language-pack-gnome-en-base \
-  hunspell-en-au \
-  hunspell-en-gb \
+  curl git zip ddcutil xclip \
+  language-pack-en language-pack-en-base \
+  language-pack-gnome-en language-pack-gnome-en-base \
+  hunspell-en-au hunspell-en-gb \
+  gnome-software software-properties-gtk \
   gnome-browser-connector \
   gnome-console \
-  gnome-software \
   gnome-system-monitor \
   gnome-sushi \
   gnome-terminal \
   gnome-tweaks \
-  python3 \
-  python3-gpg \
-  python-is-python3 \
-  pipx \
-  xclip > /dev/null 2>&1
+  vim \
+  python3 python3-gpg python-is-python3 pipx > /dev/null 2>&1
 
 info 'Ubuntu: Restore the updates status icon'
 
