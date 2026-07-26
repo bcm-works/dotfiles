@@ -40,6 +40,11 @@ sudo apt -qq --assume-yes install \
   vim \
   python3 python3-gpg python-is-python3 pipx > /dev/null 2>&1
 
+info 'Ubuntu: Setup support for AppImage apps'
+
+sudo add-apt-repository universe
+sudo apt -qq --assume-yes install libfuse2t64
+
 info 'Ubuntu: Restore the updates status icon'
 
 gsettings set com.ubuntu.update-notifier show-updates-status-icon true
