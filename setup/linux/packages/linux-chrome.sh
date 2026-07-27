@@ -15,11 +15,11 @@ if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
   exit 0
 fi
 
-# Install Google Chrome via Flatpak
+info 'Installing Chrome via Flatpak'
 flatpak install -y com.google.Chrome
 
-# Allow Chrome to access files in the user home dir
+info 'Allow Chrome to access files in the user home dir'
 sudo flatpak override --filesystem=home com.google.Chrome
 
-# Fix Webcam video output display issues
+info 'Fix Webcam video output display issues'
 sudo flatpak override --env="CHROME_EXTRA_FLAGS=--disable-gpu-compositing" com.google.Chrome

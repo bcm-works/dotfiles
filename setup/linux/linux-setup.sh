@@ -63,7 +63,4 @@ bash "$REPO/just/just-setup.sh"
 info 'Linux Setup: Run setup/linux/vim/vim.sh'
 bash "$REPO/setup/linux/vim/vim.sh"
 
-info 'Linux Setup: Run setup/linux/packages/linux-google-chrome.sh'
-bash "$REPO/setup/linux/packages/linux-google-chrome.sh"
-
 info 'Linux Setup: Finished, a system reboot is recommended'
