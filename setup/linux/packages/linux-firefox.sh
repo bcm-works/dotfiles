@@ -22,7 +22,6 @@ if [[ "$OS" == "Ubuntu" ]]; then
   info 'Applying AppArmor rules for Firefox'
 
 	warn 'Requesting sudo'
-
 	sudo -v
 
 	info 'Copying over rules file'

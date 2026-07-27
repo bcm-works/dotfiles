@@ -16,7 +16,6 @@ if [[ "$OS" == "Windows" ]] | [[ "$OS" == "macOS" ]]; then
 fi
 
 warn 'Requesting sudo'
-
 sudo -v
 
 info 'Run: setup/dev/node/node-setup.sh'

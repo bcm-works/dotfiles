@@ -15,7 +15,7 @@ if [[ "$OS" != "EndeavourOS" ]]; then
   exit 0
 fi
 
-info 'EndeavourOS: Requesting sudo access'
+warn 'EndeavourOS: Requesting sudo access'
 sudo -v
 
 info 'EndeavourOS: Setup initial packages and Flatpak'

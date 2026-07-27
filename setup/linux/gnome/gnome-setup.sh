@@ -15,20 +15,19 @@ OS_DESKTOP="$(os_desktop)"
 BIN="$REPO/bin"
 
 if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
-  echo "This script requires Linux."
+  error "This script requires Linux."
   exit 0
 fi
 
 if [[ "$OS_DESKTOP" != "gnome" ]]; then
-  echo "This script requires Gnome to be set as the Linux Desktop Environment."
+  error "This script requires Gnome to be set as the Linux Desktop Environment."
   exit 0
 fi
 
-echo 'Requesting sudo access'
-
+warn 'Requesting sudo access'
 sudo -v
 
-echo 'Installing supporting packages for Gnome Shell Extensions'
+info 'Installing supporting packages for Gnome Shell Extensions'
 
 if [[ "$OS" == "Ubuntu" ]]; then
   sudo apt install -y \
@@ -69,7 +68,7 @@ has_schema () {
   fi
 }
 
-echo 'Applying customised Gnome Settings'
+info 'Applying customised Gnome Settings'
 
 # Theme
 
@@ -273,3 +272,5 @@ if has_schema "org.gnome.shell.extensions.tiling-assistant"; then
   gsettings set org.gnome.shell.extensions.tiling-assistant tile-left-half '["<Super>Left", "<Super>KP_4"]'
   gsettings set org.gnome.shell.extensions.tiling-assistant tile-right-half '["<Super>Right", "<Super>KP_6"]'
 fi
+
+success 'Gnome setup completed'

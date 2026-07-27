@@ -15,8 +15,7 @@ if [[ "$OS" != "Ubuntu" ]]; then
   exit 0
 fi
 
-info 'Ubuntu: Requesting sudo'
-
+warn 'Ubuntu: Requesting sudo'
 sudo -v
 
 info 'Ubuntu: Update package lists'

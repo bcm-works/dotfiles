@@ -19,7 +19,7 @@ if [[ "$OS" == "Windows" ]] || [[ "$OS" == "macOS" ]]; then
   exit 1
 fi
 
-info "Requesting sudo"
+warn "Requesting sudo"
 sudo -v
 
 if [[ -f "$TARGET_COLOURS" ]]; then

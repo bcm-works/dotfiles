@@ -16,12 +16,11 @@ CONFIG_DIR="$HOME/.config/zed"
 CONFIG_FILE="$THIS_DIR/settings.json"
 
 if [[ "$OS" == "Windows" ]]; then
-  echo "This script requires Linux or macOS."
+  error "This script requires Linux or macOS."
   exit 0
 fi
 
-echo 'Requesting sudo'
-
+warn 'Requesting sudo'
 sudo -v
 
 if [[ "$OS" == "macOS" ]]; then
@@ -35,17 +34,17 @@ fi
 
 mkdir -p "$CONFIG_DIR"
 
-echo "Making a backup of '$CONFIG_DIR/settings.json'"
+info "Making a backup of '$CONFIG_DIR/settings.json'"
 
 touch "$CONFIG_DIR/settings.json"
 cp "$CONFIG_DIR/settings.json" "$CONFIG_DIR/settings.json.old"
 
-echo "Copying '$CONFIG_FILE' to '$CONFIG_DIR/settings.json'"
+info "Copying '$CONFIG_FILE' to '$CONFIG_DIR/settings.json'"
 
 cp "$CONFIG_FILE" "$CONFIG_DIR/settings.json"
 
-echo "Finished Zed setup"
+success "Finished Zed setup"
 
 if [[ "$OS" == "macOS" ]]; then
-  echo "On macOS, you need to manually install the Zed CLI tool: https://zed.dev/docs/macos#installing-the-cli"
+  warn "On macOS, you need to manually install the Zed CLI tool: https://zed.dev/docs/macos#installing-the-cli"
 fi

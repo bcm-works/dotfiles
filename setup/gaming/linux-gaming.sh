@@ -16,10 +16,7 @@ if [[ "$OS" == "macOS" ]] || [[ "$OS" == "Windows" ]]; then
   exit 0
 fi
 
-info() { echo -e "\033[36m==> Linux Gaming Setup: $1\033[0m"; }
-
-info 'Requesting sudo access'
-
+warn 'Requesting sudo access'
 sudo -v
 
 if [[ "$OS" == "EndeavourOS" ]]; then

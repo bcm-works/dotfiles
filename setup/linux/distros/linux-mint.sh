@@ -15,8 +15,7 @@ if [[ "$OS" != "Mint" ]]; then
   exit 0
 fi
 
-info 'Linux Mint: Requesting sudo'
-
+warn 'Linux Mint: Requesting sudo'
 sudo -v
 
 info 'Linux Mint: Update package lists'

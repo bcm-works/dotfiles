@@ -26,9 +26,10 @@ info "Installing Lore shell completions for Bash"
 mkdir -p "$HOME/.local/share/bash-completion/completions"
 lore completions bash > "$HOME/.local/share/bash-completion/completions/lore"
 
-info "Requesting sudo for Lore server config setup"
-# From https://epicgames.github.io/lore/how-to/deploy-local-lore-server/
+warn "Requesting sudo for Lore server config setup"
 sudo -v
+
+# From https://epicgames.github.io/lore/how-to/deploy-local-lore-server/
 
 info "Creating Lore server config directories"
 sudo mkdir -p /home/loreserver/{certs,config,store}

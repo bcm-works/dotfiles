@@ -15,7 +15,7 @@ if [[ "$OS" == "macOS" ]] || [[ "$OS" == "Windows" ]]; then
   exit 0
 fi
 
-info 'Linux Setup: Requesting sudo access'
+warn 'Linux Setup: Requesting sudo access'
 sudo -v
 
 info 'Linux Setup: Run setup/linux/bash/bash-setup.sh'

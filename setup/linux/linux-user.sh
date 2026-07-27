@@ -15,8 +15,7 @@ if [[ "$OS" == "macOS" ]] || [[ "$OS" == "Windows" ]]; then
   exit 0
 fi
 
-info "Requesting sudo"
-
+warn "Requesting sudo"
 sudo -v
 
 info "Adding symlink at '/home/home-info.txt'"
@@ -39,8 +38,7 @@ info "Bash setup"
 
 bash "$DOTFILES/linux/bash/bash-setup.sh"
 
-info "Requesting sudo"
-
+warn "Requesting sudo"
 sudo -v
 
 info "Adding symlinks for the user profile image"

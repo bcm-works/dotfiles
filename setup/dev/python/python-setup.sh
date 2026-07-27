@@ -18,8 +18,7 @@ if [ ! "$(os_debian_based)" ]; then
   exit 1
 fi
 
-info "Requesting sudo"
-
+warn "Requesting sudo"
 sudo -v
 
 info "Installing packages"

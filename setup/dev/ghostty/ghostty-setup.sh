@@ -15,12 +15,11 @@ CONFIG_DIR="$HOME"
 CONFIG_FILE="$THIS_DIR/config.linux.ghostty"
 
 if [[ "$OS" == "Windows" ]]; then
-  echo "This script requires Linux or macOS."
-  exit 0
+  error "This script requires Linux or macOS."
+  exit 1
 fi
 
-echo 'Requesting sudo'
-
+warn 'Requesting sudo'
 sudo -v
 
 if [[ "$OS" == "macOS" ]]; then
@@ -55,6 +54,6 @@ if [ -f "$CONFIG_DIR/config.ghostty" ]; then
   mv "$CONFIG_DIR/config.ghostty" "$CONFIG_DIR/config.ghostty.old"
 fi
 
-echo "Adding symlink - '$CONFIG_FILE' > '$CONFIG_DIR/config.ghostty'"
+info "Adding symlink - '$CONFIG_FILE' > '$CONFIG_DIR/config.ghostty'"
 
 ln -s "$CONFIG_FILE" "$CONFIG_DIR/config.ghostty"

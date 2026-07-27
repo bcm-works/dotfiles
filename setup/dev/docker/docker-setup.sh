@@ -18,7 +18,7 @@ if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
 fi
 
 if [[ "$OS" == "EndeavourOS" ]]; then
-  info "Requesting sudo"
+  warn "Requesting sudo"
   sudo -v
 
   info "Installing Podman and Docker packages"

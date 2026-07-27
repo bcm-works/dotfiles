@@ -12,15 +12,15 @@ source "$REPO/bin/utils.sh"
 OS="$(os)"
 
 if [[ "$OS" == "Windows" ]]; then
-  echo 'This script requires Linux or macOS.'
+  error 'This script requires Linux or macOS.'
   exit 1
 elif [[ "$OS" == "Linux" ]]; then
-  echo 'Homebrew: Requesting sudo'
+  warn 'Homebrew: Requesting sudo'
   sudo -v
 fi
 
-echo 'Homebrew: Installing to default location'
+info 'Homebrew: Installing to default location'
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-echo 'Installing Bold Brew (bbrew)'
+info 'Installing Bold Brew (bbrew)'
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Valkyrie00/bold-brew/main/install.sh)"

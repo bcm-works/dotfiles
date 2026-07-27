@@ -15,8 +15,7 @@ if [[ "$OS" != "Debian" ]]; then
   exit 0
 fi
 
-info 'Debian: Requesting sudo'
-
+warn 'Debian: Requesting sudo'
 sudo -v
 
 info 'Debian: Enable 32-bit architecture'
