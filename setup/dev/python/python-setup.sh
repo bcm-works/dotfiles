@@ -36,6 +36,14 @@ info "Running 'pipx ensurepath'"
 
 pipx ensurepath > /dev/null 2>&1
 
+if [ "$(command -v uv)" ]; then
+	success "UV already installed"
+else
+	info "Installing UV"
+	# From https://docs.astral.sh/uv/getting-started/installation/
+	curl -LsSf https://astral.sh/uv/install.sh | sh
+fi
+
 info "Reloading '$HOME/.bashrc' to apply changes to this session"
 
 source "$HOME/.bashrc"
