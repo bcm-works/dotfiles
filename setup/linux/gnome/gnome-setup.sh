@@ -194,7 +194,7 @@ gsettings set org.gnome.desktop.privacy remove-old-temp-files true
 gsettings set org.gnome.desktop.privacy remove-old-trash-files true
 gsettings set org.gnome.desktop.privacy old-files-age 7
 gsettings set org.gnome.desktop.privacy remember-recent-files false
-gsettings set org.gnome.desktop.privacy recent-files-max-age '-1'
+gsettings set org.gnome.desktop.privacy recent-files-max-age 1
 gsettings set org.gnome.system.location enabled false
 gsettings set org.gnome.system.location max-accuracy-level 'neighborhood'
 gsettings set org.gnome.clocks geolocation false
