@@ -415,38 +415,10 @@
 		"inactive_opacity": 1.0,
 	},
 	"lsp_document_colors": "inlay",
-	"theme": "Ayu Dark",
+	"theme": "Vesper",
 	"theme_overrides": {
-		"Ayu Dark": {
+		"Vesper": {
 			"syntax": {
-				"string": {
-					"color": "#23C5B0FF",
-					"font_style": "normal"
-				},
-				"text": {
-					"font_style": "normal"
-				},
-				"link_text": {
-					"font_style": "normal"
-				},
-				"number": {
-					"font_style": "normal"
-				},
-				"boolean": {
-					"font_style": "normal"
-				},
-				"constant": {
-					"font_style": "normal"
-				},
-				"keyword": {
-					"font_style": "normal"
-				},
-				"operator": {
-					"font_style": "normal"
-				},
-				"preproc": {
-					"font_style": "normal"
-				},
 				"property": {
 					"color": "#E6E6E6FF",
 					"font_style": "normal"
@@ -521,7 +493,8 @@
 		"terraform": true,
 		"toml": true,
 		"just": true,
-		"env": true
+		"env": true,
+		"vesper": true
 	},
 	"lsp": {
 		"json-language-server": {
