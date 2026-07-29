@@ -285,6 +285,17 @@
 	"disable_ai": false,
 	"buffer_font_family": "CommitMono Nerd Font",
 	"agent": {
+		"tool_permissions": {
+			"tools": {
+				"fetch": {
+					"always_allow": [
+						{
+							"pattern": "^https?://docs\\.github\\.com"
+						}
+					]
+				}
+			}
+		},
 		"sidebar_side": "right",
 		"max_content_width": 750.0,
 		"default_width": 550.0,
@@ -494,7 +505,8 @@
 		"toml": true,
 		"just": true,
 		"env": true,
-		"vesper": true
+		"vesper": true,
+		"xml": true
 	},
 	"lsp": {
 		"json-language-server": {
