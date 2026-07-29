@@ -287,6 +287,13 @@
 	"agent": {
 		"tool_permissions": {
 			"tools": {
+				"terminal": {
+					"always_allow": [
+						{
+							"pattern": "^deno\\s+test(\\s|$)"
+						}
+					]
+				},
 				"fetch": {
 					"always_allow": [
 						{
@@ -430,6 +437,10 @@
 	"theme_overrides": {
 		"Vesper": {
 			"syntax": {
+				"comment": {
+					"color": "#6C6C6CFF",
+					"font_style": "normal"
+				},
 				"property": {
 					"color": "#E6E6E6FF",
 					"font_style": "normal"
