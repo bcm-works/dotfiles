@@ -35,4 +35,4 @@ sudo dnf install -y sushi > /dev/null 2>&1
 
 info 'Fedora: Setup Flatpak'
 
-bash "$REPO/setup/linux/linux-flatpak.sh"
+bash "$REPO/setup/linux/packages/linux-flatpak.sh"

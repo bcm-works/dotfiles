@@ -32,7 +32,7 @@ sudo pacman -Syu --noconfirm \
 
 info 'EndeavourOS: Setup Flatpak'
 
-bash "$REPO/setup/linux/linux-flatpak.sh"
+bash "$REPO/setup/linux/packages/linux-flatpak.sh"
 
 success 'EndeavourOS: Setup complete, a restart is required to apply changes to the system'
 

@@ -22,19 +22,36 @@ if [[ "$OS" == "Windows" ]]; then
   exit 1
 fi
 
-info 'Install Nub'
+info 'Setup the NVM directory'
 
-curl -fsSL https://nubjs.com/install.sh | bash
+export NVM_DIR="${HOME}/.nvm"
+rm -rf "$NVM_DIR"
+mkdir -p "$NVM_DIR"
 
-info 'Installing Node 26, using as the default version'
+info 'Install NVM'
 
-nub node install 26.5.0
-echo '26.5.0' > "$HOME/.node-version"
-nub node shim
+git clone --quiet "https://github.com/nvm-sh/nvm.git" "$NVM_DIR"
 
-info "Copying over global Node config to '$HOME/.npmrc'"
+info 'Load NVM'
 
-[ -f "$HOME/.npmrc" ] && cp "$HOME/.npmrc" "$HOME/.npmrc.bak"
-cp "$REPO/setup/dev/node/.npmrc" "$HOME/.npmrc"
+source "$NVM_DIR/nvm.sh" > /dev/null 2>&1
 
-warn 'Please use a new terminal session to access Node 26, NPM and Nub.'
+info 'Installing Node v26 as the default version'
+
+nvm install 26 > /dev/null 2>&1
+nvm alias default 26 > /dev/null 2>&1
+
+info 'Installing the latest version of NPM'
+
+nvm install-latest-npm > /dev/null 2>&1
+
+info 'Setup defensive default config for local NPM use'
+
+npm config set --global engine-strict=true
+npm config set --global package-lock=true
+npm config set --global ignore-scripts=true
+npm config set --global save=true
+npm config set --global fund=false
+npm config set --global audit=false
+
+success 'Node 26 and NPM installed'

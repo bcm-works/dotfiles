@@ -16,7 +16,7 @@ if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
 fi
 
 info 'Install Firefox via Flatpak'
-flatpak install -y org.mozilla.firefox
+flatpak install --assumeyes --or-update org.mozilla.firefox
 
 if [[ "$OS" == "Ubuntu" ]]; then
   info 'Applying AppArmor rules for Firefox'

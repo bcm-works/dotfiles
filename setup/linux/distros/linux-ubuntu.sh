@@ -66,6 +66,6 @@ sudo gpasswd --add $USER i2c > /dev/null 2>&1
 
 info 'Ubuntu: Setup Flatpak'
 
-bash "$REPO/setup/linux/linux-flatpak.sh"
+bash "$REPO/setup/linux/packages/linux-flatpak.sh"
 
 warn "You might also want to run Gnome Setup: bash $REPO/setup/linux/gnome/gnome-setup.sh"

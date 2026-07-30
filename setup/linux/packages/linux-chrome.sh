@@ -16,7 +16,7 @@ if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
 fi
 
 info 'Installing Chrome via Flatpak'
-flatpak install -y com.google.Chrome
+flatpak install --assumeyes --or-update com.google.Chrome
 
 info 'Allow Chrome to access files in the user home dir'
 sudo flatpak override --filesystem=home com.google.Chrome

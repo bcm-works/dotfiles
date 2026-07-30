@@ -161,16 +161,16 @@ if ! command -v flatpak > /dev/null 2>&1 ; then
   warn 'Skipping Flatpak installs, please setup Flatpak first - bash ../linux/packages/linux-flatpak.sh'
 else
   info 'Installing Discord via Flatpak'
-  flatpak install -y com.discordapp.Discord > /dev/null 2>&1
+  flatpak install --assumeyes --or-update com.discordapp.Discord
 
   info 'Installing Lutris via Flatpak'
-  flatpak install -y net.lutris.Lutris > /dev/null 2>&1
+  flatpak install --assumeyes --or-update net.lutris.Lutris
 
   info 'Installing ProtonPlus via Flatpak'
-  flatpak install -y com.vysp3r.ProtonPlus > /dev/null 2>&1
+  flatpak install --assumeyes --or-update com.vysp3r.ProtonPlus
 
   info 'Installing Solaar via Flatpak'
-  flatpak install -y io.github.pwr_solaar.solaar > /dev/null 2>&1
+  flatpak install --assumeyes --or-update io.github.pwr_solaar.solaar
 
   info 'Clearing Flatpak cache and updating Flatpak apps'
   rm -rf "$HOME/.cache/flatpak"

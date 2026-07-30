@@ -14,6 +14,7 @@ REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
 cd "$REPO"
 source "$REPO/bin/utils.sh"
 OS="$(os)"
+OS_CLEAN="$(os_clean)"
 BIN="$REPO/bin"
 NOW=$(date "+%Y%m%d-%H%M%S")
 
@@ -34,6 +35,10 @@ gh config set git_protocol ssh
 gh config set editor vim
 gh config set color_labels enabled
 
+if [ -f "$REPO/.env" ]; then
+	source "$REPO/.env"
+fi
+
 if [[ -n "$DOTFILES_USER_EMAIL" && -n "$DOTFILES_USER_NAME" ]]; then
 	info "Git SSH key setup"
 
@@ -50,7 +55,6 @@ if [[ -n "$DOTFILES_USER_EMAIL" && -n "$DOTFILES_USER_NAME" ]]; then
 
 	info "GitHub CLI setup"
 
-	bash "$DOTFILES/dev/git/github-cli-setup.sh"
 	gh auth refresh -h github.com --scopes admin:public_key,admin:ssh_signing_key
 
 	info "GitHub CLI add SSH Public Key"

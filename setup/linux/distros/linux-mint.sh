@@ -24,7 +24,7 @@ sudo apt update -qq > /dev/null 2>&1
 
 info 'Linux Mint: Setup Flatpak'
 
-bash "$REPO/setup/linux/linux-flatpak.sh"
+bash "$REPO/setup/linux/packages/linux-flatpak.sh"
 
 info 'Linux Mint: Installing Nemo Preview document preview app'
 
