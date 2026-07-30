@@ -109,16 +109,6 @@ elif [ "$(os_debian_based)" ]; then
 fi
 
 if [[ "$OS" == "Ubuntu" ]]; then
-  info "Ubuntu - Set CPU cores to performance mode"
-
-  sudo cpupower frequency-set -g performance > /dev/null 2>&1
-  echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils > /dev/null 2>&1
-  sudo systemctl restart cpufrequtils > /dev/null 2>&1
-
-  info 'Ubuntu - Increase shader size for Nvidia GPUs'
-
-  export __GL_SHADER_DISK_CACHE_SIZE=10000000000
-
   info 'Ubuntu - Disable mouse pointer acceleration'
 
   xset m 0 0
@@ -171,11 +161,6 @@ else
 
   info 'Installing Solaar via Flatpak'
   flatpak install --assumeyes --or-update io.github.pwr_solaar.solaar
-
-  info 'Clearing Flatpak cache and updating Flatpak apps'
-  rm -rf "$HOME/.cache/flatpak"
-  mkdir -p "$HOME/.cache/flatpak"
-  flatpak update -y
 fi
 
 info 'Installing Xbox Controllers firmware'
