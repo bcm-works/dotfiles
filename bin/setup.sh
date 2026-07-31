@@ -76,7 +76,7 @@ else
     bash "$REPO/setup/homebrew/homebrew-setup.sh"
   else
     echo ''
-    warn 'Install Homebrew to the default location?'
+    warn 'Install Homebrew to ~/.brew instead?'
     read -n 1 -rp '  [y/N] > ' BREW_USER
     if [[ "$BREW_USER" == "y" ]]; then
       echo ''
