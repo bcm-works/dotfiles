@@ -15,27 +15,34 @@ if [[ "$OS" != "Mint" ]]; then
   exit 0
 fi
 
-warn 'Linux Mint: Requesting sudo'
+warn 'Mint: Requesting sudo'
 sudo -v
 
-info 'Linux Mint: Update package lists'
+info 'Mint: Update package lists'
 
 sudo apt update -qq > /dev/null 2>&1
 
-info 'Linux Mint: Setup Flatpak'
+info 'Mint: Install base system packages'
+
+sudo apt -qq --assume-yes install \
+	curl vim ddcutil \
+	zip p7zip p7zip-full \
+	clamav-freshclam clamav-daemon > /dev/null 2>&1
+
+info 'Mint: Setup Flatpak'
 
 bash "$REPO/setup/linux/packages/linux-flatpak.sh"
 
-info 'Linux Mint: Installing Nemo Preview document preview app'
+info 'Mint: Installing Nemo Preview document preview app'
 
 sudo apt -qq --assume-yes install nemo-preview > /dev/null 2>&1
 
-info 'Linux Mint: Disabling printer notifications'
+info 'Mint: Disabling printer notifications'
 
 sudo systemctl stop cups-browsed
 sudo systemctl disable cups-browsed
 
-info 'Linux Mint: Applying system config values'
+info 'Mint: Applying system config values'
 
 gsettings set org.cinnamon.desktop.background color-shading-type 'solid'
 gsettings set org.cinnamon.desktop.background picture-opacity 100
