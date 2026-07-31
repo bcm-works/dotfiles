@@ -28,7 +28,7 @@ sudo apt -qq --assume-yes install \
 	curl vim ddcutil \
 	zip p7zip p7zip-full \
 	clamav-freshclam clamav-daemon \
-	gsettings-desktop-schemas > /dev/null 2>&1
+	gsettings-desktop-schemas pavucontrol > /dev/null 2>&1
 
 info 'Mint: Setup Flatpak'
 
