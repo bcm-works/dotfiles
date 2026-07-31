@@ -27,7 +27,8 @@ info 'Mint: Install base system packages'
 sudo apt -qq --assume-yes install \
 	curl vim ddcutil \
 	zip p7zip p7zip-full \
-	clamav-freshclam clamav-daemon > /dev/null 2>&1
+	clamav-freshclam clamav-daemon \
+	gsettings-desktop-schemas > /dev/null 2>&1
 
 info 'Mint: Setup Flatpak'
 
@@ -53,28 +54,18 @@ gsettings set org.cinnamon.desktop.background secondary-color '#000000'
 gsettings set org.cinnamon.desktop.interface clock-show-date true
 gsettings set org.cinnamon.desktop.interface clock-show-seconds false
 gsettings set org.cinnamon.desktop.interface first-day-of-week 1
-gsettings set org.gnome.desktop.interface clock-format '12h'
-gsettings set org.gnome.desktop.interface clock-show-date true
-gsettings set org.gnome.desktop.interface clock-show-seconds false
+gsettings set org.cinnamon.desktop.interface clock-use-24h false
 
-gsettings set org.cinnamon.desktop.interface cursor-size 24
-gsettings set org.cinnamon.desktop.interface cursor-theme 'DMZ-Black'
+gsettings set org.cinnamon.theme name 'Mint-Y-Dark-Teal'
 gsettings set org.cinnamon.desktop.interface font-name 'Ubuntu 11'
 gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark-Teal'
 gsettings set org.cinnamon.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.cinnamon.desktop.interface buttons-have-icons true
 gsettings set org.cinnamon.desktop.interface menus-have-icons true
-gsettings set org.gnome.desktop.interface cursor-theme 'DMZ-Black'
-gsettings set org.gnome.desktop.interface font-name 'Ubuntu 11'
-gsettings set org.gnome.desktop.interface gtk-theme 'Mint-Y-Dark-Teal'
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-
-gsettings set org.gnome.desktop.interface toolbar-detachable false
-gsettings set org.gnome.desktop.interface toolbar-icons-size 'large'
-gsettings set org.gnome.desktop.interface toolbar-style 'both-horiz'
+gsettings set org.cinnamon.desktop.interface cursor-size 24
+gsettings set org.cinnamon.desktop.interface cursor-theme 'DMZ-Black'
 
 gsettings set org.cinnamon.desktop.interface gtk-enable-primary-paste false
-gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
 
 gsettings set org.cinnamon.desktop.media-handling automount true
 gsettings set org.cinnamon.desktop.media-handling automount-open false
@@ -91,14 +82,6 @@ gsettings set org.cinnamon.desktop.privacy recent-files-max-age 1
 gsettings set org.cinnamon.desktop.privacy remember-recent-files false
 gsettings set org.cinnamon.desktop.privacy remove-old-temp-files true
 gsettings set org.cinnamon.desktop.privacy remove-old-trash-files true
-gsettings set org.gnome.desktop.privacy old-files-age 7
-gsettings set org.gnome.desktop.privacy recent-files-max-age 1
-gsettings set org.gnome.desktop.privacy remember-app-usage false
-gsettings set org.gnome.desktop.privacy remember-recent-files false
-gsettings set org.gnome.desktop.privacy remove-old-temp-files true
-gsettings set org.gnome.desktop.privacy remove-old-trash-files true
-gsettings set org.gnome.desktop.privacy report-technical-problems false
-gsettings set org.gnome.desktop.privacy send-software-usage-stats false
 
 gsettings set org.cinnamon.desktop.screensaver allow-keyboard-shortcuts false
 gsettings set org.cinnamon.desktop.screensaver allow-media-control false
@@ -113,7 +96,9 @@ gsettings set org.cinnamon.desktop.default-applications.terminal exec 'gnome-ter
 gsettings set org.cinnamon.desktop.default-applications.calculator exec 'gnome-calculator'
 
 gsettings set org.cinnamon.desktop.keybindings looking-glass-keybinding []
-dconf write /org/cinnamon/desktop/keybindings/custom-list "['custom0']"
-dconf write /org/cinnamon/desktop/keybindings/custom-keybindings/custom0/binding "['<Primary><Alt>Delete']"
-dconf write /org/cinnamon/desktop/keybindings/custom-keybindings/custom0/command "'flatpak run net.nokyan.Resources'"
-dconf write /org/cinnamon/desktop/keybindings/custom-keybindings/custom0/name "'Resources'"
+gsettings set org.cinnamon.desktop.keybindings.media-keys screensaver '["<Control><Alt>l", "XF86ScreenSaver", "<Super>l"]'
+gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot '["<Shift><Super>dollar"]'
+gsettings set org.cinnamon.desktop.keybindings.media-keys calculator []
+gsettings set org.cinnamon.desktop.keybindings.media-keys email []
+gsettings set org.cinnamon.desktop.keybindings.media-keys home []
+gsettings set org.cinnamon.desktop.keybindings.media-keys www []
