@@ -59,7 +59,7 @@ fi
 
 # Railway - Configure if it's installed to the default location
 
-if [ -d "$HOME/.railway" ]; then
+if [ -f "$HOME/.railway" ]; then
 	source "$HOME/.railway/env"
 fi
 
