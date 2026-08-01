@@ -2,9 +2,9 @@
 #
 #
 # GitHub setup
+# 	- Requires Homebrew - https://brew.sh/
 #   - Installs the GitHub CLI - https://cli.github.com/
-#   - Prompts user login
-#   - Attempts to create a new SSH key and save that to GitHub
+#   - Prompts user login, attempts to create a new SSH key and upload it to GitHub
 #
 #
 
@@ -27,7 +27,12 @@ fi
 
 brew reinstall gh
 
-gh auth login --git-protocol ssh --skip-ssh-key --web
+gh auth login \
+		--web --clipboard \
+		--git-protocol ssh \
+		--skip-ssh-key \
+		--hostname github.com \
+		--scopes gist,read:org,repo,read:packages
 
 gh auth setup-git --hostname github.com
 
@@ -55,7 +60,10 @@ if [[ -n "$DOTFILES_USER_EMAIL" && -n "$DOTFILES_USER_NAME" ]]; then
 
 	info "GitHub CLI setup"
 
-	gh auth refresh -h github.com --scopes admin:public_key,admin:ssh_signing_key
+	gh auth refresh \
+		--clipboard \
+		--hostname github.com \
+		--scopes admin:public_key,admin:ssh_signing_key
 
 	info "GitHub CLI add SSH Public Key"
 
