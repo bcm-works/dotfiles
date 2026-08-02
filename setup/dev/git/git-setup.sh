@@ -58,4 +58,15 @@ git config --global alias.cbr "checkout -b"
 git config --global alias.lg "log --pretty=format:'%Cblue%h%Creset %s %Cgreen%an, %cr %Creset' --abbrev-commit --date=relative"
 git config --global alias.graph "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
+if [ ! "$(os_debian_based)" ]; then
+  info "Installing Git LFS"
+
+	# From https://packagecloud.io/github/git-lfs/install
+	curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+
+	sudo apt -qq --assume-yes install git-lfs > /dev/null 2>&1
+else
+	warn "Please install Git LFS manually: https://git-lfs.com/"
+fi
+
 warn "If you use GitHub, you may want to run: bash $REPO/setup/dev/git/github-setup.sh"
