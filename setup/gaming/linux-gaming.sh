@@ -10,6 +10,7 @@ REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$REPO"
 source "$REPO/bin/utils.sh"
 OS="$(os)"
+OS_DESKTOP="$(os_desktop)"
 
 if [[ "$OS" == "macOS" ]] || [[ "$OS" == "Windows" ]]; then
   echo "This script requires Linux."
@@ -114,7 +115,7 @@ if [[ "$OS" == "Ubuntu" ]]; then
   xset m 0 0
 fi
 
-if command -v gsettings > /dev/null 2>&1 ; then
+if [[ "$OS_DESKTOP" == "gnome" ]]; then
 	info 'Gnome - Disable mouse pointer acceleration'
   gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
   gsettings set org.gnome.desktop.peripherals.touchpad accel-profile 'flat'
@@ -148,7 +149,7 @@ cp "$HOME/.config/gamemode.ini" "$HOME/.config/gamemode.ini.old"
 cp "$DIR/gamemode.ini" "$HOME/.config/gamemode.ini"
 
 if ! command -v flatpak > /dev/null 2>&1 ; then
-  warn 'Skipping Flatpak installs, please setup Flatpak first - bash ../linux/packages/linux-flatpak.sh'
+  warn "Skipping Flatpak installs, please setup Flatpak first - bash $REPO/setup/linux/packages/linux-flatpak.sh"
 else
   info 'Installing Discord via Flatpak'
   flatpak install --assumeyes --or-update com.discordapp.Discord
