@@ -57,7 +57,7 @@ npm config set --global min-release-age 14
 npm config set --global workspaces false
 npm config set --global init-private true
 
-warn 'Reloading shell to apply NVM changes'
+warn 'Reloading shell to apply changes'
 source "$HOME/.bashrc"
 
 success 'Node 26 and NPM installed'

@@ -43,8 +43,7 @@ else
 	curl -LsSf https://astral.sh/uv/install.sh | sh
 fi
 
-info "Reloading '$HOME/.bashrc' to apply changes to this session"
-
+warn 'Reloading shell to apply changes'
 source "$HOME/.bashrc"
 
 success "Python 3 should be ready to go"

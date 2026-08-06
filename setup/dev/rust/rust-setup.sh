@@ -24,8 +24,7 @@ info "Installing Rust"
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-info "Reloading '$HOME/.bashrc' to apply changes to this session"
-
+warn 'Reloading shell to apply changes'
 source "$HOME/.bashrc"
 
 success "Rust installed successfully"
