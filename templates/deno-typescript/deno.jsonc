@@ -2,7 +2,7 @@
 	"lock": true,
 	"nodeModulesDir": "none",
 	"imports": {
-		"$services/": "./src/services/",
+		"$services/": "./src/services/"
 	},
 	"tasks": {
 		"install": {
@@ -20,7 +20,7 @@
 		"test": {
 			"description": "Run all Deno Test scripts in the 'src' directory.",
 			"command": "deno test --quiet --allow-run=deno --allow-env --allow-read --allow-net src"
-		},
+		}
 	},
 	"fmt": {
 		"include": [

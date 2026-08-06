@@ -17,9 +17,5 @@ insert_final_newline = false
 [{Dockerfile,.editorconfig,.gitignore,.gitmodules,.nvmrc,.npmrc}]
 insert_final_newline = false
 
-[{justfile}]
-indent_style = space
-insert_final_newline = false
-
 [{*.sh,*.bash}]
 insert_final_newline = false

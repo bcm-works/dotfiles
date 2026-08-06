@@ -47,11 +47,14 @@ nvm install-latest-npm > /dev/null 2>&1
 
 info 'Setup defensive default config for local NPM use'
 
-npm config set --global engine-strict=true
-npm config set --global package-lock=true
-npm config set --global ignore-scripts=true
-npm config set --global save=true
-npm config set --global fund=false
-npm config set --global audit=false
+npm config set --global engine-strict true
+npm config set --global package-lock true
+npm config set --global ignore-scripts true
+npm config set --global save true
+npm config set --global fund false
+npm config set --global audit false
+npm config set --global min-release-age 14
+npm config set --global workspaces false
+npm config set --global init-private true
 
 success 'Node 26 and NPM installed'
