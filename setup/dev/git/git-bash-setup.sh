@@ -10,9 +10,11 @@ cd "$REPO"
 source "$REPO/bin/utils.sh"
 OS="$(os)"
 
-if [[ "$OS" == "Ubuntu" ]]; then
+if [ "$(os_debian_based)" ]; then
+  warn 'Requesting sudo'
+  sudo -v
+
   info 'Ubuntu: Install Git and Curl'
-  sudo apt update -qq > /dev/null 2>&1
   sudo apt -qq --assume-yes install git curl > /dev/null 2>&1
 fi
 
