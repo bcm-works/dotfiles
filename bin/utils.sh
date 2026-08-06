@@ -5,10 +5,11 @@
 #
 #
 
-info() { echo -e "\033[1;36mi\u2009\033[0m$1"; }
-success() { echo -e "\033[1;32m✔\u2009\033[0m$1"; }
-warn() { echo -e "\033[1;33m!\u2009\033[0m$1"; }
-error() { echo -e "\033[1;31m✗\u2009\033[0m$1"; }
+# Custom styled echo message helpers
+info() { echo -e "\033[1;36mi ${1}\033[0m"; }
+success() { echo -e "\033[1;32m✔ ${1}\033[0m"; }
+warn() { echo -e "\033[1;33m! ${1}\033[0m"; }
+error() { echo -e "\033[1;31m✗ ${1}\033[0m"; }
 
 # Returns the name of the Operating System
 os() {
