@@ -10,7 +10,7 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 
 ## Initial Setup
 
-- Copy [.sample.env](config/.sample.env) to `.env`
+- Copy [.sample.env](.sample.env) to `.env`
 - Edit `.env` to suit your needs and optionally set a custom config directory location
 - Setup your `config` directory (git ignored):
 	- `packages/gnome-extension.list.txt`: Gnome Shell Extensions, update with `gnome-extensions list --user > config/packages/gnome-extension.list.txt`
