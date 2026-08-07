@@ -18,8 +18,7 @@ elif [[ "$(os_debian_based)" ]]; then
 	sudo apt -qq --assume-yes install flatpak gnome-software-plugin-flatpak
 elif [[ "$OS" == "EndeavourOS" ]]; then
 	info 'EndeavourOS: Installing packages'
-	sudo pacman -Syu
-	sudo pacman -S flatpak
+	sudo pacman -Syu --noconfirm flatpak > /dev/null 2>&1
 fi
 
 info 'Adding Flathub remote'

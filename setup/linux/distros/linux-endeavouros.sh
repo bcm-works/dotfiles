@@ -18,7 +18,7 @@ fi
 warn 'EndeavourOS: Requesting sudo access'
 sudo -v
 
-info 'EndeavourOS: Setup initial packages and Flatpak'
+info 'EndeavourOS: Install extra system packages'
 
 sudo pacman -Syu --noconfirm \
   gnome-software \
@@ -26,9 +26,17 @@ sudo pacman -Syu --noconfirm \
   gnome-browser-connector \
   gnome-menus \
   git \
+  git-lfs \
   zip \
   wl-clipboard \
+  cronie \
+  ddcutil \
+  timeshift \
   flatpak > /dev/null 2>&1
+
+info 'EndeavourOS: Enable Bluetooth'
+
+sudo systemctl enable --now bluetooth
 
 info 'EndeavourOS: Setup Flatpak'
 
