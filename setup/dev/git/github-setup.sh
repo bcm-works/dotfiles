@@ -35,7 +35,6 @@ gh auth login \
 		--scopes gist,read:org,repo,read:packages
 
 gh auth setup-git --hostname github.com
-
 gh config set git_protocol ssh
 gh config set editor vim
 gh config set color_labels enabled
@@ -45,11 +44,24 @@ if [ -f "$REPO/.env" ]; then
 fi
 
 if [[ -n "$DOTFILES_USER_EMAIL" && -n "$DOTFILES_USER_NAME" ]]; then
-	info "Git SSH key setup"
+	info "Generate new SSH key"
 
 	mkdir -p "$HOME/.ssh"
 	SSH_KEY="$HOME/.ssh/github-$OS_CLEAN-$NOW"
 	ssh-keygen -t ed25519 -C "$DOTFILES_USER_EMAIL" -f "$SSH_KEY" -N ""
+
+	info "Configure SSH to autoload the new SSH key"
+
+	echo "Host github.com" >> "$HOME/.ssh/config"
+	echo "  AddKeysToAgent yes" >> "$HOME/.ssh/config"
+	echo "  IdentityFile $SSH_KEY" >> "$HOME/.ssh/config"
+
+	echo 'export SSH_AUTH_SOCK="/usr/lib/systemd/user/ssh-agent.socket"' >> "$HOME/.bashrc"
+	echo 'eval "$(ssh-agent -s)" > /dev/null 2>&1' >> "$HOME/.bashrc"
+	echo "ssh-add $SSH_KEY > /dev/null 2>&1" >> "$HOME/.bashrc"
+
+	info "Load the SSH key in to this session"
+
 	eval "$(ssh-agent -s)"
 	ssh-add "$SSH_KEY"
 
