@@ -28,11 +28,11 @@ fi
 brew reinstall gh
 
 gh auth login \
-		--web --clipboard \
-		--git-protocol ssh \
-		--skip-ssh-key \
-		--hostname github.com \
-		--scopes gist,read:org,repo,read:packages
+	--web --clipboard \
+	--git-protocol ssh \
+	--skip-ssh-key \
+	--hostname github.com \
+	--scopes gist,read:org,repo,read:packages
 
 gh auth setup-git --hostname github.com
 gh config set git_protocol ssh
