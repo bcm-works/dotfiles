@@ -56,6 +56,8 @@ if [[ -n "$DOTFILES_USER_EMAIL" && -n "$DOTFILES_USER_NAME" ]]; then
 	echo "  AddKeysToAgent yes" >> "$HOME/.ssh/config"
 	echo "  IdentityFile $SSH_KEY" >> "$HOME/.ssh/config"
 
+	echo '' >> "$HOME/.bashrc"
+	echo '# SSH key setup' >> "$HOME/.bashrc"
 	echo 'export SSH_AUTH_SOCK="/usr/lib/systemd/user/ssh-agent.socket"' >> "$HOME/.bashrc"
 	echo 'eval "$(ssh-agent -s)" > /dev/null 2>&1' >> "$HOME/.bashrc"
 	echo "ssh-add $SSH_KEY > /dev/null 2>&1" >> "$HOME/.bashrc"
