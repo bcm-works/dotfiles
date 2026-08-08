@@ -157,3 +157,5 @@ fi
 # Environment variables
 
 export DO_NOT_TRACK=1
+export EDITOR="vim"
+export VISUAL="vim"
