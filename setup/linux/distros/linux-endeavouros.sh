@@ -32,6 +32,7 @@ sudo pacman -Syu --noconfirm \
   cronie \
   ddcutil \
   timeshift \
+  discover \
   flatpak > /dev/null 2>&1
 
 info 'EndeavourOS: Enable Bluetooth'
