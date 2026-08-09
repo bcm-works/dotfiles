@@ -29,8 +29,6 @@ source "$DIR/.backup-linux-user.env"
 
 mkdir -p "$BACKUP_DIR"
 
-# Default to backing up the current user's home directory
-
 SOURCE_DIR="$HOME"
 BACKUP_USER_NAME="$(id -un)"
 
@@ -57,65 +55,83 @@ CONFIG_BACKUP_DIR="$SOURCE_DIR/$CONFIG_BACKUP_DIR_NAME"
 rm -rf "$CONFIG_BACKUP_DIR"
 mkdir -p "$CONFIG_BACKUP_DIR"
 
-# Save a copy of the current storage mount config file
+# Current storage mount config file
 
 if [ -f "/etc/fstab" ]; then
   cp -f "/etc/fstab" "$CONFIG_BACKUP_DIR/fstab-config.txt"
 fi
 
-# Save a copy of the current Grub config file
+# Current Grub config file
 
 if [ -f "/etc/default/grub" ]; then
   cp -f "/etc/default/grub" "$CONFIG_BACKUP_DIR/grub-config.txt"
 fi
 
-# Save a copy of the user cron items
+# Custom themes and icons
+
+if [ -d "$HOME/.local/share/icons" ]; then
+	cp -r "$HOME/.local/share/icons" "$CONFIG_BACKUP_DIR/icons-user"
+fi
+if [ -d "/usr/share/icons" ]; then
+	cp -r "/usr/share/icons" "$CONFIG_BACKUP_DIR/icons-system"
+fi
+if [ -d "$HOME/.local/share/color-schemes" ]; then
+	cp -r "$HOME/.local/share/color-schemes" "$CONFIG_BACKUP_DIR/color-schemes"
+fi
+
+# KDE config
+
+if [ -f "$HOME/.local/share/kdeglobals" ]; then
+	cp -f "$HOME/.local/share/kdeglobals" "$CONFIG_BACKUP_DIR/kdeglobals"
+fi
+
+# User cron list
 
 if command -v crontab > /dev/null 2>&1 ; then
   crontab -l > "$CONFIG_BACKUP_DIR/crontab-user.txt"
 fi
 
-# Save a copy of the file listing, so symlink paths are logged
+# File listing, so symlink paths are logged
 
 ls -lah "$SOURCE_DIR" > "$CONFIG_BACKUP_DIR/dir-list-user.txt"
 
-# Save a copy of the Pytxis Terminal config
+# Pytxis Terminal config
 
 if command -v /usr/bin/ptyxis > /dev/null 2>&1 ; then
   dconf dump /org/gnome/Ptyxis/ > "$CONFIG_BACKUP_DIR/ptyxis-terminal-config.txt"
 fi
 
-# Save a list of all installed Pacman packages
+# Installed Pacman packages
 
 if command -v pacman > /dev/null 2>&1 ; then
   pacman -Qqen > "$CONFIG_BACKUP_DIR/package-list-pacman.txt"
 fi
 
-# Save a list of all installed Flatpak packages
+# Installed Flatpak packages
 
 if command -v flatpak > /dev/null 2>&1 ; then
   flatpak list --app --columns=application > "$CONFIG_BACKUP_DIR/package-list-flatpak.txt"
 fi
 
-# Save a list of all installed Snap packages
+# Installed Snap packages
 
 if command -v snap > /dev/null 2>&1 ; then
   snap list --unicode=never | tail -n +2 | grep -v 'core\|gnome-\|snapd\|snap-store\|bare\|canonical-livepatch' | awk '{print $1}' > "$CONFIG_BACKUP_DIR/package-list-snap.txt"
 fi
 
-# Save a list of all installed Homebrew packages
+# Installed Homebrew packages
 
 if command -v brew > /dev/null 2>&1 ; then
   brew leaves > "$CONFIG_BACKUP_DIR/package-list-homebrew.txt"
 fi
 
-# Save a list of all Dconf settings
+# Dconf settings
 
 if command -v dconf > /dev/null 2>&1 ; then
   dconf dump / > "$CONFIG_BACKUP_DIR/dconf-user-export.conf"
 fi
 
-# Save a copy of the user's profile image(s)
+# User profile images
 
 if [ -f "$HOME/.face" ]; then
   cp "$HOME/.face" "$CONFIG_BACKUP_DIR/.face"
