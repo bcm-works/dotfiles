@@ -42,7 +42,6 @@ sudo systemctl enable --now bluetooth
 info 'EndeavourOS: Enable SSH Agent service'
 
 systemctl --user enable --now ssh-agent.socket
-export SSH_AUTH_SOCK="/usr/lib/systemd/user/ssh-agent.socket"
 
 info 'EndeavourOS: Setup Flatpak'
 
