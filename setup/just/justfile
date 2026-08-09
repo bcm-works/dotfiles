@@ -163,7 +163,12 @@ clean:
     paccache -ruk0 > /dev/null 2>&1;
     sudo pacman -Rns $(pacman -Qtdq) --noconfirm > /dev/null 2>&1;
     echo '=> EndeavourOS: Empty cache';
-    rm -rf "$HOME/.cache/"*;
+    rm -rf "$HOME/.cache/"* > /dev/null 2>&1;
+    echo '=> EndeavourOS: Remove obsolete packages and caches';
+    sudo paccache -ruk0 > /dev/null 2>&1;
+    sudo pacman -Rns $(pacman -Qdtq) --noconfirm > /dev/null 2>&1;
+    echo '=> EndeavourOS: Remove old system journal logs';
+    journalctl --vacuum-time=4weeks > /dev/null 2>&1;
   elif [[ "$OS" == 'Fedora' ]]; then
     echo '=> Fedora: Cleanup packages';
     sudo dnf autoremove -y > /dev/null 2>&1;

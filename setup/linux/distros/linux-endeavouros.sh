@@ -35,6 +35,10 @@ sudo pacman -Syu --noconfirm \
   discover \
   flatpak > /dev/null 2>&1
 
+info 'EndeavourOS: Update system package config'
+
+sudo paccache -rk2 > /dev/null 2>&1
+
 info 'EndeavourOS: Enable Bluetooth'
 
 sudo systemctl enable --now bluetooth
