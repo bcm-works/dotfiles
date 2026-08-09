@@ -18,13 +18,9 @@ fi
 warn 'EndeavourOS: Requesting sudo access'
 sudo -v
 
-info 'EndeavourOS: Install extra system packages'
+info 'EndeavourOS: Install initial system packages'
 
 sudo pacman -Syu --noconfirm \
-  gnome-software \
-  gnome-tweaks \
-  gnome-browser-connector \
-  gnome-menus \
   git \
   git-lfs \
   zip \
@@ -47,9 +43,13 @@ info 'EndeavourOS: Enable SSH Agent service'
 
 systemctl --user enable --now ssh-agent.socket
 
+if [ -f "$REPO/config/packages/endeavouros.list.txt" ]; then
+	info "EndeavourOS: Installing packages from '$REPO/config/packages/endeavouros.list.txt'"
+	sudo pacman -S --noconfirm --needed - < "$REPO/config/packages/endeavouros.list.txt" > /dev/null 2>&1
+fi
+
 info 'EndeavourOS: Setup Flatpak'
 
 bash "$REPO/setup/linux/packages/linux-flatpak.sh"
 
 success 'EndeavourOS: Setup complete, a restart is recommended'
-
