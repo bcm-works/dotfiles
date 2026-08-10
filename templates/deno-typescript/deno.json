@@ -1,0 +1,73 @@
+{
+	"nodeModulesDir": "none",
+	"preferPackageJson": false,
+	"minimumDependencyAge": 14,
+	"lock": true,
+	"imports": {
+		"@/": "./src/"
+	},
+	"tasks": {
+		"install": {
+			"description": "Install third-party dependencies.",
+			"command": "deno install --quiet"
+		},
+		"update": {
+			"description": "Update third-party dependencies.",
+			"command": "deno outdated --update --compatible"
+		},
+		"setup": {
+			"description": "Local environment setup.",
+			"command": "deno task install"
+		},
+		"test": {
+			"description": "Run all Deno Test scripts in the 'src' directory.",
+			"command": "deno test --quiet --allow-all src"
+		},
+		"list": {
+			"description": "List all available commands.",
+			"command": "deno task"
+		}
+	},
+	"compilerOptions": {
+		"allowUnreachableCode": false,
+		"noImplicitAny": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"useUnknownInCatchVariables": true
+	},
+	"fmt": {
+		"include": [
+			"src/",
+			"deno.json"
+		],
+		"lineWidth": 120,
+		"useTabs": false,
+		"indentWidth": 2,
+		"singleQuote": false,
+		"semiColons": true,
+		"bracePosition": "sameLine",
+		"operatorPosition": "sameLine",
+		"trailingCommas": "never",
+		"useBraces": "whenNotSingleLine"
+	},
+	"lint": {
+		"include": [
+			"src/",
+			"deno.json"
+		],
+		"rules": {
+			"exclude": [
+				"no-import-prefix"
+			]
+		}
+	},
+	"permissions": {},
+	"allowScripts": {
+		"allow": [],
+		"deny": []
+	},
+	"exclude": [
+		"node_modules/"
+	]
+}
