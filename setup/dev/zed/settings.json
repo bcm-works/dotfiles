@@ -1,13 +1,4 @@
 {
-	"show_edit_predictions": {
-		"disabled_globs": [
-			"**/*.md",
-			"**/.env",
-			"**/.env.*",
-			"**/*.go",
-			"**/go.mod"
-		]
-	},
 	"command_aliases": {
 		"ci": "git::Commit",
 		"br": "git::Branch",
@@ -204,6 +195,7 @@
 	},
 	"tab_size": 2,
 	"edit_predictions": {
+		"provider": "zed",
 		"allow_data_collection": "no",
 		"disabled_globs": [
 			"~/.**",
@@ -215,8 +207,10 @@
 			"**/.crt",
 			"**/secrets.*",
 			"**/secrets*",
+			"**/*.go",
+			"**/go.mod"
 		],
-		"mode": "subtle",
+		"mode": "subtle"
 	},
 	"toolbar": {
 		"breadcrumbs": true,
