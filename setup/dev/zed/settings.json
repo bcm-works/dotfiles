@@ -207,11 +207,13 @@
 			"**/.crt",
 			"**/secrets.*",
 			"**/secrets*",
-			"**/*.go",
-			"**/go.mod"
 		],
 		"mode": "subtle"
 	},
+	"edit_predictions_disabled_in": [
+		"comment",
+		"string"
+	],
 	"toolbar": {
 		"breadcrumbs": true,
 		"code_actions": true,
@@ -451,10 +453,6 @@
 		"git_status": true,
 	},
 	"excerpt_context_lines": 5,
-	"edit_predictions_disabled_in": [
-		"comment",
-		"string"
-	],
 	"active_pane_modifiers": {
 		"inactive_opacity": 1.0,
 	},
