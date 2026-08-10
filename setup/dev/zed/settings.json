@@ -563,6 +563,15 @@
 							],
 							"url": "https://www.schemastore.org/package",
 						},
+						{
+							"fileMatch": [
+								"*.json",
+								"*.jsonc",
+							],
+							"schema": {
+								"allowTrailingCommas": true
+							}
+						},
 					],
 				},
 			},
