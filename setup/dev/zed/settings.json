@@ -1,5 +1,13 @@
 {
-	"show_edit_predictions": true,
+	"show_edit_predictions": {
+		"disabled_globs": [
+			"**/*.md",
+			"**/.env",
+			"**/.env.*",
+			"**/*.go",
+			"**/go.mod"
+		]
+	},
 	"command_aliases": {
 		"ci": "git::Commit",
 		"br": "git::Branch",
@@ -52,12 +60,6 @@
 	"agent_ui_font_size": 18.0,
 	"agent_buffer_font_size": 18.0,
 	"languages": {
-		"Go": {
-			"show_edit_predictions": false
-		},
-		"Go Mod": {
-			"show_edit_predictions": false
-		},
 		"CSS": {
 			"format_on_save": "off",
 			"auto_indent_on_paste": false,
