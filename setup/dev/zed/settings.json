@@ -1,4 +1,5 @@
 {
+	"show_edit_predictions": true,
 	"command_aliases": {
 		"ci": "git::Commit",
 		"br": "git::Branch",
@@ -51,6 +52,12 @@
 	"agent_ui_font_size": 18.0,
 	"agent_buffer_font_size": 18.0,
 	"languages": {
+		"Go": {
+			"show_edit_predictions": false
+		},
+		"Go Mod": {
+			"show_edit_predictions": false
+		},
 		"CSS": {
 			"format_on_save": "off",
 			"auto_indent_on_paste": false,
@@ -195,6 +202,7 @@
 	},
 	"tab_size": 2,
 	"edit_predictions": {
+		"allow_data_collection": "no",
 		"disabled_globs": [
 			"~/.**",
 			"**/.env",
@@ -285,12 +293,28 @@
 	"disable_ai": false,
 	"buffer_font_family": "CommitMono Nerd Font",
 	"agent": {
+		"sandbox_permissions": {
+			"network_hosts": [
+				"jsr.io",
+				"registry.npmjs.org",
+				"raw.githubusercontent.com",
+				"usefresh.dev",
+				"npm.jsr.io",
+				"docs.deno.com"
+			]
+		},
 		"tool_permissions": {
 			"tools": {
 				"terminal": {
 					"always_allow": [
 						{
 							"pattern": "^deno\\s+test(\\s|$)"
+						},
+						{
+							"pattern": "^deno\\s+info(\\s|$)"
+						},
+						{
+							"pattern": "^grep\\s+std/assert(\\s|$)"
 						}
 					]
 				},
@@ -298,6 +322,12 @@
 					"always_allow": [
 						{
 							"pattern": "^https?://docs\\.github\\.com"
+						},
+						{
+							"pattern": "^https?://jsr\\.io"
+						},
+						{
+							"pattern": "^https?://raw\\.githubusercontent\\.com"
 						}
 					]
 				}
