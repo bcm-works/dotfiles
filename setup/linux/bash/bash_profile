@@ -111,6 +111,12 @@ if [[ "$BREW_DIR" != "" ]]; then
   alias brew="$BREW_DIR/bin/brew"
 fi
 
+# Set Go env path
+
+if [ -d "$HOME/Code" ]; then
+	export GOPATH="$HOME/Code"
+fi
+
 # Set suitable user level shell variables
 
 export SHELL=$(which bash)
