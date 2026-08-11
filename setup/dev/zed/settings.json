@@ -375,6 +375,11 @@
 	"buffer_font_size": 20.0,
 	"diagnostics": {
 		"button": true,
+		"include_warnings": false,
+		"inline": {
+			"enabled": true,
+			"update_debounce_ms": 500
+		}
 	},
 	"collaboration_panel": {
 		"dock": "left",
