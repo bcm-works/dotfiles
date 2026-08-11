@@ -121,7 +121,7 @@ if command -v go > /dev/null 2>&1; then
 		export GOPATH="$GO_PATH"
 	fi
 
-	pathadd "$GO_PATH"
+	pathadd "$GO_PATH/bin"
 fi
 
 # Set suitable user level shell variables
