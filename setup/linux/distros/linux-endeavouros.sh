@@ -26,7 +26,9 @@ sudo pacman -Syu --noconfirm \
   zip \
   wl-clipboard \
   cronie \
+  chafa \
   ddcutil \
+  fastfetch \
   timeshift \
   discover \
   flatpak > /dev/null 2>&1
@@ -42,6 +44,10 @@ sudo systemctl enable --now bluetooth
 info 'EndeavourOS: Enable SSH Agent service'
 
 systemctl --user enable --now ssh-agent.socket
+
+info 'EndeavourOS: Enable Cron service'
+
+systemctl enable --now cronie.service
 
 if [ -f "$REPO/config/packages/endeavouros.list.txt" ]; then
 	info "EndeavourOS: Installing packages from '$REPO/config/packages/endeavouros.list.txt'"
