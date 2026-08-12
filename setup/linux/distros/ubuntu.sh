@@ -70,6 +70,6 @@ bash "$REPO/setup/fonts/fonts-setup.sh"
 
 info 'Ubuntu: Setup Flatpak'
 
-bash "$REPO/setup/linux/packages/linux-flatpak.sh"
+bash "$REPO/setup/linux/packages/flatpak.sh"
 
 warn "Optional: Run Gnome Setup - bash $REPO/setup/linux/gnome/gnome-setup.sh"

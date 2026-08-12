@@ -11,7 +11,12 @@ source "$REPO/bin/utils.sh"
 OS="$(os)"
 
 if [[ "$OS" == "macOS" ]] || [[ "$OS" == "Windows" ]]; then
-  echo "This script requires Linux."
+  error "This script requires Linux."
+  exit 0
+fi
+
+if ! command -v crontab > /dev/null 2>&1; then
+  error "Crontab is not installed, skipping setup."
   exit 0
 fi
 

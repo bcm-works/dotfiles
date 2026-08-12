@@ -32,7 +32,7 @@ sudo apt -qq --assume-yes install \
 
 info 'Mint: Setup Flatpak'
 
-bash "$REPO/setup/linux/packages/linux-flatpak.sh"
+bash "$REPO/setup/linux/packages/flatpak.sh"
 
 info 'Mint: Installing Nemo Preview document preview app'
 

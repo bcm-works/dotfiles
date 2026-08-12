@@ -21,8 +21,8 @@ sudo -v
 info 'Linux Setup: Run setup/linux/bash/bash-setup.sh'
 bash "$REPO/setup/linux/bash/bash-setup.sh"
 
-info 'Linux Setup: Run setup/linux/linux-fzf.sh'
-bash "$REPO/setup/linux/linux-fzf.sh"
+info 'Linux Setup: Run setup/linux/packages/fzf.sh'
+bash "$REPO/setup/linux/packages/fzf.sh"
 
 info 'Linux Setup: Run fonts/fonts-setup.sh'
 bash "$REPO/fonts/fonts-setup.sh"
@@ -30,23 +30,23 @@ bash "$REPO/fonts/fonts-setup.sh"
 info 'Linux Setup: Run dev/git/git-setup.sh'
 bash "$REPO/dev/git/git-setup.sh"
 
-info 'Linux Setup: Run setup/linux/packages/linux-flatpak.sh'
-bash "$REPO/setup/linux/packages/linux-flatpak.sh"
+info 'Linux Setup: Run setup/linux/packages/flatpak.sh'
+bash "$REPO/setup/linux/packages/flatpak.sh"
 
-info 'Linux Setup: Run setup/linux/distros/linux-endeavouros.sh'
-bash "$REPO/setup/linux/distros/linux-endeavouros.sh"
+info 'Linux Setup: Run setup/linux/distros/endeavouros.sh'
+bash "$REPO/setup/linux/distros/endeavouros.sh"
 
-info 'Linux Setup: Run setup/linux/distros/linux-debian.sh'
-bash "$REPO/setup/linux/distros/linux-debian.sh"
+info 'Linux Setup: Run setup/linux/distros/debian.sh'
+bash "$REPO/setup/linux/distros/debian.sh"
 
-info 'Linux Setup: Run setup/linux/distros/linux-fedora.sh'
-bash "$REPO/setup/linux/distros/linux-fedora.sh"
+info 'Linux Setup: Run setup/linux/distros/fedora.sh'
+bash "$REPO/setup/linux/distros/fedora.sh"
 
-info 'Linux Setup: Run setup/linux/distros/linux-ubuntu.sh'
-bash "$REPO/setup/linux/distros/linux-ubuntu.sh"
+info 'Linux Setup: Run setup/linux/distros/ubuntu.sh'
+bash "$REPO/setup/linux/distros/ubuntu.sh"
 
-info 'Linux Setup: Run setup/linux/distros/linux-mint.sh'
-bash "$REPO/setup/linux/distros/linux-mint.sh"
+info 'Linux Setup: Run setup/linux/distros/mint.sh'
+bash "$REPO/setup/linux/distros/mint.sh"
 
 info 'Linux Setup: Run setup/linux/hardware/keychron-keyboards.sh'
 bash "$REPO/setup/linux/hardware/keychron-keyboards.sh"

@@ -56,6 +56,6 @@ fi
 
 info 'EndeavourOS: Setup Flatpak'
 
-bash "$REPO/setup/linux/packages/linux-flatpak.sh"
+bash "$REPO/setup/linux/packages/flatpak.sh"
 
 success 'EndeavourOS: Setup complete, a restart is recommended'

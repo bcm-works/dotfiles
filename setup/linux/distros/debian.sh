@@ -48,7 +48,7 @@ gsettings set org.gnome.mutter check-alive-timeout 60000
 
 info 'Debian: Setup Flatpak'
 
-bash "$REPO/setup/linux/packages/linux-flatpak.sh"
+bash "$REPO/setup/linux/packages/flatpak.sh"
 
 info 'Debian: Installing Gnome Sushi document preview app'
 
