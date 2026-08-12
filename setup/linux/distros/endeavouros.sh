@@ -24,6 +24,7 @@ sudo pacman -Syu --noconfirm \
   git \
   git-lfs \
   zip \
+  bluez bluez-libs bluez-utils \
   wl-clipboard \
   cronie \
   chafa \
