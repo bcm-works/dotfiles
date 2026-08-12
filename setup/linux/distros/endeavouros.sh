@@ -18,7 +18,7 @@ fi
 warn 'EndeavourOS: Requesting sudo access'
 sudo -v
 
-info 'EndeavourOS: Install initial system packages'
+info 'EndeavourOS: Install some system packages'
 
 sudo pacman -Syu --noconfirm \
   git \
@@ -34,11 +34,11 @@ sudo pacman -Syu --noconfirm \
   discover \
   flatpak > /dev/null 2>&1
 
-info 'EndeavourOS: Update system package config'
+info 'EndeavourOS: Update system package cache config'
 
 sudo paccache -rk2 > /dev/null 2>&1
 
-info 'EndeavourOS: Enable Bluetooth'
+info 'EndeavourOS: Enable Bluetooth service'
 
 sudo systemctl enable --now bluetooth
 
@@ -46,7 +46,7 @@ info 'EndeavourOS: Enable SSH Agent service'
 
 systemctl --user enable --now ssh-agent.socket
 
-info 'EndeavourOS: Enable Cron service'
+info 'EndeavourOS: Enable Cronie service'
 
 systemctl enable --now cronie.service
 
