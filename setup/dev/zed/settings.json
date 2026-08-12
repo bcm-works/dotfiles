@@ -421,10 +421,10 @@
 		"env": {
 			"EDITOR": "zed --wait",
 			"VISUAL": "zed --wait",
+			"LD_LIBRARY_PATH": "",
+			"LD_PRELOAD": ""
 		},
-		"shell": {
-			"program": "/bin/bash",
-		},
+		"shell": "system",
 	},
 	"hidden_files": [
 		".Spotlight-V100",

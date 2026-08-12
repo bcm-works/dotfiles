@@ -30,8 +30,10 @@ if [[ "$OS" == "macOS" ]]; then
   CONFIG_DIR="$HOME/.zed"
 elif command -v flatpak > /dev/null 2>&1; then
 	flatpak install --assumeyes --or-update dev.zed.Zed
+
 	flatpak override --user --socket=wayland --socket=fallback-x11 dev.zed.Zed
 	flatpak override --user --filesystem=home dev.zed.Zed
+	flatpak override --user --unset-env=ZED_FLATPAK_NO_ESCAPE dev.zed.Zed
 
 	CONFIG_DIR="$HOME/.var/app/dev.zed.Zed/config/zed"
 else
