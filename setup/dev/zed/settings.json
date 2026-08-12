@@ -539,7 +539,6 @@
 		"make": true,
 		"nunjucks": true,
 		"python-requirements": true,
-		"symbols": true,
 		"sql": true,
 		"terraform": true,
 		"toml": true,
