@@ -49,11 +49,11 @@ else
 fi
 
 if [ -d "$HOME/Dropbox" ]; then
-  echo "Coping over 'rules.dropboxignore.txt' to '$HOME/Dropbox/rules.dropboxignore'."
-  cp -n "$DIR/rules.dropboxignore.txt" "$HOME/Dropbox/rules.dropboxignore"
+  echo "Coping over 'dropbox-ignore-rules.txt' to '$HOME/Dropbox/rules.dropboxignore'."
+  cp -n "$DIR/dropbox-ignore-rules.txt" "$HOME/Dropbox/rules.dropboxignore"
 else
   echo "Could not find Dropbox directory."
-  echo "Please copy over '$DIR/rules.dropboxignore.txt' to your Dropbox directory,"
+  echo "Please copy over '$DIR/dropbox-ignore-rules.txt' to your Dropbox directory,"
   echo "then rename it to 'rules.dropboxignore'."
 fi
 
