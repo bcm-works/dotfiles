@@ -35,7 +35,11 @@ sudo pacman -Syu --noconfirm \
   flatpak > /dev/null 2>&1
 
 info 'EndeavourOS: Setup printer packages and enable related services'
-sudo pacman -Syu cups system-config-printer avahi --needed > /dev/null 2>&1
+sudo pacman -Syu --noconfirm \
+	cups system-config-printer avahi \
+	hplip sane python-pillow python-reportlab rpcbind python-pyqt5 \
+	--needed > /dev/null 2>&1
+
 sudo systemctl enable --now cups.service
 sudo systemctl enable --now avahi-daemon
 
