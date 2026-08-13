@@ -35,6 +35,7 @@ sudo pacman -Syu --noconfirm \
   flatpak > /dev/null 2>&1
 
 info 'EndeavourOS: Setup printer packages and enable related services'
+
 sudo pacman -Syu --noconfirm \
 	cups system-config-printer avahi \
 	hplip sane python-pillow python-reportlab rpcbind python-pyqt5 \
@@ -61,7 +62,6 @@ if [ -f "$REPO/config/packages/endeavouros.list.txt" ]; then
 fi
 
 info 'EndeavourOS: Setup Flatpak'
-
 bash "$REPO/setup/linux/packages/flatpak.sh"
 
 success 'EndeavourOS: Setup complete, a restart is recommended'
