@@ -34,21 +34,21 @@ sudo pacman -Syu --noconfirm \
   discover \
   flatpak > /dev/null 2>&1
 
-info 'EndeavourOS: Update system package cache config'
-
-sudo paccache -rk2 > /dev/null 2>&1
+info 'EndeavourOS: Setup printer packages and enable the service'
+sudo pacman -Syu cups system-config-printer --needed > /dev/null 2>&1
+sudo systemctl enable --now cups.service
 
 info 'EndeavourOS: Enable Bluetooth service'
-
 sudo systemctl enable --now bluetooth
 
 info 'EndeavourOS: Enable SSH Agent service'
-
 systemctl --user enable --now ssh-agent.socket
 
 info 'EndeavourOS: Enable Cronie service'
-
 systemctl enable --now cronie.service
+
+info 'EndeavourOS: Update system package cache config'
+sudo paccache -rk2 > /dev/null 2>&1
 
 if [ -f "$REPO/config/packages/endeavouros.list.txt" ]; then
 	info "EndeavourOS: Installing packages from '$REPO/config/packages/endeavouros.list.txt'"
