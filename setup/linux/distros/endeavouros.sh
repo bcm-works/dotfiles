@@ -34,9 +34,10 @@ sudo pacman -Syu --noconfirm \
   discover \
   flatpak > /dev/null 2>&1
 
-info 'EndeavourOS: Setup printer packages and enable the service'
-sudo pacman -Syu cups system-config-printer --needed > /dev/null 2>&1
+info 'EndeavourOS: Setup printer packages and enable related services'
+sudo pacman -Syu cups system-config-printer avahi --needed > /dev/null 2>&1
 sudo systemctl enable --now cups.service
+sudo systemctl enable --now avahi-daemon
 
 info 'EndeavourOS: Enable Bluetooth service'
 sudo systemctl enable --now bluetooth
