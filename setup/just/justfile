@@ -120,9 +120,7 @@ update:
   sudo -v;
   if [[ "$OS" == 'EndeavourOS' ]]; then
     echo '=> EndeavourOS: System updates';
-    sudo pacman -Syu --noconfirm > /dev/null 2>&1;
-    echo '=> EndeavourOS: Package updates';
-    yay -Sua --noconfirm > /dev/null 2>&1;
+    eos-update --keep-system-running --aur;
   elif [[ "$OS" == 'Fedora' ]]; then
     echo '=> Fedora: Updating packages';
     sudo dnf upgrade --refresh -y > /dev/null 2>&1;
