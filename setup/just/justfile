@@ -130,9 +130,10 @@ update:
   elif [ "$(just --justfile "{{ justfile() }}" os_debian_based)" ]; then
     echo "=> $OS: Updating APT packages";
     sudo apt update -y -qq > /dev/null 2>&1;
-    sudo apt upgrade -y -qq > /dev/null 2>&1;
-    # Force upgrade of all packages, even when they're in the phasing stage.
-    # sudo apt upgrade -y -qq -o APT::Get::Always-Include-Phased-Updates=true > /dev/null 2>&1;
+    # Force package upgrades, even when they're in the phasing stage.
+    sudo apt upgrade -y -qq -o APT::Get::Always-Include-Phased-Updates=true > /dev/null 2>&1;
+    # Standard package upgrades
+    # sudo apt upgrade -y -qq > /dev/null 2>&1;
   fi
   if command -v snap > /dev/null 2>&1 ; then
     echo '=> Snap: Updating packages';
