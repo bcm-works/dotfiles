@@ -121,6 +121,7 @@ if command -v go > /dev/null 2>&1; then
 		export GOPATH="$GO_PATH"
 	fi
 
+	pathadd "/usr/local/go/bin"
 	pathadd "$GO_PATH/bin"
 fi
 
