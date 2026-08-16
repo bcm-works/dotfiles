@@ -111,17 +111,13 @@ if [[ "$BREW_DIR" != "" ]]; then
   alias brew="$BREW_DIR/bin/brew"
 fi
 
-# Golang setup
+# Go setup
 
+if command -v go1.26.6 > /dev/null 2>&1; then
+	alias go="$(which go1.26.6)"
+fi
 if command -v go > /dev/null 2>&1; then
-	GO_PATH="$(go env GOPATH)"
-
-	if [ -d "$HOME/Code" ]; then
-		GO_PATH="$HOME/Code"
-		export GOPATH="$GO_PATH"
-	fi
-
-	pathadd "/usr/local/go/bin"
+	GO_PATH=$(go env GOPATH)
 	pathadd "$GO_PATH/bin"
 fi
 

@@ -27,6 +27,9 @@ bash "$REPO/setup/dev/deno/deno-setup.sh"
 info 'Run: setup/dev/python/python-setup.sh'
 bash "$REPO/setup/dev/python/python-setup.sh"
 
+info 'Run: setup/dev/go/go-setup.sh'
+bash "$REPO/setup/dev/go/go-setup.sh"
+
 info 'Run: setup/dev/rust/rust-setup.sh'
 bash "$REPO/setup/dev/rust/rust-setup.sh"
 
