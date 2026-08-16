@@ -25,7 +25,7 @@ sudo apt update -qq > /dev/null 2>&1
 info 'Ubuntu: Install base system packages'
 
 sudo apt -qq --assume-yes install \
-  curl git zip ddcutil xclip \
+  curl git zip ddcutil xclip blueman \
   language-pack-en language-pack-en-base \
   language-pack-gnome-en language-pack-gnome-en-base \
   hunspell-en-au hunspell-en-gb \
