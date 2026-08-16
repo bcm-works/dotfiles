@@ -18,7 +18,7 @@ info "Installing Lore server"
 # From https://epicgames.github.io/lore/how-to/deploy-local-lore-server/
 curl -fsSL https://raw.githubusercontent.com/EpicGames/lore/main/scripts/install.sh | bash -s -- --server
 
-info "Loading '$HOME/.bashrc' to apply changes to this session"
+warn 'Reloading shell to apply changes'
 source "$HOME/.bashrc"
 
 info "Installing Lore shell completions for Bash"
