@@ -23,6 +23,6 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 
 ## Save Package Lists
 
-- Flatpak: `flatpak list --app --columns=application | tail -n +1 > config/packages/flatpak.list.txt`
+- Flatpak applications: `flatpak list --app --columns=application | tail -n +1 > config/packages/flatpak.list.txt`
+- Gnome Shell extensions: `gnome-extensions list --user > config/packages/gnome-extension.list.txt`
 - EndeavourOS Pacman packages: `pacman -Qqm > config/packages/endeavouros.list.txt`
-- Gnome Shell Extensions: `gnome-extensions list --user > config/packages/gnome-extension.list.txt`
