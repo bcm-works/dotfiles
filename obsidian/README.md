@@ -1,6 +1,6 @@
 # Obsidian Configuration
 
-My custom [Obsidian](https://obsidian.md/) configuration files ([config](config/)), example note vault ([example](example/)), and helper scripts ([obsidian-backup-config.sh](obsidian-backup-config.sh) and [obsidian-apply-config.sh](obsidian-apply-config.sh)).
+My custom [Obsidian](https://obsidian.md/) configuration files ([config](config/)) and example note vault ([example](example/)).
 
 ## Previews
 
@@ -20,9 +20,5 @@ Here's some previews of Obsidian running with these settings using the vault in 
 4. Setup fonts
   - Purchase your own license for the `Regular` variant of the [IO font by Mass-Driver](https://io.mass-driver.com/) and install the OTF file on your machine
   - Alternatively, use your own fonts and update font names in files inside of the [config directory](config/)
-5. Run [obsidian-apply-config.sh](obsidian-apply-config.sh): `bash ./obsidian-apply-config.sh`
+5. Copy the contents of the [config](config/) directory to your [Obsidian vault config directory](https://obsidian.md/help/configuration-folder)
 6. Open Obsidian
-
-## Backup Current Obsidian Config
-
-Run [obsidian-backup-config.sh](obsidian-backup-config.sh): `bash ./obsidian-backup-config.sh`
