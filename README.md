@@ -7,7 +7,8 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 - **[bin/setup.sh](bin/setup.sh)**: Initial setup script
 - **[dev](dev/)**: Setup scripts and config for software development tools
 - **[dev/templates](dev/templates/)**: Custom templates to simplify new software project creation
-- **[linux](linux/)**: Linux setup, fixes and customisation scripts
+- **[linux](linux/)**: Linux setup and customisation scripts
+- **[obsidian](obsidian/)**: Custom [Obsidian](https://obsidian.md/) configuration and example note vault
 
 ## Initial Setup
 
