@@ -96,7 +96,6 @@ gsettings set org.gnome.desktop.interface toolbar-icons-size 'large'
 gsettings set org.gnome.desktop.interface toolbar-style 'text'
 gsettings set org.gnome.desktop.wm.preferences audible-bell false
 gsettings set org.gnome.desktop.wm.preferences visual-bell false
-gsettings set org.gnome.desktop.wm.preferences visual-bell-type 'frame-flash'
 
 # Window management
 

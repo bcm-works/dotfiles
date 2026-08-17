@@ -43,35 +43,31 @@ sudo apt -qq --assume-yes install \
   python3 python3-gpg python-is-python3 pipx > /dev/null 2>&1
 
 info 'Ubuntu: Setup support for AppImage apps'
-
 sudo apt -qq --assume-yes install libfuse2t64
 
-info 'Ubuntu: Restore the updates status icon'
-
-gsettings set com.ubuntu.update-notifier show-updates-status-icon true
-
 info 'Ubuntu: Prompt Ubuntu Pro setup process'
-
 sudo pro attach
 
 info 'Ubuntu: Fix Security Center display of Ubuntu Pro status'
-
 sudo snap connect desktop-security-center:system-observe
 
-info 'Ubuntu: Update Snap config to only keep two older versions of packages'
+info 'Ubuntu: Configure system updates'
+gsettings set com.ubuntu.update-notifier show-updates-status-icon true
+gsettings set com.ubuntu.update-notifier show-livepatch-status-icon true
+gsettings set com.ubuntu.update-notifier no-show-notifications false
+gsettings set com.ubuntu.update-notifier notify-ubuntu-advantage-available false
+gsettings set com.ubuntu.SoftwareProperties ubuntu-pro-banner-visible true
 
+info 'Ubuntu: Update Snap config to only keep two older versions of packages'
 sudo snap set system refresh.retain=2 > /dev/null 2>&1;
 
 info 'Ubuntu: Configure ddcutil to allow for screen brightness control'
-
 sudo gpasswd --add $USER i2c > /dev/null 2>&1
 
 info 'Ubuntu: Setup Fonts'
-
 bash "$REPO/fonts/fonts-setup.sh"
 
 info 'Ubuntu: Setup Flatpak'
-
 bash "$REPO/linux/packages/flatpak.sh"
 
 warn "Optional: Run Gnome Setup - bash $REPO/linux/gnome/gnome-setup.sh"
