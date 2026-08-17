@@ -5,10 +5,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" != "Fedora" ]]; then
   error "This script requires Fedora."
@@ -35,4 +35,4 @@ sudo dnf install -y sushi > /dev/null 2>&1
 
 info 'Fedora: Setup Flatpak'
 
-bash "$REPO/setup/linux/packages/flatpak.sh"
+bash "$REPO/linux/packages/flatpak.sh"

@@ -5,10 +5,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
   echo "This script requires Linux."
@@ -26,7 +26,7 @@ if [[ "$OS" == "Ubuntu" ]]; then
 
 	info 'Copying over rules file'
   # From https://support.mozilla.org/en-US/kb/linux-security-warning
-  sudo cp "$REPO/setup/linux/packages/firefox-apparmor-rule.txt" "/etc/apparmor.d/firefox-local"
+  sudo cp "$REPO/linux/packages/firefox-apparmor-rule.txt" "/etc/apparmor.d/firefox-local"
 
 	info 'Updating path to Firefox binaries in rules file'
 	sudo sed -i "s|/home/<USER>/bin/firefox/|$(dirname "$(which firefox)")/|g" "/etc/apparmor.d/firefox-local"

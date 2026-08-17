@@ -5,14 +5,14 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 info "Setup Git Bash features"
 
-bash "$REPO/setup/dev/git/git-bash-setup.sh"
+bash "$REPO/dev/git/git-bash-setup.sh"
 
 info "Set global Git Config"
 
@@ -70,4 +70,4 @@ else
 	warn "Please install Git LFS manually: https://git-lfs.com/"
 fi
 
-warn "If you use GitHub, you may want to run: bash $REPO/setup/dev/git/github-setup.sh"
+warn "If you use GitHub, you may want to run: bash $REPO/dev/git/github-setup.sh"

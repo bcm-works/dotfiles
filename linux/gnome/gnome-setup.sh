@@ -6,13 +6,12 @@
 #
 #
 
-THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
 OS_DESKTOP="$(os_desktop)"
 BIN="$REPO/bin"
+cd "$REPO"
 
 if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
   error "This script requires Linux."
@@ -23,6 +22,8 @@ if [[ "$OS_DESKTOP" != "gnome" ]]; then
   error "This script requires Gnome to be set as the Linux Desktop Environment."
   exit 0
 fi
+
+backup_config
 
 warn 'Requesting sudo access'
 sudo -v

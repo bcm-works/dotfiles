@@ -7,29 +7,27 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" == "Windows" ]]; then
   error "This script requires Linux or macOS."
   exit 0
 fi
 
-info "Create a backup of '$HOME/.bashrc'"
-
-[ -f "$HOME/.bashrc" ] && cp "$HOME/.bashrc" "$HOME/.bashrc.old"
+backup_config
 
 info 'Setup Git Bash features'
 
-bash "$REPO/setup/dev/git/git-bash-setup.sh"
+bash "$REPO/dev/git/git-bash-setup.sh"
 
 info 'Add symlink to the customised Bash config file'
 
 [ -f "$HOME/.bash_profile" ] && mv "$HOME/.bash_profile" "$HOME/.bash_profile.old"
-chmod +x "$REPO/setup/linux/bash/bash_profile"
-ln -s "$REPO/setup/linux/bash/bash_profile" "$HOME/.bash_profile"
+chmod +x "$REPO/linux/bash/bash_profile"
+ln -s "$REPO/linux/bash/bash_profile" "$HOME/.bash_profile"
 
 info "Load the customised Bash config files at the end of '$HOME/.bashrc'"
 

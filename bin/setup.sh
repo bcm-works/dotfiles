@@ -5,7 +5,27 @@
 #
 #
 
-source "../.bin/utils.sh"
+echo 'The scripts used here will make changes to your system.'
+echo 'Please review the content of the scripts before running them.'
+echo 'Continue?'
+echo ''
+read -n 1 -rp '[y/N] > ' CONTINUE_SETUP
+if [[ "$CONTINUE_SETUP" != "y" ]]; then
+  echo 'Cancelled'
+  exit 1
+fi
+
+echo ''
+
+if [ ! -d "$HOME/Dotfiles" ]; then
+	REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+  echo "Adding symlink: '$HOME/Dotfiles' > '$REPO'"
+  ln -s "$REPO" "$HOME/Dotfiles"
+else
+  echo "Skipped symlink, '$HOME/Dotfiles' already exists"
+fi
+
+source "$HOME/Dotfiles/bin/utils.sh"
 REPO="$(dir_repo)"
 OS="$(os)"
 cd "$REPO"
@@ -15,18 +35,7 @@ if [[ "$OS" == "Windows" ]]; then
   exit 1
 fi
 
-warn 'The scripts used here will make changes to your system.'
-warn 'Please review the content of the scripts before running them.'
-warn 'Continue?'
-
-read -n 1 -rp '  [y/N] > ' CONTINUE_SETUP
-if [[ "$CONTINUE_SETUP" != "y" ]]; then
-  info 'Cancelled'
-  exit 0
-fi
-
-echo ''
-bash "$(backup_config)"
+backup_config
 
 info 'Checking for custom config dir'
 
@@ -58,13 +67,6 @@ info 'Ensure required config sub-directories exist'
 mkdir -p "$REPO/config/backups"
 mkdir -p "$REPO/config/packages"
 
-if [ ! -d "$HOME/Dotfiles" ]; then
-  success "Setup symlink: '$HOME/Dotfiles' > '$REPO'"
-  ln -s "$REPO" "$HOME/Dotfiles"
-else
-  warn "Skipped symlink, '$HOME/Dotfiles' already exists"
-fi
-
 if command -v brew > /dev/null 2>&1 ; then
   warn 'Homebrew package manager already installed'
 else
@@ -73,7 +75,7 @@ else
   warn 'Install Homebrew to the default location?'
   read -n 1 -rp '  [y/N] > ' BREW_DEFAULT
   if [[ "$BREW_DEFAULT" == "y" ]]; then
-    bash "$REPO/setup/homebrew/homebrew-setup.sh"
+    bash "$REPO/homebrew/homebrew-setup.sh"
   else
     echo ''
     warn 'Install Homebrew to ~/.brew instead?'
@@ -81,9 +83,9 @@ else
     if [[ "$BREW_USER" == "y" ]]; then
       echo ''
       if [[ "$OS" == "macOS" ]]; then
-        bash "$REPO/setup/homebrew/homebrew-setup-user.macos.sh"
+        bash "$REPO/homebrew/homebrew-setup-user.macos.sh"
       else
-        bash "$REPO/setup/homebrew/homebrew-setup-user.linux.sh"
+        bash "$REPO/homebrew/homebrew-setup-user.linux.sh"
       fi
     else
     	echo ''

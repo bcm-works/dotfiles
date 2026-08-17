@@ -5,10 +5,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" != "Mint" ]]; then
   error "This script requires Linux Mint."
@@ -32,7 +32,7 @@ sudo apt -qq --assume-yes install \
 
 info 'Mint: Setup Flatpak'
 
-bash "$REPO/setup/linux/packages/flatpak.sh"
+bash "$REPO/linux/packages/flatpak.sh"
 
 info 'Mint: Installing Nemo Preview document preview app'
 

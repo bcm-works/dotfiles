@@ -11,9 +11,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
+OS="$(os)"
 cd "$REPO"
-source "$REPO/bin/utils.sh"
 
 if [[ "$(os)" == "Windows" ]]; then
   error 'Please install Rust manually - https://rust-lang.org/tools/install/'

@@ -5,12 +5,12 @@
 #
 #
 
-THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
-OS="$(os)"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 BIN="$REPO/bin"
+THIS_DIR="$(dir_this)"
+OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" == "macOS" ]] || [[ "$OS" == "Windows" ]]; then
   echo "This script requires Linux."

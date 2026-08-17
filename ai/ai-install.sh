@@ -11,9 +11,20 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
+OS="$(os)"
 cd "$REPO"
-source "$REPO/bin/utils.sh"
+
+if [[ "$OS" == "Windows" ]]; then
+  warn "Please manually install the AI Code Generation tools you need."
+  echo ''
+  info " - Google Antigravity CLI - https://antigravity.google/product/antigravity-cli"
+  info " - OpenAI Codex CLI - https://developers.openai.com/codex/cli"
+  info " - Claude Code CLI - https://code.claude.com/docs/en/quickstart"
+  info " - GitHub Copilot CLI - https://github.com/features/copilot/cli"
+  exit 1
+fi
 
 # Google Antigravity CLI - https://antigravity.google/product/antigravity-cli
 

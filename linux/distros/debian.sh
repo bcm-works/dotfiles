@@ -5,10 +5,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" != "Debian" ]]; then
   error "This script requires Debian."
@@ -48,7 +48,7 @@ gsettings set org.gnome.mutter check-alive-timeout 60000
 
 info 'Debian: Setup Flatpak'
 
-bash "$REPO/setup/linux/packages/flatpak.sh"
+bash "$REPO/linux/packages/flatpak.sh"
 
 info 'Debian: Installing Gnome Sushi document preview app'
 

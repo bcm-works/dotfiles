@@ -5,10 +5,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" != "EndeavourOS" ]]; then
   echo "This script requires EndeavourOS."
@@ -62,6 +62,6 @@ if [ -f "$REPO/config/packages/endeavouros.list.txt" ]; then
 fi
 
 info 'EndeavourOS: Setup Flatpak'
-bash "$REPO/setup/linux/packages/flatpak.sh"
+bash "$REPO/linux/packages/flatpak.sh"
 
 success 'EndeavourOS: Setup complete, a restart is recommended'

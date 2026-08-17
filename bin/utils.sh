@@ -27,7 +27,7 @@ dir_this() {
 # Backup current user config files
 backup_config() {
 	NOW=$(date "+%Y%m%d-%H%M%S")
-	BACKUPS="$(dir_repo)/.config/backups/$NOW"
+	BACKUPS="$(dir_repo)/config/backups/$NOW"
 
 	mkdir -p "$BACKUPS"
 

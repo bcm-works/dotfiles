@@ -11,11 +11,11 @@
 #
 #
 
-DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO="$(cd "$(dirname "$0")/../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+DIR="$(dir_this)"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" == "Windows" ]]; then
   echo 'Linux or macOS is required'

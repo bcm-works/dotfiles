@@ -5,12 +5,12 @@
 #
 #
 
-THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
-OS="$(os)"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
+THIS_DIR="$(dir_this)"
 BIN="$REPO/bin"
+OS="$(os)"
+cd "$REPO"
 
 CONFIG_DIR="$HOME/.config/zed"
 CONFIG_FILE="$THIS_DIR/settings.json"

@@ -12,12 +12,11 @@
 #
 #
 
-DIR="$(dirname "$(readlink -f "$0")")"
-REPO="$(cd "$(dirname "$0")/../.." && pwd)"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+DIR="$(dir_this)"
+REPO="$(dir_repo)"
 OS="$(os)"
 OS_CLEAN="$(os_clean)"
-
 cd "$DIR"
 
 LOG_FILE="$DIR/backup-linux-user.log"

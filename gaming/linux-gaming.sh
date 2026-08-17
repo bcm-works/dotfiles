@@ -5,12 +5,12 @@
 #
 #
 
-DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO="$(cd "$(dirname "$0")/../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
+DIR="$(dir_this)"
 OS="$(os)"
 OS_DESKTOP="$(os_desktop)"
+cd "$REPO"
 
 if [[ "$OS" == "macOS" ]] || [[ "$OS" == "Windows" ]]; then
   echo "This script requires Linux."
@@ -149,7 +149,7 @@ cp "$HOME/.config/gamemode.ini" "$HOME/.config/gamemode.ini.old"
 cp "$DIR/gamemode.ini" "$HOME/.config/gamemode.ini"
 
 if ! command -v flatpak > /dev/null 2>&1 ; then
-  warn "Skipping Flatpak installs, please setup Flatpak first - bash $REPO/setup/linux/packages/flatpak.sh"
+  warn "Skipping Flatpak installs, please setup Flatpak first - bash $REPO/linux/packages/flatpak.sh"
 else
   info 'Installing Discord via Flatpak'
   flatpak install --assumeyes --or-update com.discordapp.Discord

@@ -9,10 +9,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" != "macOS" ]]; then
   echo "This script requires macOS."

@@ -5,10 +5,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" != "Ubuntu" ]]; then
   error "This script requires Ubuntu."
@@ -66,10 +66,10 @@ sudo gpasswd --add $USER i2c > /dev/null 2>&1
 
 info 'Ubuntu: Setup Fonts'
 
-bash "$REPO/setup/fonts/fonts-setup.sh"
+bash "$REPO/fonts/fonts-setup.sh"
 
 info 'Ubuntu: Setup Flatpak'
 
-bash "$REPO/setup/linux/packages/flatpak.sh"
+bash "$REPO/linux/packages/flatpak.sh"
 
-warn "Optional: Run Gnome Setup - bash $REPO/setup/linux/gnome/gnome-setup.sh"
+warn "Optional: Run Gnome Setup - bash $REPO/linux/gnome/gnome-setup.sh"

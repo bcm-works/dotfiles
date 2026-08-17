@@ -5,19 +5,20 @@
 #
 #
 
-DIR="$(dirname "$0" && pwd)"
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
-SOURCE_COLOURS="$REPO/setup/linux/grub/grub-colours.config"
+SOURCE_COLOURS="$REPO/linux/grub/grub-colours.config"
 TARGET_COLOURS="/etc/grub.d/06_local_colours"
 
 if [[ "$OS" == "Windows" ]] || [[ "$OS" == "macOS" ]]; then
   echo "This script requires Linux."
   exit 1
 fi
+
+backup_config
 
 warn "Requesting sudo"
 sudo -v

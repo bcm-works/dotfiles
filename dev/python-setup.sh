@@ -9,9 +9,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
+OS="$(os)"
 cd "$REPO"
-source "$REPO/bin/utils.sh"
 
 if [ ! "$(os_debian_based)" ]; then
   error 'Please install Python 3 manually - https://www.python.org/downloads/'

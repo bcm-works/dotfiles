@@ -12,9 +12,10 @@
 #
 #
 
-DIR="$(dirname "$(readlink -f "$0")")"
-REPO="$(cd "$(dirname "$0")/../.." && pwd)"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+DIR="$(dir_this)"
+REPO="$(dir_repo)"
+cd "$DIR"
 
 LOG_FILE="$DIR/backup-linux-dir.log"
 LOG_FMT="+%Y-%m-%d %H:%M:%S"

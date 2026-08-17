@@ -6,14 +6,14 @@
 #   - To run this script:
 #     - Clone this repo
 #     - Open that dir in Terminal
-#     - Run: bash ./setup/dev/go/go-setup.sh
+#     - Run: bash ./dev/go/go-setup.sh
 #
 #
 
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [ ! "$(command -v go)" ]; then
 	if [[ "$(os_debian_based)" ]]; then

@@ -8,14 +8,14 @@
 #
 #
 
-DIR="$(cd "$(dirname "$0")" && pwd)"
-
-REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "$HOME/Dotfiles/bin/utils.sh"
+REPO="$(dir_repo)"
+DIR="$(dir_this)"
 OS="$(os)"
 OS_CLEAN="$(os_clean)"
 BIN="$REPO/bin"
+cd "$REPO"
+
 NOW=$(date "+%Y%m%d-%H%M%S")
 
 if [[ "$OS" == "Windows" ]]; then
