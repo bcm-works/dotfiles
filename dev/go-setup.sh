@@ -42,10 +42,10 @@ else
 	rm -rf "$GO_INSTALL_DOWNLOAD"
 
 	export PATH=$PATH:/usr/local/go/bin
-fi
 
-warn 'Reloading shell to apply changes'
-source "$HOME/.bashrc"
+	warn 'Reloading shell to apply changes'
+	source "$HOME/.bashrc"
+fi
 
 info "Setting GOPATH to $GO_PATH"
 mkdir -p "$GO_PATH"
