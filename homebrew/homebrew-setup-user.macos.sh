@@ -26,9 +26,7 @@ mkdir -p "$BREW_DIR"
 curl -L https://github.com/Homebrew/brew/tarball/main | tar xz --strip-components 1 -C "$BREW_DIR"
 
 eval "$($BREW_DIR/bin/brew shellenv)"
-
 brew update --force --quiet
-
 chmod -R go-w "$(brew --prefix)/share/zsh"
 
 touch "$HOME/.zshrc"
@@ -47,4 +45,4 @@ echo 'alias brew="$BREW_DIR/bin/brew"' >> "$HOME/.zshrc"
 
 source "$HOME/.zshrc"
 
-brew install gcc
+brew install gcc > /dev/null 2>&1
