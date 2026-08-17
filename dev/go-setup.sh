@@ -48,10 +48,12 @@ else
 fi
 
 info "Setting GOPATH to $GO_PATH"
+
 mkdir -p "$GO_PATH"
 export GOPATH="$GO_PATH"
 
 info 'Configuring Go'
+
 go env -w GOPROXY="https://proxy.golang.org,direct"
 go env -w GOSUMDB="sum.golang.org"
 
