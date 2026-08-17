@@ -11,6 +11,19 @@ success() { echo -e "\033[1;32m✔ ${1}\033[0m"; }
 warn() { echo -e "\033[1;33m! ${1}\033[0m"; }
 error() { echo -e "\033[1;31m✗ ${1}\033[0m"; }
 
+# Returns the absolute directory path to the repo
+# root based on the location of this file. Assumes
+# this file is one directory deeper than the repo root.
+dir_repo() {
+	echo "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+}
+
+# Returns the absolute path of the executed script
+# that ran this function.
+dir_this() {
+	echo "$(cd "$(dirname "$0")" && pwd)"
+}
+
 # Returns the name of the Operating System
 os() {
   OS="$(uname -s)";
@@ -43,7 +56,7 @@ os_clean() {
   echo "$(os | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
 }
 
-# Checks if the OS is Debian based, returns "true" or "false" as strings.
+# Checks if the OS is Debian based, return "true" or "false" as a string.
 os_debian_based() {
   OS="$(os)"
 
@@ -64,7 +77,13 @@ os_debian_based() {
   fi
 }
 
-# Get the name of the Linux Desktop Environment
+# Get the name of the Linux Desktop Environment.
 os_desktop() {
-  echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:} | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
+	OS="$(os)"
+
+	if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
+		echo ""
+	else
+  	echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:} | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
+	fi
 }
