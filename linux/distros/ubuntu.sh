@@ -24,8 +24,12 @@ sudo apt update -qq > /dev/null 2>&1
 
 info 'Ubuntu: Install base system packages'
 
+sudo add-apt-repository universe
+sudo apt update -qq > /dev/null 2>&1
 sudo apt -qq --assume-yes install \
-  curl git zip ddcutil xclip blueman \
+  curl git zip vim \
+  ddcutil blueman \
+  xclip wl-clipboard \
   language-pack-en language-pack-en-base \
   language-pack-gnome-en language-pack-gnome-en-base \
   hunspell-en-au hunspell-en-gb \
@@ -36,12 +40,10 @@ sudo apt -qq --assume-yes install \
   gnome-sushi \
   gnome-terminal \
   gnome-tweaks \
-  vim \
   python3 python3-gpg python-is-python3 pipx > /dev/null 2>&1
 
 info 'Ubuntu: Setup support for AppImage apps'
 
-sudo add-apt-repository universe
 sudo apt -qq --assume-yes install libfuse2t64
 
 info 'Ubuntu: Restore the updates status icon'
