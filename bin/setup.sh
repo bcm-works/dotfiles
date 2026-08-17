@@ -5,10 +5,10 @@
 #
 #
 
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
-cd "$REPO"
-source "$REPO/bin/utils.sh"
+source "../.bin/utils.sh"
+REPO="$(dir_repo)"
 OS="$(os)"
+cd "$REPO"
 
 if [[ "$OS" == "Windows" ]]; then
   error 'These scripts require either Linux or macOS.'
@@ -26,7 +26,7 @@ if [[ "$CONTINUE_SETUP" != "y" ]]; then
 fi
 
 echo ''
-bash "$REPO/bin/backup-config.sh"
+bash "$(backup_config)"
 
 info 'Checking for custom config dir'
 
@@ -95,7 +95,7 @@ fi
 
 info 'Just command runner setup'
 
-bash "$REPO/setup/just/just-setup.sh"
+bash "$REPO/just/just-setup.sh"
 
 success 'Initial setup completed.'
 success 'Now you can run the setup scripts that suit your needs.'

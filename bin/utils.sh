@@ -24,6 +24,36 @@ dir_this() {
 	echo "$(cd "$(dirname "$0")" && pwd)"
 }
 
+# Backup current user config files
+backup_config() {
+	NOW=$(date "+%Y%m%d-%H%M%S")
+	BACKUPS="$(dir_repo)/.config/backups/$NOW"
+
+	mkdir -p "$BACKUPS"
+
+	crontab -l > "$BACKUPS/crontab.bak"
+
+	cp "$HOME/".bash* "$BACKUPS"
+	cp "$HOME/".git* "$BACKUPS"
+	cp -r "$HOME/".vim* "$BACKUPS"
+	cp -r "$HOME/".ssh "$BACKUPS"
+
+	[ -e "$HOME/.env.local" ] && cp "$HOME/.env.local" "$BACKUPS"
+	[ -e "$HOME/justfile" ] && cp "$HOME/justfile" "$BACKUPS"
+
+	[ -f "$HOME/.face" ] && cp "$HOME/.face" "$BACKUPS"
+	[ -f "$HOME/.face.icon" ] && cp "$HOME/.face.icon" "$BACKUPS"
+	[ -f "$HOME/profile.png" ] && cp "$HOME/profile.png" "$BACKUPS"
+	[ -f "/var/lib/AccountsService/icons/$USER" ] && cp "/var/lib/AccountsService/icons/$USER" "$BACKUPS"
+
+	mkdir -p "$BACKUPS/.config"
+
+	cp -r "$HOME/.config/user-dirs.dirs" "$BACKUPS/.config"
+	cp -r "$HOME/.config/user-dirs.locale" "$BACKUPS/.config"
+
+	success "New config backup saved in '$BACKUPS'"
+}
+
 # Returns the name of the Operating System
 os() {
   OS="$(uname -s)";
