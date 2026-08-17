@@ -31,6 +31,7 @@ pathadd() {
 # Update PATH to include user level bin directories if they exist
 
 pathadd "/usr/local/bin"
+pathadd "/usr/local/go/bin"
 pathadd "$HOME/bin"
 pathadd "$HOME/.local/bin"
 pathadd "$HOME/.cargo/bin"
@@ -109,16 +110,6 @@ if [[ "$BREW_DIR" != "" ]]; then
   pathadd "$BREW_DIR/bin"
 
   alias brew="$BREW_DIR/bin/brew"
-fi
-
-# Go setup
-
-if command -v go1.26.6 > /dev/null 2>&1; then
-	alias go="$(which go1.26.6)"
-fi
-if command -v go > /dev/null 2>&1; then
-	GO_PATH=$(go env GOPATH)
-	pathadd "$GO_PATH/bin"
 fi
 
 # Set suitable user level shell variables
