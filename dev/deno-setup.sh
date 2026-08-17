@@ -8,7 +8,7 @@
 #   - To run this script:
 #     - Clone this repo
 #     - Open that dir in Terminal
-#     - Run: bash ./dev/deno/deno-setup.sh
+#     - Run: bash ./dev/deno-setup.sh
 #
 #
 

@@ -7,7 +7,7 @@
 #   - To run this script:
 #     - Clone this repo
 #     - Open that dir in Terminal
-#     - Run: bash ./dev/rust/rust-setup.sh
+#     - Run: bash ./dev/rust-setup.sh
 #
 #
 
