@@ -7,7 +7,8 @@
 #   - Dx alias setup command from https://docs.deno.com/runtime/reference/cli/x/
 #   - To run this script:
 #     - Clone this repo
-#     - Open that dir in Terminal
+#     - Open that dir in a new terminal
+#     - Run: bash ./bin/setup.sh
 #     - Run: bash ./dev/deno-setup.sh
 #
 #

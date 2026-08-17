@@ -7,7 +7,8 @@
 # 	- NVM install command from https://github.com/nvm-sh/nvm?tab=readme-ov-file#git-install
 #   - To run this script:
 #     - Clone this repo
-#     - Open that dir in Terminal
+#     - Open that dir in a new terminal
+#     - Run: bash ./bin/setup.sh
 #     - Run: bash ./dev/node-setup.sh
 #
 #

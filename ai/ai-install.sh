@@ -2,12 +2,13 @@
 #
 #
 # Install and update AI Code Generation tools
+#  - Uses the first-party suggested installation and update commands for Linux/macOS
+#  - Requires Homebrew to be installed
 #  - To run this script:
 #    - Clone this repo
-#    - Open that dir in Terminal
+#    - Open that dir in a new terminal
+#    - Run: bash ./bin/setup.sh
 #    - Run: bash ./ai/ai-install.sh
-#  - Uses the first-party suggested installation and update commands for Linux/macOS
-#  - Assumes that Homebrew is already installed
 #
 #
 
