@@ -18,28 +18,30 @@ OS="$(os)"
 cd "$REPO"
 
 GO_PATH="$HOME/Code"
-GO_DOWNLOAD="$HOME/Downloads/go1.26.6.linux-amd64.tar.gz"
 
-if [ ! "$(command -v go)" ]; then
-	if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
-		error 'Please install Go manually first - https://go.dev/doc/install'
-	  exit 1
-	else
-		warn 'Requesting sudo'
-		sudo -v
+GO_INSTALL_VERSION="1.26.6"
+GO_INSTALL_DOWNLOAD="$HOME/Downloads/go$GO_INSTALL_VERSION.linux-amd64.tar.gz"
+GO_INSTALL_REMOTE="https://dl.google.com/go/go$GO_INSTALL_VERSION.linux-amd64.tar.gz"
 
-		info 'Downloading and installing Go version 1.26.6'
+if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
+	error 'Please install Go manually first - https://go.dev/doc/install'
+  exit 1
+else
+	warn 'Requesting sudo'
+	sudo -v
 
-		rm -rf "$GO_DOWNLOAD"
-		curl --silent --show-error \
-			--output "$GO_DOWNLOAD" \
-			"https://dl.google.com/go/go1.26.6.linux-amd64.tar.gz"
+	info "Downloading and installing Go version $GO_INSTALL_VERSION"
 
-		sudo rm -rf /usr/local/go
-		sudo tar -C /usr/local -xzf "$GO_DOWNLOAD"
+	rm -rf "$GO_INSTALL_DOWNLOAD"
+	curl --silent --show-error \
+		--output "$GO_INSTALL_DOWNLOAD" \
+		"$GO_INSTALL_REMOTE"
 
-		export PATH=$PATH:/usr/local/go/bin
-	fi
+	sudo rm -rf /usr/local/go
+	sudo tar -C /usr/local -xzf "$GO_INSTALL_DOWNLOAD"
+	rm -rf "$GO_INSTALL_DOWNLOAD"
+
+	export PATH=$PATH:/usr/local/go/bin
 fi
 
 warn 'Reloading shell to apply changes'
