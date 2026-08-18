@@ -39,6 +39,9 @@ sudo rm -rf "$BREW_DIR_DEFAULT"
 
 eval "$($BREW_DIR/bin/brew shellenv bash)"
 
+warn 'Reloading shell to apply changes'
+source "$HOME/.bashrc"
+
 echo 'Installing GCC via Homebrew'
 
 brew install gcc > /dev/null 2>&1

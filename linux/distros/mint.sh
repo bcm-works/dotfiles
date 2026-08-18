@@ -18,25 +18,17 @@ fi
 warn 'Mint: Requesting sudo'
 sudo -v
 
-info 'Mint: Update package lists'
-
-sudo apt update -qq > /dev/null 2>&1
-
 info 'Mint: Install base system packages'
 
+sudo apt update -qq > /dev/null 2>&1
 sudo apt -qq --assume-yes install \
-	curl vim ddcutil \
-	zip p7zip p7zip-full \
-	clamav-freshclam clamav-daemon \
-	gsettings-desktop-schemas pavucontrol > /dev/null 2>&1
+	curl git vim zip ddcutil \
+	libfuse2t64 pavucontrol nemo-preview \
+	gsettings-desktop-schemas > /dev/null 2>&1
 
 info 'Mint: Setup Flatpak'
 
 bash "$REPO/linux/packages/flatpak.sh"
-
-info 'Mint: Installing Nemo Preview document preview app'
-
-sudo apt -qq --assume-yes install nemo-preview > /dev/null 2>&1
 
 info 'Mint: Disabling printer notifications'
 
@@ -102,3 +94,4 @@ gsettings set org.cinnamon.desktop.keybindings.media-keys calculator []
 gsettings set org.cinnamon.desktop.keybindings.media-keys email []
 gsettings set org.cinnamon.desktop.keybindings.media-keys home []
 gsettings set org.cinnamon.desktop.keybindings.media-keys www []
+

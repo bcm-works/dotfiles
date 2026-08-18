@@ -23,12 +23,13 @@ if [[ "$OS" == "Windows" ]]; then
   exit 1
 elif [[ "$OS" == "macOS" ]]; then
   info 'Installing Deno for macOS'
-
   curl -fsSL https://deno.land/install.sh | sh
 else
   info 'Installing Deno for Linux'
-
   curl -fsSL https://deno.land/install.sh | sh
+  
+  warn 'Reloading shell to apply changes'
+	source "$HOME/.bashrc"
 fi
 
 info "Install the 'dx' alias for 'deno x'"
