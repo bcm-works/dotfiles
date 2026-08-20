@@ -94,8 +94,8 @@ os_clean() {
 os_debian_based() {
   OS="$(os)"
 
-  if [[ "$OS" == "macOS" || "$OS" == "Windows" || "$OS" == "Fedora" || "$OS" == "Fedora Atomic" ]];
-    echo "false"
+  if [[ "$OS" == "macOS" || "$OS" == "Windows" || "$OS" == "Fedora" || "$OS" == "Fedora Atomic" ]]; then
+    echo "false";
   fi
 
   if [ ! -f "/etc/os-release" ]; then
