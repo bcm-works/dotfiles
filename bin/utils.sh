@@ -31,16 +31,16 @@ backup_config() {
 
 	mkdir -p "$BACKUPS"
 
-	crontab -l > "$BACKUPS/crontab.bak"
+	[ command -v crontab &> /dev/null ] && crontab -l > "$BACKUPS/crontab.bak"
 
 	cp "$HOME/".bash* "$BACKUPS"
-	cp "$HOME/".git* "$BACKUPS"
-	cp -r "$HOME/".vim* "$BACKUPS"
-	cp -r "$HOME/".ssh "$BACKUPS"
-
+	
+	[ -f "$HOME/.gitconfig" ] && cp "$HOME/.gitconfig" "$BACKUPS"
+	[ -f "$HOME/.vimrc" ] && cp "$HOME/".vimrc "$BACKUPS"
+	[ -d "$HOME/.vim" ] && cp -r "$HOME/.vim" "$BACKUPS"
+	[ -d "$HOME/.ssh" ] && cp -r "$HOME/.ssh" "$BACKUPS"
 	[ -e "$HOME/.env.local" ] && cp "$HOME/.env.local" "$BACKUPS"
 	[ -e "$HOME/justfile" ] && cp "$HOME/justfile" "$BACKUPS"
-
 	[ -f "$HOME/.face" ] && cp "$HOME/.face" "$BACKUPS"
 	[ -f "$HOME/.face.icon" ] && cp "$HOME/.face.icon" "$BACKUPS"
 	[ -f "$HOME/profile.png" ] && cp "$HOME/profile.png" "$BACKUPS"
@@ -48,8 +48,8 @@ backup_config() {
 
 	mkdir -p "$BACKUPS/.config"
 
-	cp -r "$HOME/.config/user-dirs.dirs" "$BACKUPS/.config"
-	cp -r "$HOME/.config/user-dirs.locale" "$BACKUPS/.config"
+	[ -f "$HOME/.config/user-dirs.dirs" ] && cp -r "$HOME/.config/user-dirs.dirs" "$BACKUPS/.config"
+	[ -f "$HOME/.config/user-dirs.locale" ] && cp -r "$HOME/.config/user-dirs.locale" "$BACKUPS/.config"
 
 	success "New config backup saved in '$BACKUPS'"
 }
@@ -62,7 +62,11 @@ os() {
   elif [[ "$OS" == 'Linux' ]]; then
     DISTRO_NAME="$(source /etc/os-release && echo $NAME)";
     if [[ "$DISTRO_NAME" == 'Fedora Linux' ]]; then
-      echo 'Fedora';
+    		if command -v rpm-ostree &> /dev/null; then
+    			echo 'Fedora Atomic';
+    		else
+      		echo 'Fedora';
+      	fi
     elif [[ "$DISTRO_NAME" == 'Debian GNU/Linux' ]]; then
       echo 'Debian';
     elif [[ "$DISTRO_NAME" == 'Linux Mint' ]]; then
@@ -101,9 +105,9 @@ os_debian_based() {
   source "/etc/os-release"
 
   if [[ "$ID" == "debian" || "$ID_LIKE" == *"debian"* ]]; then
-    echo "true"
+  		echo "true"
   else
-  	echo "false"
+  		echo "false"
   fi
 }
 
@@ -114,6 +118,6 @@ os_desktop() {
 	if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
 		echo ""
 	else
-  	echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:} | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
+  		echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:} | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
 	fi
 }

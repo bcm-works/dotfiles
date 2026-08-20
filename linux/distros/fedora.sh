@@ -7,12 +7,16 @@
 
 source "$HOME/Dotfiles/bin/utils.sh"
 REPO="$(dir_repo)"
+DIR="$(dir_this)"
 OS="$(os)"
 cd "$REPO"
 
-if [[ "$OS" != "Fedora" ]]; then
+if [[ "$OS" == "Fedora Atomic" ]]; then
+	bash "$DIR/fedora-atomic.sh"
+	exit 0
+elif [[ "$OS" != "Fedora" ]]; then
   error "This script requires Fedora."
-  exit 0
+  exit 1
 fi
 
 info 'Fedora: Install required packages'

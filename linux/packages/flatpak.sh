@@ -10,26 +10,33 @@ REPO="$(dir_repo)"
 OS="$(os)"
 cd "$REPO"
 
+PACKAGES_LIST="$REPO/config/packages/flatpak.list.txt"
+
 if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
 	error "This script requires Linux."
 	exit 0
-elif [[ "$(os_debian_based)" ]]; then
-	info "$OS: Installing packages"
-	sudo apt -qq --assume-yes install flatpak gnome-software-plugin-flatpak
-elif [[ "$OS" == "EndeavourOS" ]]; then
-	info 'EndeavourOS: Installing packages'
-	sudo pacman -Syu --noconfirm flatpak > /dev/null 2>&1
 fi
 
-info 'Adding Flathub remote'
+if ! command -v flatpak &> /dev/null; then
+	error "Install Flatpak and add the Flathub remote first - https://flatpak.org/"
+	exit 0
+fi
 
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+if [[ -f "$PACKAGES_LIST" ]]; then
+	info "Installing Flatpak apps from '$PACKAGES_LIST'"
 
-if [[ -f "$REPO/config/packages/flatpak.list.txt" ]]; then
-	info "Installing Flatpak apps from '$REPO/config/packages/flatpak.list.txt'"
-	xargs -a "$REPO/config/packages/flatpak.list.txt" flatpak install --assumeyes --or-update
+	while IFS= read -r line; do
+		IS_INSTALLED="$(flatpak list --columns=application | grep -q "^$line$" && echo "true")"
+		if [[ "$IS_INSTALLED" != "true" ]]; then
+    		info "  $line - Installing"
+    		flatpak install --assumeyes --or-update "$line" > /dev/null 2>&1
+    	else
+    		success "  $line - Installed, skipping"
+    	fi
+	done < "$PACKAGES_LIST"
+
+	warn 'Flatpak setup completed, a system reboot is recommended.'
 else
-	warn "Skipping Flatpak app installs, file not found at '$REPO/config/packages/flatpak.list.txt'"
+	warn "Skipping Flatpak app installs, file not found at '$PACKAGES_LIST'"
 fi
 
-success 'Flatpak setup completed, a system reboot is recommended.'

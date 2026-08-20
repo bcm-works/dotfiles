@@ -42,7 +42,11 @@ os:
   elif [[ "$OS" == 'Linux' ]]; then
     DISTRO_NAME="$(source /etc/os-release && echo $NAME)";
     if [[ "$DISTRO_NAME" == 'Fedora Linux' ]]; then
-      echo 'Fedora';
+      if command -v rpm-ostree &> /dev/null; then
+    			echo 'Fedora Atomic';
+    		else
+      		echo 'Fedora';
+      	fi
     elif [[ "$DISTRO_NAME" == 'Debian GNU/Linux' ]]; then
       echo 'Debian';
     elif [[ "$DISTRO_NAME" == 'Linux Mint' ]]; then
@@ -116,6 +120,7 @@ ip:
 update:
   #!/usr/bin/env bash
   OS=$(just --justfile "{{ justfile() }}" os);
+  OS_DEBIAN=$(just --justfile "{{ justfile() }}" os_debian_based);
   echo "=> Update: Requesting sudo";
   sudo -v;
   if [[ "$OS" == 'EndeavourOS' ]]; then
@@ -127,7 +132,10 @@ update:
     echo '=> Fedora: Updating firmware';
     sudo fwupdmgr get-updates > /dev/null 2>&1;
     sudo fwupdmgr update -y > /dev/null 2>&1;
-  elif [ "$(just --justfile "{{ justfile() }}" os_debian_based)" ]; then
+  elif [[ "$OS" == 'Fedora Atomic' ]]; then
+    echo '=> Fedora Atomic: Updating packages';
+    rpm-ostree upgrade --quiet;
+  elif [ "$OS_DEBIAN" ]; then
     echo "=> $OS: Updating APT packages";
     sudo apt update -y -qq > /dev/null 2>&1;
     # Force package upgrades, even when they're in the phasing stage.
