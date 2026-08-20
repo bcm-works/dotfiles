@@ -16,7 +16,7 @@ if [[ "$OS" != "Fedora Atomic" ]]; then
   exit 1
 fi
 
-info 'Fedora Atomic: Installing system packages'
+info 'Fedora Atomic - Installing system packages'
 
 rpm-ostree install --idempotent --allow-inactive --assumeyes \
 	git git-lfs curl zip vim sushi \
@@ -26,5 +26,13 @@ rpm-ostree install --idempotent --allow-inactive --assumeyes \
   python3 pipx \
 	> /dev/null 2>&1
 
-warn 'Fedora Atomic: A system reboot is required to finalise package installations.'
+if [ -n "$(lspci | grep -i nvidia)" ]; then
+  info 'Fedora Atomic - Setup for Nvidia graphics card'
 
+  rpm-ostree install --idempotent --allow-inactive --assumeyes \
+  	akmod-nvidia xorg-x11-drv-nvidia-cuda \
+  	kernel-devel-matched kernel-headers \
+   	> /dev/null 2>&1
+fi
+
+warn 'A system reboot is required to finalise system updates.'

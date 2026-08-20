@@ -34,7 +34,7 @@ backup_config() {
 	[ command -v crontab &> /dev/null ] && crontab -l > "$BACKUPS/crontab.bak"
 
 	cp "$HOME/".bash* "$BACKUPS"
-	
+
 	[ -f "$HOME/.gitconfig" ] && cp "$HOME/.gitconfig" "$BACKUPS"
 	[ -f "$HOME/.vimrc" ] && cp "$HOME/".vimrc "$BACKUPS"
 	[ -d "$HOME/.vim" ] && cp -r "$HOME/.vim" "$BACKUPS"
@@ -94,7 +94,7 @@ os_clean() {
 os_debian_based() {
   OS="$(os)"
 
-  if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
+  if [[ "$OS" == "macOS" || "$OS" == "Windows" || "$OS" == "Fedora" || "$OS" == "Fedora Atomic" ]];
     echo "false"
   fi
 
@@ -105,9 +105,9 @@ os_debian_based() {
   source "/etc/os-release"
 
   if [[ "$ID" == "debian" || "$ID_LIKE" == *"debian"* ]]; then
-  		echo "true"
+  	echo "true"
   else
-  		echo "false"
+  	echo "false"
   fi
 }
 

@@ -75,7 +75,7 @@ os_clean:
 os_debian_based:
   #!/usr/bin/env bash
   OS="$(just --justfile "{{ justfile() }}" os)";
-  if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
+  if [[ "$OS" == "macOS" || "$OS" == "Windows" || "$OS" == "Fedora" || "$OS" == "Fedora Atomic" ]]; then
     echo "false";
   fi
   if [ ! -f "/etc/os-release" ]; then
@@ -105,12 +105,12 @@ users:
 port port_number:
   sudo lsof -i ":{{ port_number }}" || echo "Port doesn't seem to be in use"
 
-# Run 'backup-user' script
+# Run the 'backup-linux-user' script
 [group('tools')]
 backup:
   bash "$HOME/Dotfiles/bin/backup-linux-user/backup-linux-user.sh"
 
-# Return your machine's public IP address
+# Show your current public IP address
 [group('tools')]
 ip:
   dig +short myip.opendns.com @resolver1.opendns.com
