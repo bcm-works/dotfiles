@@ -157,10 +157,11 @@ gsettings set org.gtk.gtk4.Settings.FileChooser show-type-column true
 
 # Keyboard shortcuts
 
+gsettings set org.gnome.shell.keybindings toggle-application-view '["<Super>space"]'
 gsettings set org.gnome.shell.keybindings toggle-overview '["<Control><Super>Up"]'
+gsettings set org.gnome.shell.keybindings show-screen-recording-ui '[]'
 gsettings set org.gnome.shell.keybindings screenshot '[]'
 gsettings set org.gnome.shell.keybindings screenshot-window '[]'
-gsettings set org.gnome.shell.keybindings show-screen-recording-ui '[]'
 gsettings set org.gnome.shell.keybindings show-screenshot-ui '["Print"]'
 gsettings set org.gnome.shell.keybindings toggle-quick-settings '["<Super>s"]'
 
@@ -257,17 +258,30 @@ fi
 gsettings set org.gnome.Settings show-development-warning false
 gsettings set org.gnome.Settings last-panel 'system'
 
-# Ubuntu Tiling Assistant
+# Window Management
+
+if has_schema "org.gnome.mutter"; then
+  gsettings set org.gnome.mutter edge-tiling false
+  gsettings set org.gnome.mutter attach-modal-dialogs true
+  gsettings set org.gnome.mutter center-new-windows true
+  gsettings set org.gnome.mutter edge-tiling false
+fi
 
 if has_schema "org.gnome.shell.extensions.tiling-assistant"; then
-  gsettings set org.gnome.mutter edge-tiling false
   gsettings set org.gnome.shell.extensions.tiling-assistant enable-raise-tile-group false
   gsettings set org.gnome.shell.extensions.tiling-assistant enable-tiling-popup false
   gsettings set org.gnome.shell.extensions.tiling-assistant tiling-popup-all-workspace false
   gsettings set org.gnome.shell.extensions.tiling-assistant enable-tile-animations true
   gsettings set org.gnome.shell.extensions.tiling-assistant enable-untile-animations true
+  gsettings set org.gnome.shell.extensions.tiling-assistant window-gap 0
+  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout0 '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout1 '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout2 '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout3 '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant auto-tile '[]'
   gsettings set org.gnome.shell.extensions.tiling-assistant toggle-tiling-popup '[]'
   gsettings set org.gnome.shell.extensions.tiling-assistant overridden-settings '{"org.gnome.mutter.edge-tiling": <false>}'
+  gsettings set org.gnome.shell.extensions.tiling-assistant tile-maximize '["<Super>Up", "<Super>KP_5"]'
   gsettings set org.gnome.shell.extensions.tiling-assistant restore-window '["<Super>Down"]'
   gsettings set org.gnome.shell.extensions.tiling-assistant tile-left-half '["<Super>Left", "<Super>KP_4"]'
   gsettings set org.gnome.shell.extensions.tiling-assistant tile-right-half '["<Super>Right", "<Super>KP_6"]'
