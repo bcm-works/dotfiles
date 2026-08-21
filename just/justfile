@@ -99,11 +99,15 @@ os_desktop:
 users:
   awk -F: '$3 >= 1000 && $1 != "nobody" && $0="user: " $1 "   id: " $3 "   home: " $6' /etc/passwd
 
-# Find which processes are using a certain port number
+# Find which process is using a certain port number
 [group('system')]
-[positional-arguments]
 port port_number:
   sudo lsof -i ":{{ port_number }}" || echo "Port doesn't seem to be in use"
+
+# Get a disk partition label using the name (eg: nvme0n1p1)
+[group('system')]
+partition_label partition_name:
+	find /dev/disk/ -lname '*{{ partition_name }}' | grep /dev/disk/by-partlabel/ | sed 's/\/dev\/disk\/by-partlabel\///'
 
 # Run the 'backup-linux-user' script
 [group('tools')]
