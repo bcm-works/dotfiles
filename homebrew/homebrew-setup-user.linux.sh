@@ -37,10 +37,10 @@ sudo mv "$BREW_DIR_DEFAULT/.linuxbrew" "$BREW_DIR"
 sudo chown -R "$USER:$USER" "$BREW_DIR"
 sudo rm -rf "$BREW_DIR_DEFAULT"
 
-eval "$($BREW_DIR/bin/brew shellenv bash)"
-
 warn 'Reloading shell to apply changes'
 source "$HOME/.bashrc"
+
+eval "$($BREW_DIR/bin/brew shellenv bash)"
 
 echo 'Installing GCC via Homebrew'
 

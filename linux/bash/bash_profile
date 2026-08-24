@@ -33,6 +33,7 @@ pathadd() {
 pathadd "/usr/local/bin"
 pathadd "/usr/local/go/bin"
 pathadd "$HOME/bin"
+pathadd "$HOME/Apps"
 pathadd "$HOME/.local/bin"
 pathadd "$HOME/.cargo/bin"
 pathadd "$HOME/.deno/bin"
