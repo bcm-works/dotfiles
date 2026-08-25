@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# Setup Gnome
-#   - Customise user level Gnome settings
+# Gnome - Customise user and system config
 #
 #
 
@@ -181,7 +180,7 @@ gsettings set org.gnome.desktop.peripherals.touchpad accel-profile 'flat'
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
-gsettings set org.gnome.desktop.peripherals.mouse speed 0.2243346007604563
+gsettings set org.gnome.desktop.peripherals.mouse speed '0.3745'
 
 # Privacy
 
@@ -281,10 +280,6 @@ if has_schema "org.gnome.shell.extensions.tiling-assistant"; then
   gsettings set org.gnome.shell.extensions.tiling-assistant auto-tile '[]'
   gsettings set org.gnome.shell.extensions.tiling-assistant toggle-tiling-popup '[]'
   gsettings set org.gnome.shell.extensions.tiling-assistant overridden-settings '{"org.gnome.mutter.edge-tiling": <false>}'
-  gsettings set org.gnome.shell.extensions.tiling-assistant tile-maximize '["<Super>Up", "<Super>KP_5"]'
-  gsettings set org.gnome.shell.extensions.tiling-assistant restore-window '["<Super>Down"]'
-  gsettings set org.gnome.shell.extensions.tiling-assistant tile-left-half '["<Super>Left", "<Super>KP_4"]'
-  gsettings set org.gnome.shell.extensions.tiling-assistant tile-right-half '["<Super>Right", "<Super>KP_6"]'
 fi
 
 success 'Gnome setup completed'
