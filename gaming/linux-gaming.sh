@@ -86,9 +86,7 @@ elif [ "$(os_debian_based)" ]; then
     libinih-dev \
     build-essential \
     dkms \
-    curl \
-    cabextract \
-    cpufrequtils > /dev/null 2>&1
+    curl > /dev/null 2>&1
 
   info "$OS - Installing Steam"
 
@@ -111,7 +109,6 @@ fi
 
 if [[ "$OS" == "Ubuntu" ]]; then
   info 'Ubuntu - Disable mouse pointer acceleration'
-
   xset m 0 0
 fi
 
