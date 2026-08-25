@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# Bash script helper functions
+# Dotfiles helper functions
 #
 #
 
@@ -27,31 +27,38 @@ dir_this() {
 # Backup current user config files
 backup_config() {
 	NOW=$(date "+%Y%m%d-%H%M%S")
-	BACKUPS="$(dir_repo)/config/backups/$NOW"
+	DEST="$(dir_repo)/config/backups/$NOW"
 
-	mkdir -p "$BACKUPS"
+	mkdir -p "$DEST"
+	mkdir -p "$DEST/config"
 
-	[ command -v crontab &> /dev/null ] && crontab -l > "$BACKUPS/crontab.bak"
+	[ command -v crontab &> /dev/null ] && crontab -l > "$DEST/crontab.bak"
 
-	cp "$HOME/".bash* "$BACKUPS"
+	cp "$HOME/".bash* "$DEST"
 
-	[ -f "$HOME/.gitconfig" ] && cp "$HOME/.gitconfig" "$BACKUPS"
-	[ -f "$HOME/.vimrc" ] && cp "$HOME/".vimrc "$BACKUPS"
-	[ -d "$HOME/.vim" ] && cp -r "$HOME/.vim" "$BACKUPS"
-	[ -d "$HOME/.ssh" ] && cp -r "$HOME/.ssh" "$BACKUPS"
-	[ -e "$HOME/.env.local" ] && cp "$HOME/.env.local" "$BACKUPS"
-	[ -e "$HOME/justfile" ] && cp "$HOME/justfile" "$BACKUPS"
-	[ -f "$HOME/.face" ] && cp "$HOME/.face" "$BACKUPS"
-	[ -f "$HOME/.face.icon" ] && cp "$HOME/.face.icon" "$BACKUPS"
-	[ -f "$HOME/profile.png" ] && cp "$HOME/profile.png" "$BACKUPS"
-	[ -f "/var/lib/AccountsService/icons/$USER" ] && cp "/var/lib/AccountsService/icons/$USER" "$BACKUPS"
+	[ -f "$HOME/.gitconfig" ] && cp "$HOME/.gitconfig" "$DEST"
+	[ -f "$HOME/.vimrc" ] && cp "$HOME/".vimrc "$DEST"
+	[ -d "$HOME/.vim" ] && cp -r "$HOME/.vim" "$DEST"
+	[ -d "$HOME/.ssh" ] && cp -r "$HOME/.ssh" "$DEST"
+	[ -e "$HOME/.env.local" ] && cp "$HOME/.env.local" "$DEST"
+	[ -e "$HOME/justfile" ] && cp "$HOME/justfile" "$DEST"
+	[ -f "$HOME/.face" ] && cp "$HOME/.face" "$DEST"
+	[ -f "$HOME/.face.icon" ] && cp "$HOME/.face.icon" "$DEST"
+	[ -f "$HOME/profile.png" ] && cp "$HOME/profile.png" "$DEST"
+	[ -f "/var/lib/AccountsService/icons/$USER" ] && cp "/var/lib/AccountsService/icons/$USER" "$DEST"
 
-	mkdir -p "$BACKUPS/.config"
+	[ -f "$HOME/.config/user-dirs.dirs" ] && cp -r "$HOME/.config/user-dirs.dirs" "$DEST/config"
+	[ -f "$HOME/.config/user-dirs.locale" ] && cp -r "$HOME/.config/user-dirs.locale" "$DEST/config"
 
-	[ -f "$HOME/.config/user-dirs.dirs" ] && cp -r "$HOME/.config/user-dirs.dirs" "$BACKUPS/.config"
-	[ -f "$HOME/.config/user-dirs.locale" ] && cp -r "$HOME/.config/user-dirs.locale" "$BACKUPS/.config"
+	if command -v dconf > /dev/null 2>&1 ; then
+  	dconf dump / > "$DEST/config/dconf.conf"
+	fi
 
-	success "New config backup saved in '$BACKUPS'"
+	if command -v crontab > /dev/null 2>&1 ; then
+  	crontab -l > "$DEST/config/crontab-user.txt"
+	fi
+
+	success "Current config saved to '$DEST'"
 }
 
 # Returns the name of the Operating System

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# Interactive setup script
+# Dotfiles initial setup
 #
 #
 
