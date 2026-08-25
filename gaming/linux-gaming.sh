@@ -118,7 +118,7 @@ if [[ "$OS_DESKTOP" == "gnome" ]]; then
   gsettings set org.gnome.desktop.peripherals.touchpad accel-profile 'flat'
 
   info 'Gnome - Update mouse pointer speed'
-  gsettings set org.gnome.desktop.peripherals.mouse speed '0.4897119341563787'
+  gsettings set org.gnome.desktop.peripherals.mouse speed '0.3745'
 
   info 'Gnome - Disabling natural scrolling'
   gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
