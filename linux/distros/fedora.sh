@@ -19,23 +19,16 @@ elif [[ "$OS" != "Fedora" ]]; then
   exit 1
 fi
 
-info 'Fedora: Install required packages'
-
+info 'Fedora: Install packages'
 sudo dnf install -y git vim curl > /dev/null 2>&1
 
 info 'Fedora: Configure Vim as the default editor'
-
 sudo dnf install -y vim-default-editor --allowerasing > /dev/null 2>&1
 
-info 'Fedora: Install RPM Fusion'
-# From https://ounapuu.ee/posts/2024/10/14/fedora-starter-pack/
+info 'Fedora: Add RPM Fusion package repositories'
 sudo dnf install -y \
 	https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-info 'Fedora: Installing Gnome Sushi document preview app'
-
-sudo dnf install -y sushi > /dev/null 2>&1
 
 info 'Fedora: Setup Flatpak'
 

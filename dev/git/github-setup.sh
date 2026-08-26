@@ -76,19 +76,19 @@ if [[ -n "$DOTFILES_USER_EMAIL" && -n "$DOTFILES_USER_NAME" ]]; then
 	git config --global user.name "$DOTFILES_USER_NAME"
 	git config --global user.email "$DOTFILES_USER_EMAIL"
 
-	info "GitHub CLI setup"
+	info "GitHub CLI auth update to allow adding a new SSH key"
 
 	gh auth refresh \
 		--clipboard \
 		--hostname github.com \
 		--scopes admin:public_key,admin:ssh_signing_key
 
-	info "GitHub CLI add SSH Public Key"
+	info "Add SSH Public Key to GitHub, and use for signing"
 
 	gh ssh-key add "$SSH_KEY.pub" --title "Key - $OS $NOW"
 	gh ssh-key add "$SSH_KEY.pub" --type signing --title "Signing - $OS $NOW"
 
-	info "Configuring commit signing for '$SSH_KEY.pub'"
+	info "Configure Git commit signing"
 
 	touch $HOME/.ssh/allowed_signers
 

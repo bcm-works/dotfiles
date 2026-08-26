@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# Gnome - Customise user and system config
+# Gnome - Customise system config and setup packages
 #
 #
 
@@ -43,6 +43,7 @@ elif [[ "$OS" == "Fedora" ]]; then
   sudo dnf install -y \
     gnome-browser-connector \
     python3 \
+    sushi \
     pipx > /dev/null 2>&1
 fi
 
