@@ -9,13 +9,10 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 2
-max_line_length = 100
+max_line_length = 120
 
-[*.{md,json,jsonc,toml,yml}]
+[*.{md,json,jsonc,toml,yml,config,txt}]
 insert_final_newline = false
 
 [{Dockerfile,.editorconfig,.gitignore,.gitmodules,.nvmrc,.npmrc}]
-insert_final_newline = false
-
-[{*.sh,*.bash}]
 insert_final_newline = false

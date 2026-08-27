@@ -14,12 +14,9 @@ max_line_length = 120
 [*.{md,json,jsonc,toml,yml,config,txt}]
 insert_final_newline = false
 
-[{Dockerfile,.editorconfig,.gitignore,.gitmodules,.nvmrc,.npmrc,.node-version}]
+[{Dockerfile,.editorconfig,.gitignore,.gitmodules,.nvmrc,.npmrc}]
 insert_final_newline = false
 
 [{justfile}]
 indent_style = space
-insert_final_newline = false
-
-[{*.sh,*.bash}]
 insert_final_newline = false
