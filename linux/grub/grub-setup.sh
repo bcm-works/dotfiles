@@ -10,11 +10,11 @@ REPO="$(dir_repo)"
 OS="$(os)"
 cd "$REPO"
 
-SOURCE_COLOURS="$REPO/linux/grub/grub-colours.config"
+SOURCE_COLOURS="$REPO/linux/grub/grub-colours.ubuntu.config"
 TARGET_COLOURS="/etc/grub.d/06_local_colours"
 
-if [[ "$OS" == "Windows" ]] || [[ "$OS" == "macOS" ]]; then
-  echo "This script requires Linux."
+if [[ "$OS" != "Ubuntu" ]]; then
+  echo "This script requires Ubuntu."
   exit 1
 fi
 
@@ -40,4 +40,4 @@ info "Applying Grub config updates"
 
 sudo update-grub
 
-warn "You may also want to manually apply the changes in $DIR/grub-menu.config"
+warn "You may also want to manually apply the changes in $DIR/grub-menu.ubuntu.config"
