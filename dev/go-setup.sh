@@ -19,12 +19,12 @@ cd "$REPO"
 
 GO_PATH="$HOME/Code"
 
-GO_INSTALL_VERSION="1.26.6"
+GO_INSTALL_VERSION="1.27.0"
 GO_INSTALL_DOWNLOAD="$HOME/Downloads/go$GO_INSTALL_VERSION.linux-amd64.tar.gz"
 GO_INSTALL_REMOTE="https://dl.google.com/go/go$GO_INSTALL_VERSION.linux-amd64.tar.gz"
 
 if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
-	error 'Please install Go manually - https://go.dev/doc/install'
+  error 'Please install Go manually - https://go.dev/doc/install'
   exit 1
 else
 	warn 'Requesting sudo'
@@ -50,7 +50,7 @@ fi
 info "Setting GOPATH to $GO_PATH"
 
 mkdir -p "$GO_PATH"
-export GOPATH="$GO_PATH"
+go env -w GOPATH="$GO_PATH"
 
 info 'Configuring Go'
 
