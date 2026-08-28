@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# Ubuntu - Update config to support Keychron keyboard harware
+# Linux - Update hardware rule config to support Keychron keyboards
 #
 #
 
@@ -12,8 +12,8 @@ THIS_DIR="$(dir_this)"
 OS="$(os)"
 cd "$REPO"
 
-if [[ "$OS" != "Ubuntu" ]]; then
-  echo "This script requires Ubuntu."
+if [[ "$OS" == "Windows" || "$OS" == "macOS" ]]; then
+  echo "This script requires Linux."
   exit 0
 fi
 
