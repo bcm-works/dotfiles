@@ -2,6 +2,7 @@
 
 Configuration files, programs, packages and scripts I use for personal, gaming and software development use.
 
+- **[.prototypes](.prototypes/)**: Ideas and half-built prototypes 
 - **[ai](ai/)**: AI docs and setup scripts
 - **[bin](bin/)**: Bash utility and backup scripts
 - **[bin/setup.sh](bin/setup.sh)**: Initial setup script
