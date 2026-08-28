@@ -1,0 +1,66 @@
+[init]
+	defaultBranch = main
+[push]
+	default = simple
+	followtags = false
+	autosetupremote = true
+[merge]
+	ff = no
+	commit = no
+[pull]
+	ff = only
+[remote "origin"]
+	tagOpt = --tags
+[core]
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	ignorecase = false
+	symlinks = true
+[color]
+	ui = true
+[color "branch"]
+	current = green
+	local = blue
+	remote = red
+[color "diff"]
+	meta = yellow
+	frag = magenta
+	old = red bold
+	new = green
+	whitespace = red reverse
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
+[alias]
+	f = fetch
+	st = status --untracked-files=all --short --branch
+	co = checkout
+	ci = commit
+	cia = commit --amend
+	br = branch --show-current
+	cbr = checkout -b
+	lg = log --pretty=format:'%Cblue%h%Creset %s %Cgreen%an, %cr %Creset' --abbrev-commit --date=relative
+	graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/bcmfg/.brew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/bcmfg/.brew/bin/gh auth git-credential
+[user]
+	name = Brendan Murty
+	email = brendan@bcm.works
+	signingkey = /home/bcmfg/.ssh/github-fedora-20260828-095454.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[credential]
+	helper = store
+[gpg "ssh"]
+	allowedsignersfile = /home/bcmfg/.ssh/allowed_signers

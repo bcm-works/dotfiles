@@ -1,0 +1,29 @@
+{
+	"name": "new-project-name",
+	"version": "0.0.1",
+	"private": true,
+	"author": "Jane Doe <jane@example.com>",
+	"description": "aaa bbb",
+	"homepage": "https://example.com",
+	"scripts": {
+		"setup": "npm run install-clean",
+		"install-clean": "rm -rf node_modules && npm install",
+		"build": "npx tsc --project tsconfig.json",
+		"dev": "npx tsx src/app.ts",
+		"typecheck": "npx tsc --noEmit --project tsconfig.json",
+		"test": "echo \"Error: not implemented yet\" && exit 1"
+	},
+	"imports": {
+		"#src/*": "./src/*.ts"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@types/node": "^26.4.0",
+		"typescript": "^7.0.2"
+	},
+	"packageManager": "npm@12.0.2",
+	"engines": {
+		"node": ">=26.8.1",
+		"npm": ">=12.0.2"
+	}
+}
