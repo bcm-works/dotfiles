@@ -47,9 +47,9 @@ info "Making a backup of '$CONFIG_DIR/settings.json'"
 touch "$CONFIG_DIR/settings.json"
 cp "$CONFIG_DIR/settings.json" "$CONFIG_DIR/settings.json.old"
 
-info "Copying '$CONFIG_FILE' to '$CONFIG_DIR/settings.json'"
+info "Linking '$CONFIG_DIR/settings.json' to '$CONFIG_FILE'"
 
-cp "$CONFIG_FILE" "$CONFIG_DIR/settings.json"
+ln -s "$CONFIG_FILE" "$CONFIG_DIR/settings.json"
 
 success "Finished Zed setup"
 
