@@ -75,7 +75,7 @@ else
   warn 'Install Homebrew to the default location?'
   read -n 1 -rp '  [y/N] > ' BREW_DEFAULT
   if [[ "$BREW_DEFAULT" == "y" ]]; then
-    bash "$REPO/homebrew/homebrew-setup.sh"
+    bash "$REPO/homebrew/homebrew.sh"
   else
     echo ''
     warn 'Install Homebrew to ~/.brew instead?'
@@ -83,9 +83,9 @@ else
     if [[ "$BREW_USER" == "y" ]]; then
       echo ''
       if [[ "$OS" == "macOS" ]]; then
-        bash "$REPO/homebrew/homebrew-setup-user.macos.sh"
+        bash "$REPO/homebrew/homebrew.user.macos.sh"
       else
-        bash "$REPO/homebrew/homebrew-setup-user.linux.sh"
+        bash "$REPO/homebrew/homebrew.user.linux.sh"
       fi
     else
     	echo ''

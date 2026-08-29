@@ -9,7 +9,7 @@
 #     - Clone this repo
 #     - Open that dir in a new terminal
 #     - Run: bash ./bin/setup.sh
-#     - Run: bash ./dev/node-setup.sh
+#     - Run: bash ./dev/node.sh
 #
 #
 

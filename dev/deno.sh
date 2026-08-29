@@ -9,7 +9,7 @@
 #     - Clone this repo
 #     - Open that dir in a new terminal
 #     - Run: bash ./bin/setup.sh
-#     - Run: bash ./dev/deno-setup.sh
+#     - Run: bash ./dev/deno.sh
 #
 #
 
@@ -27,7 +27,7 @@ elif [[ "$OS" == "macOS" ]]; then
 else
   info 'Installing Deno for Linux'
   curl -fsSL https://deno.land/install.sh | sh
-  
+
   warn 'Reloading shell to apply changes'
 	source "$HOME/.bashrc"
 fi
