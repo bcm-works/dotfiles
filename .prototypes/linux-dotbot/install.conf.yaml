@@ -5,16 +5,22 @@
 
 # - clean: ['~']
 
-- link:
-    ~/.tmux.conf: tmux.conf
-    ~/.vim: vim
-    ~/.vimrc: vimrc
-    # ~/Code: ~/Git
-
 - create:
-    -
-    - ~/.vim/undo-history
+    - ~/.vim
+
+- link:
+    ~/.vim/colors: linux/vim/colours
+    ~/.vimrc: linux/vim/vimrc
+    # ~/Code: ~/Git
+    # ~/Projects: ~/Git
 
 - shell:
   - bash ~/Dotfiles/bin/setup.sh
+  - bash ~/Dotfiles/linux/bash/bash.sh
+  - bash ~/Dotfiles/just/just.sh
   - bash ~/Dotfiles/fonts/fonts.sh
+  - bash ~/Dotfiles/linux/distros/ubuntu.sh
+  - bash ~/Dotfiles/linux/packages/flatpak.sh
+  - bash ~/Dotfiles/linux/gnome/gnome-setup.sh
+  - bash ~/Dotfiles/linux/hardware/keychron-keyboards.sh
+  - bash ~/Dotfiles/linux/packages/chrome.sh

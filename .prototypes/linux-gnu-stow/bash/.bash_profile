@@ -1,7 +1,7 @@
 #
 #
 # ~/.bash_profile
-# 	- Initial setup required: bash ./linux/bash/bash-setup.sh
+# 	- Initial setup required: bash ./linux/bash/bash.sh
 #   - Loads other Bash config files
 #   - Contains user specific tools and config
 #   - Adds command aliases

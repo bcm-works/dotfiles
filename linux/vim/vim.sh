@@ -25,15 +25,10 @@ elif [[ "$OS" == "EndeavourOS" ]]; then
   echo 'export EDITOR=vim' >> "$HOME/.bashrc"
 fi
 
-rm -rf "$HOME/.vim.old"
-
 mkdir -p "$HOME/.vim"
-cp -r "$HOME/.vim" "$HOME/.vim.old"
-rm -rf "$HOME/.vim"
 
-git clone "https://github.com/flazz/vim-colorschemes.git" "$HOME/.vim"
+[[ -d "$HOME/.vim/colors" ]] && cp -r "$HOME/.vim/colors" "$HOME/.vim/colors.old"
+[[ -d "$HOME/.vimrc" ]] && mv "$HOME/.vimrc" "$HOME/.vimrc.old"
 
-touch "$HOME/.vimrc"
-
-cp "$HOME/.vimrc" "$HOME/.vimrc.old"
-cp "$DIR/.vimrc" "$HOME/.vimrc"
+ln -s "$DIR/colours" "$HOME/.vim/colors"
+ln -s "$DIR/.vimrc" "$HOME/.vimrc"

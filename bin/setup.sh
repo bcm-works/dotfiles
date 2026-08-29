@@ -97,7 +97,7 @@ fi
 
 info 'Just command runner setup'
 
-bash "$REPO/just/just-setup.sh"
+bash "$REPO/just/just.sh"
 
 success 'Initial setup completed.'
 success 'Now you can run the setup scripts that suit your needs.'
