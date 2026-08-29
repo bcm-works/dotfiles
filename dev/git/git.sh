@@ -12,7 +12,7 @@ cd "$REPO"
 
 info "Setup Git Bash features"
 
-bash "$REPO/dev/git/git-bash-setup.sh"
+bash "$REPO/dev/git/git-bash.sh"
 
 info "Set global Git Config"
 
@@ -70,4 +70,4 @@ else
 	warn "Please install Git LFS manually: https://git-lfs.com/"
 fi
 
-warn "If you use GitHub, you may want to run: bash $REPO/dev/git/github-setup.sh"
+warn "If you use GitHub, you may want to run: bash $REPO/dev/git/github.sh"

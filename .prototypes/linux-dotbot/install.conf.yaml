@@ -3,24 +3,26 @@
       create: true
       relink: true
 
-# - clean: ['~']
-
 - create:
     - ~/.vim
 
 - link:
+    ~/.bash_profile: linux/bash/bash_profile
+    ~/justfile: just/justfile
     ~/.vim/colors: linux/vim/colours
     ~/.vimrc: linux/vim/vimrc
-    # ~/Code: ~/Git
-    # ~/Projects: ~/Git
 
 - shell:
-  - bash ~/Dotfiles/bin/setup.sh
-  - bash ~/Dotfiles/linux/bash/bash.sh
-  - bash ~/Dotfiles/just/just.sh
-  - bash ~/Dotfiles/fonts/fonts.sh
-  - bash ~/Dotfiles/linux/distros/ubuntu.sh
-  - bash ~/Dotfiles/linux/packages/flatpak.sh
-  - bash ~/Dotfiles/linux/gnome/gnome-setup.sh
-  - bash ~/Dotfiles/linux/hardware/keychron-keyboards.sh
-  - bash ~/Dotfiles/linux/packages/chrome.sh
+  - echo 'Dotfiles setup' && bash ~/Dotfiles/bin/setup.sh
+  - echo 'Bash setup' && echo '' >> ~/.bashrc && echo '. ~/.bash_profile' >> ~/.bashrc
+  - echo 'Git setup' && bash ~/Dotfiles/dev/git/git.sh
+  - echo 'Node setup' && bash ~/Dotfiles/dev/node-setup.sh
+  - echo 'Deno setup' && bash ~/Dotfiles/dev/deno-setup.sh
+  - echo 'Go setup' && bash ~/Dotfiles/dev/go-setup.sh
+  - echo 'Just setup' && bash ~/Dotfiles/just/just.sh
+  - echo 'Fonts setup' && bash ~/Dotfiles/fonts/fonts.sh
+  - echo 'Ubuntu setup' && bash ~/Dotfiles/linux/distros/ubuntu.sh
+  - echo 'Flatpak setup' && bash ~/Dotfiles/linux/packages/flatpak.sh
+  - echo 'Gnome setup' && bash ~/Dotfiles/linux/gnome/gnome-setup.sh
+  - echo 'Keychron keyboards setup' && bash ~/Dotfiles/linux/hardware/keychron-keyboards.sh
+  - echo 'Chrome setup' && bash ~/Dotfiles/linux/packages/chrome.sh
