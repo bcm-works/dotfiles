@@ -65,7 +65,7 @@ info 'Ubuntu: Configure ddcutil to allow for screen brightness control'
 sudo gpasswd --add $USER i2c > /dev/null 2>&1
 
 info 'Ubuntu: Setup Fonts'
-bash "$REPO/fonts/fonts-setup.sh"
+bash "$REPO/fonts/fonts.sh"
 
 info 'Ubuntu: Setup Flatpak'
 bash "$REPO/linux/packages/flatpak.sh"
