@@ -8,7 +8,7 @@
 source "$HOME/Dotfiles/bin/utils.sh"
 REPO="$(dir_repo)"
 OS="$(os)"
-OS_DESKTOP="$(os_desktop)"
+OSD="$(os_desktop_clean)"
 BIN="$REPO/bin"
 cd "$REPO"
 
@@ -17,7 +17,7 @@ if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
   exit 0
 fi
 
-if [[ "$OS_DESKTOP" != "gnome" ]]; then
+if [[ "$OSD" != "gnome" ]]; then
   error "This script requires Gnome to be set as the Linux Desktop Environment."
   exit 0
 fi

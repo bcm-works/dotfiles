@@ -16,7 +16,7 @@ if [[ "$OS" == "Fedora Atomic" ]]; then
 	exit 0
 elif [[ "$OS" != "Fedora" ]]; then
   error "This script requires Fedora."
-  exit 1
+  exit 0
 fi
 
 info 'Fedora: Install packages'

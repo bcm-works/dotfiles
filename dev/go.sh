@@ -25,7 +25,7 @@ GO_INSTALL_REMOTE="https://dl.google.com/go/go$GO_INSTALL_VERSION.linux-amd64.ta
 
 if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
   error 'Please install Go manually - https://go.dev/doc/install'
-  exit 1
+  exit 0
 else
 	warn 'Requesting sudo'
 	sudo -v

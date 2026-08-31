@@ -90,7 +90,7 @@ os_debian_based:
 
 # Get the name of the Linux Desktop Environment
 [group('system')]
-os_desktop:
+os_desktop_clean:
   #!/usr/bin/env bash
   echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:} | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
 
@@ -142,10 +142,10 @@ update:
   elif [ "$OS_DEBIAN" ]; then
     echo "=> $OS: Updating APT packages";
     sudo apt update -y -qq > /dev/null 2>&1;
-    # Force package upgrades, even when they're in the phasing stage.
-    sudo apt upgrade -y -qq -o APT::Get::Always-Include-Phased-Updates=true > /dev/null 2>&1;
     # Standard package upgrades
-    # sudo apt upgrade -y -qq > /dev/null 2>&1;
+    sudo apt upgrade -y -qq > /dev/null 2>&1;
+    # Force package upgrades, even when they're in the phasing stage.
+    # sudo apt upgrade -y -qq -o APT::Get::Always-Include-Phased-Updates=true > /dev/null 2>&1;
   fi
   if command -v snap > /dev/null 2>&1 ; then
     echo '=> Snap: Updating packages';

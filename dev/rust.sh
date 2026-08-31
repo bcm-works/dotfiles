@@ -19,7 +19,7 @@ cd "$REPO"
 
 if [[ "$(os)" == "Windows" ]]; then
   error 'Please install Rust manually - https://rust-lang.org/tools/install/'
-  exit 1
+  exit 0
 fi
 
 info "Installing Rust"

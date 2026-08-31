@@ -20,7 +20,7 @@ cd "$REPO"
 
 if [[ "$OS" == "Windows" ]]; then
   error 'Please install Deno for Windows manually - https://deno.com/'
-  exit 1
+  exit 0
 elif [[ "$OS" == "macOS" ]]; then
   info 'Installing Deno for macOS'
   curl -fsSL https://deno.land/install.sh | sh

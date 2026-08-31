@@ -9,7 +9,7 @@ source "$HOME/Dotfiles/bin/utils.sh"
 REPO="$(dir_repo)"
 DIR="$(dir_this)"
 OS="$(os)"
-OS_DESKTOP="$(os_desktop)"
+os_desktop_clean="$(os_desktop_clean)"
 cd "$REPO"
 
 if [[ "$OS" == "macOS" ]] || [[ "$OS" == "Windows" ]]; then
@@ -112,7 +112,7 @@ if [[ "$OS" == "Ubuntu" ]]; then
   xset m 0 0
 fi
 
-if [[ "$OS_DESKTOP" == "gnome" ]]; then
+if [[ "$os_desktop_clean" == "gnome" ]]; then
 	info 'Gnome - Disable mouse pointer acceleration'
   gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
   gsettings set org.gnome.desktop.peripherals.touchpad accel-profile 'flat'

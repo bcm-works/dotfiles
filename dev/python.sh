@@ -17,7 +17,7 @@ cd "$REPO"
 
 if [ ! "$(os_debian_based)" ]; then
   error 'Please install Python 3 manually - https://www.python.org/downloads/'
-  exit 1
+  exit 0
 fi
 
 warn "Requesting sudo"

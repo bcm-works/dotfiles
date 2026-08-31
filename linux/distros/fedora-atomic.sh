@@ -13,7 +13,7 @@ cd "$REPO"
 
 if [[ "$OS" != "Fedora Atomic" ]]; then
   error "This script requires Fedora Silverblue Atomic."
-  exit 1
+  exit 0
 fi
 
 info 'Fedora Atomic - Installing system packages'

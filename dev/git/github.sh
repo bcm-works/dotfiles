@@ -20,7 +20,7 @@ NOW=$(date "+%Y%m%d-%H%M%S")
 
 if [[ "$OS" == "Windows" ]]; then
   echo "Requires Linux or macOS"
-  exit 1
+  exit 0
 fi
 
 # Install and configure GitHub CLI

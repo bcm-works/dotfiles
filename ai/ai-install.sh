@@ -24,7 +24,7 @@ if [[ "$OS" == "Windows" ]]; then
   info " - OpenAI Codex CLI - https://developers.openai.com/codex/cli"
   info " - Claude Code CLI - https://code.claude.com/docs/en/quickstart"
   info " - GitHub Copilot CLI - https://github.com/features/copilot/cli"
-  exit 1
+  exit 0
 fi
 
 # Google Antigravity CLI - https://antigravity.google/product/antigravity-cli

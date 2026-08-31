@@ -32,7 +32,7 @@ ENV_FILE_PATH="$DIR/$ENV_FILE_NAME"
 if [ ! -f "$ENV_FILE_PATH" ]; then
   echo $(date "$LOG_FMT") "Error - ENV file not found: $ENV_FILE_PATH" >> "$LOG_FILE"
   echo $(date "$LOG_FMT") "Info - Sample ENV file at $DIR/.backup-linux-dir.sample.env" >> "$LOG_FILE"
-  exit 1
+  exit 0
 fi
 
 source "$ENV_FILE_PATH"

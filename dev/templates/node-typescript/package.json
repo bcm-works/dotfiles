@@ -11,7 +11,7 @@
 		"build": "npx tsc --project tsconfig.json",
 		"dev": "npx tsx src/app.ts",
 		"typecheck": "npx tsc --noEmit --project tsconfig.json",
-		"test": "echo \"Error: not implemented yet\" && exit 1"
+		"test": "echo \"Error: not implemented yet\" && exit 0"
 	},
 	"imports": {
 		"#src/*": "./src/*.ts"

@@ -13,7 +13,7 @@ cd "$REPO"
 
 if [[ "$OS" == "Windows" ]] || [[ "$OS" == "macOS" ]]; then
   info "This script requires Linux."
-  exit 1
+  exit 0
 fi
 
 FONT_DIR="$HOME/.local/share/fonts"

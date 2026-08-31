@@ -13,7 +13,7 @@ cd "$REPO"
 
 if [[ "$OS" == "Windows" ]]; then
   error 'This script requires Linux or macOS.'
-  exit 1
+  exit 0
 elif [[ "$OS" == "Linux" ]]; then
   warn 'Homebrew: Requesting sudo'
   sudo -v

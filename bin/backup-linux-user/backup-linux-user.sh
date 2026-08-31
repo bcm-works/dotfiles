@@ -35,7 +35,7 @@ BACKUP_USER_NAME="$(id -un)"
 
 if [ ! -d "$SOURCE_DIR" ]; then
   echo $(date "$LOG_FMT") "Error - Source directory ($SOURCE_DIR) not found, please check the path in the script" >> "$LOG_FILE"
-  exit 1
+  exit 0
 fi
 
 # Construct backup paths

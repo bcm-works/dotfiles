@@ -19,7 +19,7 @@ cd "$REPO"
 
 if [[ "$OS" == "Windows" ]]; then
   echo 'Linux or macOS is required'
-  exit 1
+  exit 0
 fi
 
 if command -v brew > /dev/null 2>&1 ; then
@@ -29,7 +29,7 @@ if command -v brew > /dev/null 2>&1 ; then
   brew reinstall just --force > /dev/null 2>&1
 else
   echo 'Just: Please install Just manually - https://github.com/casey/just#installation'
-  exit 1
+  exit 0
 fi
 
 if [ -f "$HOME/justfile" ]; then

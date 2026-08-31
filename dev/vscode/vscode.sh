@@ -19,7 +19,7 @@ if ! command -v code &> /dev/null; then
 		flatpak install --assumeyes --or-update com.visualstudio.code
 	else
 		error 'Please install VS Code manually - https://code.visualstudio.com/'
-		exit 1
+		exit 0
 	fi
 fi
 

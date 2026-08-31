@@ -125,6 +125,11 @@ os_desktop() {
 	if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
 		echo ""
 	else
-  		echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:} | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
+		echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:})";
 	fi
+}
+
+# Returns the name of the Linux Desktop Environment, lowercase and with dashes instead of spaces
+os_desktop_clean() {
+  echo "$(os_desktop | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
 }

@@ -15,7 +15,7 @@ TARGET_COLOURS="/etc/grub.d/06_local_colours"
 
 if [[ "$OS" != "Ubuntu" ]]; then
   echo "This script requires Ubuntu."
-  exit 1
+  exit 0
 fi
 
 backup_config

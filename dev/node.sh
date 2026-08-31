@@ -20,7 +20,7 @@ cd "$REPO"
 
 if [[ "$OS" == "Windows" ]]; then
   error 'Please install Node manually - https://nodejs.org/'
-  exit 1
+  exit 0
 fi
 
 info 'Setup the NVM directory'
