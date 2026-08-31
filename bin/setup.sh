@@ -5,10 +5,9 @@
 #
 #
 
-echo 'The scripts used here will make changes to your system.'
-echo 'Please review the content of the scripts before running them.'
-echo 'Continue?'
 echo ''
+echo 'These scripts will make changes to your system packages and config.'
+echo 'Review the content of the scripts before running them. Continue?'
 read -n 1 -rp '[y/N] > ' CONTINUE_SETUP
 if [[ "$CONTINUE_SETUP" != "y" ]]; then
   echo 'Cancelled'
@@ -100,16 +99,18 @@ info 'Just command runner setup'
 bash "$REPO/just/just.sh"
 
 success 'Initial setup completed.'
-success 'Now you can run the setup scripts that suit your needs.'
+info 'Now you can run the setup scripts that suit your needs.'
 
 if [[ "$OS" == "Ubuntu" ]]; then
-	echo 'Also run the Ubuntu setup script (bin/setup-ubuntu.sh)?'
 	echo ''
+	echo 'Also run the Ubuntu Setup script (bin/setup-ubuntu.sh)?'
 	read -n 1 -rp '[y/N] > ' CONTINUE_UBUNTU
 	if [[ "$CONTINUE_UBUNTU" == "y" ]]; then
+		echo ''
 		bash "$REPO/bin/setup-ubuntu.sh"
 	else
-	  warn 'Ubuntu script skipped.'
+		echo ''
+	  warn 'Skipped running the Ubuntu Setup script.'
 	  exit 1
   fi
 fi
