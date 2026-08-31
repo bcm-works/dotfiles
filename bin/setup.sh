@@ -101,3 +101,15 @@ bash "$REPO/just/just.sh"
 
 success 'Initial setup completed.'
 success 'Now you can run the setup scripts that suit your needs.'
+
+if [[ "$OS" == "Ubuntu" ]]; then
+	echo 'Also run the Ubuntu setup script (bin/setup-ubuntu.sh)?'
+	echo ''
+	read -n 1 -rp '[y/N] > ' CONTINUE_UBUNTU
+	if [[ "$CONTINUE_UBUNTU" == "y" ]]; then
+		bash "$REPO/bin/setup-ubuntu.sh"
+	else
+	  warn 'Ubuntu script skipped.'
+	  exit 1
+  fi
+fi

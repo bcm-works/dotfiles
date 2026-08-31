@@ -64,4 +64,6 @@ sudo snap set system refresh.retain=2 > /dev/null 2>&1;
 info 'Ubuntu: Configure ddcutil to allow for screen brightness control'
 sudo gpasswd --add $USER i2c > /dev/null 2>&1
 
-warn "Optional: Run Gnome Setup - bash $REPO/linux/gnome/gnome.sh"
+info 'Ubuntu: Upgrading APT packages'
+sudo apt update -qq > /dev/null 2>&1
+sudo apt upgrade -y -qq > /dev/null 2>&1;
