@@ -4,7 +4,8 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 
 - **[.prototypes](.prototypes/)**: Ideas and half-built prototypes 
 - **[ai](ai/)**: AI docs and setup scripts
-- **[bin](bin/)**: Bash utility and backup scripts
+- **[bin](bin/)**: Bash scripts
+- **[bin/utils.sh](bin/utils.sh)**: Bash helper functions for setup scripts
 - **[dev](dev/)**: Setup scripts and config for software development tools
 - **[dev/templates](dev/templates/)**: Custom templates to simplify new software project creation
 - **[linux](linux/)**: Linux setup and customisation scripts
