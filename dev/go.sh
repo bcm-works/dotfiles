@@ -19,9 +19,12 @@ cd "$REPO"
 
 GO_PATH="$HOME/Code"
 
-GO_INSTALL_VERSION="1.27.0"
-GO_INSTALL_DOWNLOAD="$HOME/Downloads/go$GO_INSTALL_VERSION.linux-amd64.tar.gz"
-GO_INSTALL_REMOTE="https://dl.google.com/go/go$GO_INSTALL_VERSION.linux-amd64.tar.gz"
+# Check for the latest Go version, or default to 1.27.1
+GO_LATEST_VERSION="$(curl -sL 'https://go.dev/VERSION?m=text' | head -n 1)"
+GO_INSTALL_VERSION="${GO_LATEST_VERSION:-go1.27.1}"
+
+GO_INSTALL_DOWNLOAD="$HOME/Downloads/$GO_INSTALL_VERSION.linux-amd64.tar.gz"
+GO_INSTALL_REMOTE="https://dl.google.com/go/$GO_INSTALL_VERSION.linux-amd64.tar.gz"
 
 if [[ "$OS" == "macOS" || "$OS" == "Windows" ]]; then
   error 'Please install Go manually - https://go.dev/doc/install'
