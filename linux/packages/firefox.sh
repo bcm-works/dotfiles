@@ -2,6 +2,7 @@
 #
 #
 # Linux: Install Mozilla Firefox
+#   - Rules file is from https://support.mozilla.org/en-US/kb/linux-security-warning
 #
 #
 
@@ -25,11 +26,14 @@ if [[ "$OS" == "Ubuntu" ]]; then
 	sudo -v
 
 	info 'Copying over rules file'
-  # From https://support.mozilla.org/en-US/kb/linux-security-warning
   sudo cp "$REPO/linux/packages/firefox-apparmor-rule.txt" "/etc/apparmor.d/firefox-local"
 
+	warn 'Reloading shell to apply changes'
+	source "$HOME/.bashrc"
+
 	info 'Updating path to Firefox binaries in rules file'
-	sudo sed -i "s|/home/<USER>/bin/firefox/|$(dirname "$(which firefox)")/|g" "/etc/apparmor.d/firefox-local"
+	FIREFOX_BIN_PATH="$(flatpak info --show-location org.mozilla.firefox)/files/bin/firefox"
+	sudo sed -i "s|<FIREFOX_BIN_PATH>|$FIREFOX_BIN_PATH|g" "/etc/apparmor.d/firefox-local"
 
 	info 'Restarting AppArmor service'
 	sudo systemctl restart apparmor.service
