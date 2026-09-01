@@ -39,7 +39,7 @@ backup_config() {
 	[ -f "$HOME/.gitconfig" ] && cp "$HOME/.gitconfig" "$DEST"
 	[ -f "$HOME/.vimrc" ] && cp "$HOME/".vimrc "$DEST"
 	[ -d "$HOME/.vim" ] && cp -r "$HOME/.vim" "$DEST"
-	[ -d "$HOME/.ssh" ] && cp -r "$HOME/.ssh" "$DEST"
+	[ -d "$HOME/.ssh/config" ] && cp "$HOME/.ssh/config" "$DEST/.ssh-config.txt"
 	[ -e "$HOME/.env.local" ] && cp "$HOME/.env.local" "$DEST"
 	[ -e "$HOME/justfile" ] && cp "$HOME/justfile" "$DEST"
 	[ -f "$HOME/.face" ] && cp "$HOME/.face" "$DEST"
@@ -69,11 +69,11 @@ os() {
   elif [[ "$OS" == 'Linux' ]]; then
     DISTRO_NAME="$(source /etc/os-release && echo $NAME)";
     if [[ "$DISTRO_NAME" == 'Fedora Linux' ]]; then
-    		if command -v rpm-ostree &> /dev/null; then
-    			echo 'Fedora Atomic';
-    		else
-      		echo 'Fedora';
-      	fi
+  		if command -v rpm-ostree &> /dev/null; then
+   			echo 'Fedora Atomic';
+  		else
+    		echo 'Fedora';
+     	fi
     elif [[ "$DISTRO_NAME" == 'Debian GNU/Linux' ]]; then
       echo 'Debian';
     elif [[ "$DISTRO_NAME" == 'Linux Mint' ]]; then
