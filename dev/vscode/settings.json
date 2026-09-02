@@ -192,6 +192,6 @@
 	"settingsSync.ignoredSettings": [
 		"-window.zoomLevel"
 	],
-	"explorer.sortOrder": "mixed",
+	"explorer.sortOrder": "foldersNestsFiles",
 	"explorer.fileNesting.expand": false
 }
