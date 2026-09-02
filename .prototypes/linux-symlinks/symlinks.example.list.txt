@@ -1,0 +1,2 @@
+~/Projects > /home/example/work/projects
+~/Sync > /home/media/Sync
