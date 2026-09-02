@@ -1,13 +1,11 @@
 angelo-breuer.clock
 denoland.vscode-deno
 docker.docker
-dunstontc.vscode-docker-syntax
 github.vscode-github-actions
+golang.go
 irongeek.vscode-env
 ms-azuretools.vscode-containers
 ms-vscode-remote.remote-containers
 ms-vscode.atom-keybindings
-oderwat.indent-rainbow
 raunofreiberg.vesper
-rafaelmaiolla.diff
 ronnidc.nunjucks
