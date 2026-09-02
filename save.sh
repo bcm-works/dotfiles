@@ -9,6 +9,11 @@ source "$HOME/Dotfiles/bin/utils.sh"
 CFG="$(dir_repo)/config/packages"
 cd "$CFG"
 
+if [ "$(command -v brew)" ]; then
+	info "Saving installed Homebrew package names to '$CFG/homebrew.list.txt'"
+	brew leaves > "$CFG/homebrew.list.txt"
+fi
+
 if [ "$(command -v flatpak)" ]; then
 	info "Saving installed Flatpak package names to '$CFG/flatpak.list.txt'"
 	flatpak list --app --columns=application | tail -n +1 > "$CFG/flatpak.list.txt"

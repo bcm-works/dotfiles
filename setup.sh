@@ -75,31 +75,8 @@ bash ~/Dotfiles/linux/bash/bash.sh
 info 'Add Fonts'
 bash ~/Dotfiles/fonts/fonts.sh
 
-if command -v brew > /dev/null 2>&1 ; then
-  success 'Homebrew package manager already installed'
-else
-  warn 'Install Homebrew to the default location?'
-  read -n 1 -rp '  [y/N] > ' BREW_DEFAULT
-  if [[ "$BREW_DEFAULT" == "y" ]]; then
-    bash "$REPO/homebrew/homebrew.sh"
-  else
-    echo ''
-    warn 'Install Homebrew to ~/.brew instead?'
-    read -n 1 -rp '  [y/N] > ' BREW_USER
-    if [[ "$BREW_USER" == "y" ]]; then
-      echo ''
-      if [[ "$OS" == "macOS" ]]; then
-        bash "$REPO/homebrew/homebrew.user.macos.sh"
-      else
-        bash "$REPO/homebrew/homebrew.user.linux.sh"
-      fi
-    else
-      echo ''
-      error 'Homebrew is required for various scripts'
-      exit 0
-    fi
-  fi
-fi
+info 'Setup Homebrew'
+bash ~/Dotfiles/homebrew/homebrew.sh
 
 info 'Setup Just'
 bash ~/Dotfiles/just/just.sh
@@ -107,42 +84,42 @@ bash ~/Dotfiles/just/just.sh
 info 'Setup Git'
 bash ~/Dotfiles/dev/git/git.sh
 
-info 'Flatpak'
+info 'Setup Flatpak'
 bash ~/Dotfiles/linux/packages/flatpak.sh
 
-info 'Keychron keyboards'
+info 'Setup Keychron keyboards'
 bash ~/Dotfiles/linux/hardware/keychron-keyboards.sh
 
-info 'Zed'
+info 'Setup Zed'
 bash ~/Dotfiles/dev/zed/zed.sh
 
-info 'Vim'
+info 'Setup Vim'
 bash ~/Dotfiles/linux/vim/vim.sh
 
-info 'Node'
+info 'Setup Node'
 bash ~/Dotfiles/dev/node.sh
 
-info 'Deno'
+info 'Setup Deno'
 bash ~/Dotfiles/dev/deno.sh
 
-info 'Go'
+info 'Setup Go'
 bash ~/Dotfiles/dev/go.sh
 
-info 'Chrome'
+info 'Setup Chrome'
 bash ~/Dotfiles/linux/packages/chrome.sh
 
-info 'Docker'
+info 'Setup Docker'
 bash ~/Dotfiles/dev/docker/docker.sh
 
 DISTRO_SETUP_SCRIPT="$REPO/linux/distros/$OSC.sh"
 if [[ -f "$DISTRO_SETUP_SCRIPT" ]]; then
-	warn "Running $OS setup script at '$DISTRO_SETUP_SCRIPT'"
+	warn "Running $OS setup from '$DISTRO_SETUP_SCRIPT'"
 	bash "$DISTRO_SETUP_SCRIPT"
 fi
 
 DESKENV_SETUP_SCRIPT="$REPO/linux/desktop-environments/$OSDC.sh"
 if [[ -f "$DESKENV_SETUP_SCRIPT" ]]; then
-	warn "Running $OSD setup script at '$DESKENV_SETUP_SCRIPT'"
+	warn "Running $OSD setup from '$DESKENV_SETUP_SCRIPT'"
 	bash "$DESKENV_SETUP_SCRIPT"
 fi
 
