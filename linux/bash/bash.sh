@@ -35,6 +35,7 @@ echo '' >> "$HOME/.bashrc"
 echo '# Load customised Bash config, prompt and aliases' >> "$HOME/.bashrc"
 echo '. ~/.bash_profile' >> "$HOME/.bashrc"
 
+warn 'Reloading shell to apply changes'
 source "$HOME/.bashrc"
 
 success 'Future terminal sessions will automatically load the customised Bash config file'

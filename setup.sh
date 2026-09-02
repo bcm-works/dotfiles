@@ -69,11 +69,15 @@ mkdir -p "$REPO/config/packages"
 
 backup_config
 
-if command -v brew > /dev/null 2>&1 ; then
-  warn 'Homebrew package manager already installed'
-else
-  info 'Homebrew package manager setup'
+info 'Setup Bash'
+bash ~/Dotfiles/linux/bash/bash.sh
 
+info 'Add Fonts'
+bash ~/Dotfiles/fonts/fonts.sh
+
+if command -v brew > /dev/null 2>&1 ; then
+  success 'Homebrew package manager already installed'
+else
   warn 'Install Homebrew to the default location?'
   read -n 1 -rp '  [y/N] > ' BREW_DEFAULT
   if [[ "$BREW_DEFAULT" == "y" ]]; then
@@ -90,24 +94,18 @@ else
         bash "$REPO/homebrew/homebrew.user.linux.sh"
       fi
     else
-    	echo ''
+      echo ''
       error 'Homebrew is required for various scripts'
       exit 0
     fi
   fi
 fi
 
-info 'Just command runner'
-bash "$REPO/just/just.sh"
+info 'Setup Just'
+bash ~/Dotfiles/just/just.sh
 
-info 'Bash'
-bash ~/Dotfiles/linux/bash/bash.sh
-
-info 'Git'
+info 'Setup Git'
 bash ~/Dotfiles/dev/git/git.sh
-
-info 'Fonts'
-bash ~/Dotfiles/fonts/fonts.sh
 
 info 'Flatpak'
 bash ~/Dotfiles/linux/packages/flatpak.sh
@@ -116,7 +114,7 @@ info 'Keychron keyboards'
 bash ~/Dotfiles/linux/hardware/keychron-keyboards.sh
 
 info 'Zed'
-bash ~/Dotfiles/dev/zed.sh
+bash ~/Dotfiles/dev/zed/zed.sh
 
 info 'Vim'
 bash ~/Dotfiles/linux/vim/vim.sh

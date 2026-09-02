@@ -40,16 +40,16 @@ sudo rm -rf "$BREW_DIR_DEFAULT"
 warn 'Reloading shell to apply changes'
 source "$HOME/.bashrc"
 
+info 'Loading Homebrew'
 eval "$($BREW_DIR/bin/brew shellenv bash)"
-
-echo 'Installing GCC via Homebrew'
-
-brew install gcc > /dev/null 2>&1
 
 if [[ "$OS" == "Fedora" ]]; then
   echo 'Fedora: Installing development-tools package'
-  sudo dnf group install -y development-tools > /dev/null 2>&1
+  sudo dnf group install -y -q development-tools
 fi
+
+echo 'Installing GCC'
+brew install gcc > /dev/null 2>&1
 
 echo 'Installing Bold Brew (bbrew)'
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Valkyrie00/bold-brew/main/install.sh)" > /dev/null 2>&1
