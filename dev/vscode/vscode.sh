@@ -13,17 +13,19 @@ BIN="$REPO/bin"
 OS="$(os)"
 cd "$REPO"
 
-if ! command -v code &> /dev/null; then
+if command -v code &> /dev/null; then
+  success 'VS Code is already installed'
+else
 	if command -v flatpak &> /dev/null; then
 		info 'Installing VS Code via Flatpak'
 		flatpak install --assumeyes --or-update com.visualstudio.code
 	else
-		error 'Please install VS Code manually - https://code.visualstudio.com/'
-		exit 0
+		error 'Please install VS Code manually first - https://code.visualstudio.com/'
+		exit 1
 	fi
 fi
 
-# Default to a standard confing for a Linux system
+# Set initial values to the defaults for a Linux system
 CONFIG_DIR="$HOME/.config/Code/User"
 INSTALL_CMD="code --install-extension"
 
@@ -39,19 +41,16 @@ fi
 
 mkdir -p "$CONFIG_DIR"
 
-info 'VS Code - Backing up current config'
+info 'Backing up current config'
+[ -f "$CONFIG_DIR/settings.json" ] && mv "$CONFIG_DIR/settings.json" "$CONFIG_DIR/settings.json.bak"
 
-mv "$CONFIG_DIR/settings.json" "$CONFIG_DIR/settings.json.bak"
+info 'Adding Symlink to custom config'
+ln -s "$DIR/settings.json" "$CONFIG_DIR/settings.json"
 
-info 'VS Code - Copying over custom config'
-
-cp "$DIR/settings.json" "$CONFIG_DIR/settings.json"
-
-# Install all packages from the package list file in this dir
-
+# Install all packages from the package list file
 cat "$DIR/vscode.extensions.txt" | while read extension
 do
-  info "VS Code - Installing extension '$extension'"
+  info "Installing extension '$extension'"
   $INSTALL_CMD $extension > /dev/null 2>&1
 done
 

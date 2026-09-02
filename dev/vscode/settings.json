@@ -186,5 +186,9 @@
   "workbench.startupEditor": "none",
   "claudeCode.preferredLocation": "sidebar",
   "chat.editor.wordWrap": "on",
-  "chat.disableAIFeatures": true
+  "chat.disableAIFeatures": true,
+  "window.zoomLevel": 0.25,
+  "settingsSync.ignoredSettings": [
+    "-window.zoomLevel"
+  ]
 }
