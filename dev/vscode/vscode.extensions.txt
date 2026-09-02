@@ -9,3 +9,4 @@ ms-vscode-remote.remote-containers
 ms-vscode.atom-keybindings
 raunofreiberg.vesper
 ronnidc.nunjucks
+vue.volar
