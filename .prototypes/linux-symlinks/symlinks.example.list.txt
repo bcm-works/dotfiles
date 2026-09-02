@@ -1,2 +1,3 @@
 ~/Projects > /home/example/work/projects
 ~/Sync > /home/media/Sync
+~/Fonts > /usr/share/fonts
