@@ -1,6 +1,7 @@
 angelo-breuer.clock
 denoland.vscode-deno
 docker.docker
+editorconfig.editorconfig
 github.vscode-github-actions
 golang.go
 irongeek.vscode-env
