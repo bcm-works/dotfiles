@@ -19,6 +19,8 @@ OS="$(os)"
 OS_CLEAN="$(os_clean)"
 cd "$DIR"
 
+NOW="$(date +%Y%m%d%H%M%S)"
+
 LOG_FILE="$DIR/backup-linux-user.log"
 LOG_FMT="+%Y-%m-%d %H:%M:%S"
 touch "$LOG_FILE"
@@ -49,7 +51,7 @@ echo $(date "$LOG_FMT") "Starting backup of '$SOURCE_DIR' to '$BACKUP_PATH'" >> 
 
 mkdir -p "$BACKUP_DIR"
 
-CONFIG_BACKUP_DIR_NAME="backup-config"
+CONFIG_BACKUP_DIR_NAME="backup-config_$NOW"
 CONFIG_BACKUP_DIR="$SOURCE_DIR/$CONFIG_BACKUP_DIR_NAME"
 rm -rf "$CONFIG_BACKUP_DIR"
 mkdir -p "$CONFIG_BACKUP_DIR"
