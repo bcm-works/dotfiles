@@ -1,0 +1,3 @@
+/home/example/work/projects > ~/Projects
+/home/example/Sync > ~/Sync
+/usr/share/fonts > ~/Fonts

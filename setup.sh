@@ -123,5 +123,8 @@ if [[ -f "$DESKENV_SETUP_SCRIPT" ]]; then
 	bash "$DESKENV_SETUP_SCRIPT"
 fi
 
+info 'Setup Symlinks'
+bash ~/Dotfiles/linux/symlinks/symlinks.sh
+
 success 'Setup script completed.'
 warn 'A reboot is recommended.'
