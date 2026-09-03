@@ -44,5 +44,3 @@ echo 'eval "$($BREW_DIR/bin/brew shellenv)"' >> "$HOME/.zshrc"
 echo 'alias brew="$BREW_DIR/bin/brew"' >> "$HOME/.zshrc"
 
 source "$HOME/.zshrc"
-
-brew install gcc > /dev/null 2>&1

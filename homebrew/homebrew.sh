@@ -48,8 +48,14 @@ fi
 warn 'Reloading shell to apply changes'
 source "$HOME/.bashrc"
 
-info 'Installing Bold Brew (bbrew)'
+info 'Installing GCC'
+brew install gcc > /dev/null 2>&1
+
+info 'Installing Bold Brew'
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Valkyrie00/bold-brew/main/install.sh)" > /dev/null 2>&1
+
+info 'Installing Glow'
+brew install -y glow > /dev/null 2>&1
 
 PACKAGES_LIST="$REPO/config/packages/homebrew.list.txt"
 if [ -f "$PACKAGES_LIST" ]; then
