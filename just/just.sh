@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 #
 #
-# Setup 'just' command runner for the current user
-#   - Requires Homebrew (Linux or macOS) to be installed first: https://brew.sh/
-#   - Installs 'just'
+# Setup Just command runner for the current user
+#   - Installs Just, more info at https://github.com/casey/just
+#   - Requires Homebrew (Linux or macOS) to be installed first - https://brew.sh/
 #   - Creates a symlink at '~/justfile' to the 'justfile' in this dir
-#   - You may need to restart your Terminal before 'just' command work properly
-#   - Then you can run from any directory inside of your user dir: just
-#   - More info at https://github.com/casey/just
+#   - When using my custom Bash Profile (setup via linux/bash/bash.sh), you can run 'ujust' from any dir
 #
 #
 
@@ -40,3 +38,6 @@ fi
 echo "Just: Adding symlink - '$HOME/justfile' > '$DIR/justfile'"
 
 ln -s "$DIR/justfile" "$HOME/justfile"
+
+warn 'Reloading shell to apply changes'
+source "$HOME/.bashrc"
