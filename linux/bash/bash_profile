@@ -152,8 +152,10 @@ alias hist-search='history | cut -c 8- | grep'
 
 # Aliases - Zed Editor
 
-if command -v zeditor > /dev/null 2>&1; then
-  alias zed='zeditor'
+if command -v flatpak > /dev/null 2>&1; then
+	if flatpak info "dev.zed.Zed" &> /dev/null; then
+		alias zed='flatpak run dev.zed.Zed'
+	fi
 fi
 
 # Environment variables
