@@ -1,0 +1,47 @@
+{
+	"theme": "auto",
+	"feedbackSurveyRate": 0,
+	"outputStyle": "Proactive",
+	"respectGitignore": true,
+	"spinnerTipsEnabled": false,
+	"cleanupPeriodDays": 7,
+	"attribution": {
+		"commit": "",
+		"pr": ""
+	},
+	"env": {
+		"CLAUDE_CODE_EFFORT_LEVEL": "auto",
+		"API_TIMEOUT_MS": "30000",
+		"BASH_DEFAULT_TIMEOUT_MS": "30000",
+		"CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+		"CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1"
+	},
+	"permissions": {
+		"defaultMode": "acceptEdits",
+		"disableBypassPermissionsMode": "disable",
+		"disableAutoMode": "disable",
+		"allow": [
+			"Fetch(https://docs.github.com/*)",
+			"Fetch(https://docs.deno.com/*)",
+			"Fetch(https://lume.land/docs/*)",
+			"Fetch(https://raw.githubusercontent.com/*)",
+			"Fetch(https://www.npmjs.com/*)",
+			"Fetch(https://jsr.io/*)",
+			"Fetch(https://go.dev/doc/*)",
+			"Bash(cat*)",
+			"Bash(grep*)",
+			"Bash(head*)",
+			"Bash(less*)",
+			"Bash(ls*)",
+			"Bash(tail*)",
+			"Bash(git status*)",
+			"Bash(git log*)"
+		],
+		"deny": [
+			"Read(.env)",
+			"Read(.env.*)",
+			"Bash(git commit*)",
+			"Bash(git push*)"
+		]
+	}
+}

@@ -23,21 +23,25 @@ alias upgrade := update
 alias up := update
 alias rm := clean
 alias ref := refresh
+alias ai := ai-install
 
 # Default to the 'list' command, when 'just' is run without any parameters
+[group('just')]
 default: list
 
 # Show a graphical selector listing the available options and their script content
+[group('just')]
 choose:
   @just --choose --justfile "{{ justfile() }}"
 
 # Show a list of the available 'run' commands
+[group('just')]
 list:
   @echo '{{ style("warning") }}Listing "just" command options from {{ justfile() }}{{ NORMAL }}'
   just --justfile "{{ justfile() }}" --list --alias-style 'right' --list-heading '' --list-prefix ''
 
 # Get the OS name
-[group('system')]
+[group('tools')]
 os:
   #!/usr/bin/env bash
   OS="$(uname -s)";
@@ -69,13 +73,13 @@ os:
   fi
 
 # Get the OS name, in lowercase and with dashes instead of spaces
-[group('system')]
+[group('tools')]
 os_clean:
   #!/usr/bin/env bash
   echo "$(just --justfile "{{ justfile() }}" os | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
 
 # Checks if the OS is Debian based, returns "true" or "false" as strings.
-[group('system')]
+[group('tools')]
 os_debian_based:
   #!/usr/bin/env bash
   OS="$(just --justfile "{{ justfile() }}" os)";
@@ -93,7 +97,7 @@ os_debian_based:
   fi
 
 # Get the name of the Linux Desktop Environment
-[group('system')]
+[group('tools')]
 os_desktop_clean:
   #!/usr/bin/env bash
   echo "$(echo ${XDG_CURRENT_DESKTOP#ubuntu:} | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
@@ -108,22 +112,37 @@ users:
 port port_number:
   sudo lsof -i ":{{ port_number }}" || echo "Port doesn't seem to be in use"
 
-# Get a disk partition label using the name (eg: nvme0n1p1)
+# Get a disk partition label using the partition name (eg: nvme0n1p1)
 [group('system')]
 partition_label partition_name:
 	find /dev/disk/ -lname '*{{ partition_name }}' | grep /dev/disk/by-partlabel/ | sed 's/\/dev\/disk\/by-partlabel\///'
 
-# Run the 'backup-linux-user' script
-[group('tools')]
+# Backup Linux user data
+[group('system')]
 backup:
   bash "$HOME/Dotfiles/bin/backup-linux-user/backup-linux-user.sh"
 
+# Install and update AI tools
+[group('ai')]
+ai-install:
+  bash "$HOME/Dotfiles/ai/ai.sh"
+
+# View the AI readme
+[group('ai')]
+ai-docs:
+	#!/usr/bin/env bash
+	if command -v glow > /dev/null 2>&1 ; then
+		glow "$HOME/Dotfiles/ai/README.md"
+	else
+		cat "$HOME/Dotfiles/ai/README.md"
+	fi
+
 # Show your current public IP address
-[group('tools')]
+[group('system')]
 ip:
   dig +short myip.opendns.com @resolver1.opendns.com
 
-# Run both 'update' and 'clean
+# Run 'update' then 'clean'
 [group('system')]
 refresh: update clean
 	echo "! Both 'update' and 'clean' tasks are finished, a system reboot is recommended."
@@ -213,13 +232,11 @@ clean:
     brew cleanup > /dev/null 2>&1;
   fi
 
-# Info about Just and the system
-[group('info')]
+# Info about Just itself
+[group('just')]
 info:
-  @echo "$( just --version )"
-  @echo "OS: $( just os )"
-  @echo "Architecture: {{ arch() }}"
-  @echo "Process: {{ just_pid() }}"
+  @echo "Just Version: $( just --version )"
+  @echo "Process ID: {{ just_pid() }}"
   @echo "Binary: {{ just_executable() }}"
-  @echo "Config: {{ justfile() }}"
+  @echo "Current Justfile: {{ justfile() }}"
   @echo "Current Dir: {{ invocation_directory() }}"

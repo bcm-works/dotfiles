@@ -8,7 +8,7 @@
 #    - Clone this repo
 #    - Open that dir in a new terminal
 #    - Run: bash ./bin/setup.sh
-#    - Run: bash ./ai/ai-install.sh
+#    - Run: bash ./ai/ai.sh
 #
 #
 
@@ -30,39 +30,39 @@ fi
 # Google Antigravity CLI - https://antigravity.google/product/antigravity-cli
 
 if [ ! "$(command -v agy)" ]; then
-  info 'Install: Google Antigravity CLI'
+  info 'Installing Google Antigravity CLI'
   curl -fsSL https://antigravity.google/cli/install.sh | bash > /dev/null 2>&1
 else
-	info 'Update: Google Antigravity CLI'
+	info 'Updating Google Antigravity CLI'
 	agy update > /dev/null 2>&1
 fi
 
 # OpenAI Codex CLI - https://developers.openai.com/codex/cli
 
 if [ ! "$(command -v codex)" ]; then
-  info 'Install: OpenAI Codex CLI'
+  info 'Installing OpenAI Codex CLI'
   brew install codex > /dev/null 2>&1
 else
-  info 'Update: OpenAI Codex CLI'
+  info 'Updating OpenAI Codex CLI'
   codex update > /dev/null 2>&1
 fi
 
 # Claude Code CLI - https://code.claude.com/docs/en/quickstart
 
 if [ ! "$(command -v claude)" ];  then
-  info 'Install: Claude Code CLI'
+  info 'Installing Claude Code CLI'
   curl -fsSL https://claude.ai/install.sh | bash > /dev/null 2>&1
 else
-	info 'Update: Claude Code CLI'
+	info 'Updating Claude Code CLI'
 	claude update > /dev/null 2>&1
 fi
 
 # GitHub Copilot CLI - https://github.com/features/copilot/cli
 
 if [ ! "$(command -v copilot)" ];  then
-  info 'Install: GitHub Copilot CLI'
+  info 'Installing GitHub Copilot CLI'
   curl -fsSL https://gh.io/copilot-install | bash > /dev/null 2>&1
 else
-	info 'Update: GitHub Copilot CLI'
+	info 'Updating GitHub Copilot CLI'
 	copilot update > /dev/null 2>&1
 fi
