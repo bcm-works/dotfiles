@@ -545,6 +545,7 @@
 		"just": true,
 		"env": true,
 		"vesper": true,
+		"vue": true,
 		"xml": true
 	},
 	"lsp": {
