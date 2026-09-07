@@ -25,7 +25,7 @@ if [[ "$OS" == "EndeavourOS" ]]; then
     podman \
     podman-compose \
     podman-docker \
-    podman-desktop
+    podman-desktop > /dev/null 2>&1
 
   info "Configuring Docker registry and container config defaults"
   cp -n "$DIR/registries.conf" "$HOME/.config/containers/registries.conf"
@@ -46,8 +46,8 @@ if [[ "$OS" == "Fedora" ]]; then
 
   # Install Docker CLI
   sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
-  sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-  sudo systemctl enable --now docker
+  sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin > /dev/null 2>&1
+  sudo systemctl enable --now docker > /dev/null 2>&1
 
   # Setup Docker
   sudo groupadd docker
@@ -56,8 +56,8 @@ if [[ "$OS" == "Fedora" ]]; then
   # Install Docker Desktop
   DOCKER_RPM="$HOME/Downloads/temp-docker-desktop-x86_64.rpm"
   rm -rf "$DOCKER_RPM"
-  curl --output "$DOCKER_RPM" "https://desktop.docker.com/linux/main/amd64/docker-desktop-x86_64.rpm"
-  sudo dnf -y install "$DOCKER_RPM"
+  curl --output "$DOCKER_RPM" "https://desktop.docker.com/linux/main/amd64/docker-desktop-x86_64.rpm" > /dev/null 2>&1
+  sudo dnf -y install "$DOCKER_RPM" > /dev/null 2>&1
   rm -rf "$DOCKER_RPM"
 
   exit 0
@@ -68,10 +68,9 @@ if [ "$(os_debian_based)" ]; then
   sudo -v
 
   # Add the Docker packages repository and official GPG key
-  sudo apt update -qq
-  sudo apt install ca-certificates curl
+  sudo apt install -y ca-certificates curl > /dev/null 2>&1
   sudo install -m 0755 -d /etc/apt/keyrings
-  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc > /dev/null 2>&1
   sudo chmod a+r /etc/apt/keyrings/docker.asc
 
   # Add the repository to Apt sources
@@ -85,14 +84,13 @@ Signed-By: /etc/apt/keyrings/docker.asc
 EOF
 
   # Install Docker and standard plugins
-  sudo apt update -qq
   sudo apt -qq --assume-yes install \
     docker-ce \
     docker-ce-cli \
     containerd.io \
     docker-buildx-plugin \
     docker-compose-plugin \
-    docker-ce-rootless-extras
+    docker-ce-rootless-extras > /dev/null 2>&1
 
   # Give this user privileged Docker access
   sudo usermod -aG docker ${USER}
@@ -103,9 +101,8 @@ EOF
   # Install Docker Desktop
   DOCKER_DEB="$HOME/Downloads/temp-docker-desktop-amd64.deb"
   rm -rf "$DOCKER_DEB"
-  curl --output "$DOCKER_DEB" "https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb"
-  sudo apt update -qq
-  sudo apt -qq --assume-yes install "$DOCKER_DEB"
+  curl --output "$DOCKER_DEB" "https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb" > /dev/null 2>&1
+  sudo apt -qq --assume-yes install "$DOCKER_DEB" > /dev/null 2>&1
   rm -rf "$DOCKER_DEB"
 
   exit 0
