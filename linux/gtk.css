@@ -1,0 +1,14 @@
+/*
+
+GTK Customisations
+
+- More info at https://www.gtk.org/
+- GTK 3.0 - Append content below to ~/.config/gtk-3.0/gtk.css
+- GTK 5.0 - Append content below to ~/.config/gtk-4.0/gtk.css
+
+*/
+
+/* Remove rounded corners in application windows */
+window, decoration, decoration-overlay, headerbar, .titlebar {
+ 	border-radius: 0px;
+}
