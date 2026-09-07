@@ -1,0 +1,65 @@
+/*
+
+Rewaita custom theme
+
+- More info at https://flathub.org/en/apps/io.github.swordpuffin.rewaita
+- Based on the included Material Deepocean Dark theme
+
+*/
+:root {
+  --window-bg-color: #000000;
+  --window-fg-color: #8f93a2;
+  --view-bg-color: #000000;
+  --view-fg-color: #8f93a2;
+  --success-color: #78e9ab;
+  --success-bg-color: #26a269;
+  --success-fg-color: #ffffff;
+  --warning-color: #ffc252;
+  --warning-bg-color: #cd9309;
+  --warning-fg-color: #000000;
+  --destructive-color: #ff938c;
+  --destructive-bg-color: #c01c28;
+  --destructive-fg-color: #ffffff;
+  --error-color: #ff938c;
+  --error-bg-color: #c01c28;
+  --error-fg-color: #ffffff;
+  --headerbar-bg-color: #0a0c13;
+  --headerbar-fg-color: #8f93a2;
+  --popover-bg-color: #000000;
+  --popover-fg-color: #8f93a2;
+  --dialog-bg-color: #000000;
+  --dialog-fg-color: #8f93a2;
+  --card-bg-color: #1c1e28;
+  --card-fg-color: #8f93a2;
+  --sidebar-bg-color: #000000;
+  --sidebar-fg-color: #8f93a2;
+  --sidebar-backdrop-color: #000000;
+  --sidebar-border-color: #1c1e28;
+  --secondary-sidebar-bg-color: var(--sidebar-bg-color);
+  --secondary-sidebar-fg-color: var(--sidebar-fg-color);
+  --secondary-sidebar-backdrop-color: var(--sidebar-backdrop-color);
+  --secondary-sidebar-border-color: var(--sidebar-border-color);
+  --blue-1: #82aaff;
+  --blue-2: #89ddff;
+  --green-1: #c3e88d;
+  --yellow-1: #ffcb6b;
+  --red-1: #ff5370;
+  --purple-1: #c792ea;
+  --purple-2: #b388ff;
+  --orange-1: #f78c6c;
+  --brown-1: #959dcb;
+  --light-1: #8f93a2;
+  --light-5: #676e95;
+  --dark-1: #1f2233;
+}
+
+toast {
+  background-color: #000000;
+  color: #8f93a2;
+}
+toggle:checked {
+  background-color: #1c1e28;
+  color: #8f93a2;
+}
+
+/* Enter any extra CSS here */
