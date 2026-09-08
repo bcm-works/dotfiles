@@ -20,7 +20,6 @@ cd "$REPO"
 if [[ "$OS" == "Windows" ]]; then
   warn "Please manually install the AI Code Generation tools you need."
   echo ''
-  info " - Ollama - https://ollama.com/"
   info " - OpenCode - https://opencode.ai/"
   info " - Google Antigravity - https://antigravity.google/product/antigravity-cli"
   info " - OpenAI Codex - https://developers.openai.com/codex/cli"
@@ -28,15 +27,6 @@ if [[ "$OS" == "Windows" ]]; then
   info " - GitHub Copilot - https://github.com/features/copilot/cli"
   exit 0
 fi
-
-# Ollama - https://ollama.com/
-
-if [ ! "$(command -v ollama)" ]; then
-	info 'Installing Ollama'
-else
-	info 'Updating Ollama'
-fi
-curl -fsSL https://ollama.com/install.sh | bash > /dev/null 2>&1
 
 # OpenCode - https://opencode.ai/
 
