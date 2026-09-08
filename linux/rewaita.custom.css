@@ -2,14 +2,14 @@
 
 Rewaita custom theme
 
-- More info at https://flathub.org/en/apps/io.github.swordpuffin.rewaita
+- Use this via the Rewaita app from Flathub -  https://flathub.org/en/apps/io.github.swordpuffin.rewaita
 - Based on the included Material Deepocean Dark theme
 
 */
 :root {
-  --window-bg-color: #000000;
+  --window-bg-color: #0a0c12;
   --window-fg-color: #8f93a2;
-  --view-bg-color: #000000;
+  --view-bg-color: #0a0c12;
   --view-fg-color: #8f93a2;
   --success-color: #78e9ab;
   --success-bg-color: #26a269;
@@ -25,15 +25,15 @@ Rewaita custom theme
   --error-fg-color: #ffffff;
   --headerbar-bg-color: #0a0c13;
   --headerbar-fg-color: #8f93a2;
-  --popover-bg-color: #000000;
+  --popover-bg-color: #0a0c12;
   --popover-fg-color: #8f93a2;
-  --dialog-bg-color: #000000;
+  --dialog-bg-color: #0a0c12;
   --dialog-fg-color: #8f93a2;
   --card-bg-color: #1c1e28;
   --card-fg-color: #8f93a2;
-  --sidebar-bg-color: #000000;
+  --sidebar-bg-color: #0a0c12;
   --sidebar-fg-color: #8f93a2;
-  --sidebar-backdrop-color: #000000;
+  --sidebar-backdrop-color: #0a0c12;
   --sidebar-border-color: #1c1e28;
   --secondary-sidebar-bg-color: var(--sidebar-bg-color);
   --secondary-sidebar-fg-color: var(--sidebar-fg-color);
@@ -54,7 +54,7 @@ Rewaita custom theme
 }
 
 toast {
-  background-color: #000000;
+  background-color: #0a0c12;
   color: #8f93a2;
 }
 toggle:checked {
@@ -62,4 +62,7 @@ toggle:checked {
   color: #8f93a2;
 }
 
-/* Enter any extra CSS here */
+/* Remove rounded corners in application windows */
+window, decoration, decoration-overlay, headerbar, .titlebar {
+  border-radius: 0px;
+}
