@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# Ubuntu: Add packages and update config to improve gaming performance
+# Linux Games - Setup packages and config to improve performance in games
 #
 #
 
