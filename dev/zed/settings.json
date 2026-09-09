@@ -541,6 +541,7 @@
 		"python-requirements": true,
 		"sql": true,
 		"terraform": true,
+		"lua": true,
 		"toml": true,
 		"just": true,
 		"env": true,
