@@ -158,7 +158,9 @@ update:
   sudo -v;
   if [[ "$OS" == 'EndeavourOS' ]]; then
     echo 'i EndeavourOS - System updates';
-    eos-update --keep-system-running --aur;
+    sudo pacman -Sy > /dev/null 2>&1;
+    sudo pacman -Su > /dev/null 2>&1;
+    yay -Sua > /dev/null 2>&1;
   elif [[ "$OS" == 'Fedora' ]]; then
     echo 'i Fedora - Updating packages';
     sudo dnf upgrade --refresh -y > /dev/null 2>&1;
