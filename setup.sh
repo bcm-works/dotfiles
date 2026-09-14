@@ -109,7 +109,7 @@ info 'Setup Chrome'
 bash ~/Dotfiles/linux/packages/chrome.sh
 
 info 'Setup Docker'
-bash ~/Dotfiles/dev/docker/docker.sh
+bash ~/Dotfiles/docker/docker.sh
 
 DISTRO_SETUP_SCRIPT="$REPO/linux/distros/$OSC.sh"
 if [[ -f "$DISTRO_SETUP_SCRIPT" ]]; then

@@ -28,8 +28,8 @@ if [[ "$OS" == "EndeavourOS" ]]; then
     podman-desktop > /dev/null 2>&1
 
   info "Configuring Docker registry and container config defaults"
-  cp -n "$DIR/registries.conf" "$HOME/.config/containers/registries.conf"
-  cp -n "$DIR/containers.conf" "$HOME/.config/containers/containers.conf"
+  cp -n "$DIR/config/registries.conf" "$HOME/.config/containers/registries.conf"
+  cp -n "$DIR/config/containers.conf" "$HOME/.config/containers/containers.conf"
 
   info "Suppressing notices about running Docker features via Podman"
   sudo touch /etc/containers/nodocker
