@@ -20,23 +20,10 @@ if [[ "$OS" == "EndeavourOS" ]]; then
   warn "Requesting sudo"
   sudo -v
 
-  info "Installing Podman and Docker packages"
-  yay -Syu --noconfirm \
-    podman \
-    podman-compose \
-    podman-docker \
-    podman-desktop > /dev/null 2>&1
+  info "Installing Docker packages"
+  yay -Syu --noconfirm docker-desktop > /dev/null 2>&1
 
-  info "Configuring Docker registry and container config defaults"
-  cp -n "$DIR/config/registries.conf" "$HOME/.config/containers/registries.conf"
-  cp -n "$DIR/config/containers.conf" "$HOME/.config/containers/containers.conf"
-
-  info "Suppressing notices about running Docker features via Podman"
-  sudo touch /etc/containers/nodocker
-
-  info "Add user subids to improve rootless Docker support in Podman"
-  sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $USER
-
+	warn "Finished installing, a restart is recommended."
   exit 0
 fi
 
@@ -60,6 +47,7 @@ if [[ "$OS" == "Fedora" ]]; then
   sudo dnf -y install "$DOCKER_RPM" > /dev/null 2>&1
   rm -rf "$DOCKER_RPM"
 
+	warn "Finished installing, a restart is recommended."
   exit 0
 fi
 
@@ -105,5 +93,6 @@ EOF
   sudo apt -qq --assume-yes install "$DOCKER_DEB" > /dev/null 2>&1
   rm -rf "$DOCKER_DEB"
 
+	warn "Finished installing, a restart is recommended."
   exit 0
 fi
