@@ -120,7 +120,7 @@ partition_label partition_name:
 # Backup Linux user data
 [group('system')]
 backup:
-  bash "$HOME/Dotfiles/bin/backup-linux-user/backup-linux-user.sh"
+  bash "$HOME/Dotfiles/tools/backup-linux-user/backup-linux-user.sh"
 
 # Install and update AI tools
 [group('ai')]
