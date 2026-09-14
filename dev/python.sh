@@ -5,7 +5,7 @@
 #   - To run this script:
 #     - Clone this repo
 #     - Open that dir in a new terminal
-#     - Run: bash ./bin/setup.sh
+#     - Run: bash ./setup.sh
 #     - Run: bash ./dev/python.sh
 #
 #
