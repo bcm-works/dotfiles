@@ -21,7 +21,7 @@ mkdir -p "$FONT_DIR"
 
 info "Copying over Commit Mono Nerd Fonts from https://www.nerdfonts.com/font-downloads"
 
-cp "$DIR/CommitMono/"*.otf "$FONT_DIR/"
+cp "$DIR/font-commit-mono/"*.otf "$FONT_DIR/"
 
 if [[ "$OS" == "EndeavourOS" ]]; then
 	warn 'EndeavourOS: Requesting sudo'
@@ -54,7 +54,7 @@ elif [[ "$OS" == "Ubuntu" ]]; then
 
   if [[ ! -f "$FONT_CONF_DIR/01-emoji.conf" ]]; then
     info 'Ubuntu: Creating font config file for Noto Emoji'
-    cp "$DIR/emoji-fonts.conf" "$FONT_CONF_DIR/01-emoji.conf"
+    cp "$DIR/config/emoji-fonts.conf" "$FONT_CONF_DIR/01-emoji.conf"
   fi
 fi
 
