@@ -4,7 +4,6 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 
 - **[ai](ai/)** - AI docs and setup scripts
 - **[bin](bin/)** - Bash scripts
-- **[bin/utils.sh](bin/utils.sh)** - Bash helper functions for setup scripts
 - **[dev](dev/)** - Setup scripts and config for software development tools
 - **[dev/templates](dev/templates/)** - Custom templates to simplify new software project creation
 - **[docker](docker/)** - [Docker](https://docker.com/) setup and tools
@@ -14,6 +13,7 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 - **[backup.sh](backup.sh)** - Create a new config backup in the Git Ignored `config/backups` directory
 - **[setup.sh](setup.sh)** - Initial setup script
 - **[save.sh](save.sh)** - Save current package names to the package list files
+- **[utils.sh](utils.sh)** - Bash helper functions for setup scripts
 
 ## Initial Setup
 

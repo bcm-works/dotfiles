@@ -5,6 +5,6 @@
 #
 #
 
-source "$HOME/Dotfiles/bin/utils.sh"
+source "$HOME/Dotfiles/utils.sh"
 
 backup_config

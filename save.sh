@@ -5,7 +5,7 @@
 #
 #
 
-source "$HOME/Dotfiles/bin/utils.sh"
+source "$HOME/Dotfiles/utils.sh"
 CFG="$(dir_repo)/config/packages"
 cd "$CFG"
 

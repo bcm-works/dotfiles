@@ -5,7 +5,7 @@
 #
 #
 
-source "$HOME/Dotfiles/bin/utils.sh"
+source "$HOME/Dotfiles/utils.sh"
 REPO="$(dir_repo)"
 OS="$(os)"
 cd "$REPO"
@@ -94,4 +94,3 @@ gsettings set org.cinnamon.desktop.keybindings.media-keys calculator []
 gsettings set org.cinnamon.desktop.keybindings.media-keys email []
 gsettings set org.cinnamon.desktop.keybindings.media-keys home []
 gsettings set org.cinnamon.desktop.keybindings.media-keys www []
-

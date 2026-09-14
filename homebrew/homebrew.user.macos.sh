@@ -9,7 +9,7 @@
 #
 #
 
-source "$HOME/Dotfiles/bin/utils.sh"
+source "$HOME/Dotfiles/utils.sh"
 REPO="$(dir_repo)"
 OS="$(os)"
 cd "$REPO"

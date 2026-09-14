@@ -12,7 +12,7 @@
 #
 #
 
-source "$HOME/Dotfiles/bin/utils.sh"
+source "$HOME/Dotfiles/utils.sh"
 DIR="$(dir_this)"
 REPO="$(dir_repo)"
 OS="$(os)"

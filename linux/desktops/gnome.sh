@@ -5,7 +5,7 @@
 #
 #
 
-source "$HOME/Dotfiles/bin/utils.sh"
+source "$HOME/Dotfiles/utils.sh"
 REPO="$(dir_repo)"
 OS="$(os)"
 os_desktop_clean="$(os_desktop_clean)"

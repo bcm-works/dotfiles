@@ -6,7 +6,7 @@
 #
 #
 
-source "$HOME/Dotfiles/bin/utils.sh"
+source "$HOME/Dotfiles/utils.sh"
 REPO="$(dir_repo)"
 DIR="$(dir_this)"
 BIN="$REPO/bin"

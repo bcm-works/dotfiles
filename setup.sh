@@ -24,7 +24,7 @@ else
   echo "Skipped symlink, '$HOME/Dotfiles' already exists"
 fi
 
-source "$HOME/Dotfiles/bin/utils.sh"
+source "$HOME/Dotfiles/utils.sh"
 REPO="$(dir_repo)"
 OS="$(os)"
 OSC="$(os_clean)"
