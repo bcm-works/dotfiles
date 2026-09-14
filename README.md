@@ -17,8 +17,8 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 
 ## Initial Setup
 
-- Copy [.sample.env](.sample.env) to `.env`
-- Edit `.env` to suit your needs and optionally set a custom config directory location
+- Copy [.env.sample](.env.sample) to `.env`
+- Edit `.env` to suit your needs and optionally set a custom config directory location, note that this file is ignored by Git
 - **Optional** - Save your installed package names to the package list files by running `bash ./save.sh`
 - Setup your `config` directory (Git Ignored):
 	- `packages/flatpak.list.txt` - Flatpak apps list
