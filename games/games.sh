@@ -143,7 +143,7 @@ sudo usermod -aG gamemode $(whoami)
 
 touch "$HOME/.config/gamemode.ini"
 cp "$HOME/.config/gamemode.ini" "$HOME/.config/gamemode.ini.old"
-cp "$DIR/gamemode.ini" "$HOME/.config/gamemode.ini"
+cp "$DIR/config/gamemode.ini" "$HOME/.config/gamemode.ini"
 
 if ! command -v flatpak > /dev/null 2>&1 ; then
   warn "Skipping Flatpak installs, please setup Flatpak first - bash $REPO/linux/packages/flatpak.sh"

@@ -117,7 +117,7 @@ if [[ -f "$DISTRO_SETUP_SCRIPT" ]]; then
 	bash "$DISTRO_SETUP_SCRIPT"
 fi
 
-DESKENV_SETUP_SCRIPT="$REPO/linux/desktop-environments/$OSDC.sh"
+DESKENV_SETUP_SCRIPT="$REPO/linux/desktops/$OSDC.sh"
 if [[ -f "$DESKENV_SETUP_SCRIPT" ]]; then
 	warn "Running $OSD setup from '$DESKENV_SETUP_SCRIPT'"
 	bash "$DESKENV_SETUP_SCRIPT"
