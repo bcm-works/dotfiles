@@ -32,3 +32,7 @@ tmp
 
 .zed
 .vscode
+
+**/__pycache__
+**/.venv
+**/venv

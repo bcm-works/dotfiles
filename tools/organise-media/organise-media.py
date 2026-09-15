@@ -1,8 +1,10 @@
-# Media organisation helper
+#!/usr/bin/env python3
+#
+# Organise media script
+#
+# Forked from https://gist.github.com/cliss/6854904
 #
 # ----
-#
-# Originally forked from https://gist.github.com/cliss/6854904
 #
 # Organises all media files (defined by "mediaFileExtensions") in a source directory in to a subdirectory of the destination directory named like:
 #   2020\01 Jan\
@@ -13,12 +15,14 @@
 #
 # Setup:
 #   1. Configure your photo directories:
-#       cp --update=none .media-organise.sample.env .media-organise.env
-#       vim .media-organise.env
-#   2. Run the script:
-#       photomgmt
-#   3. Optional - Configure an alias command:
-#       echo "alias photomgmt='python /path/to/this-file.py'" >> ~/.bash_aliases
+#       cp --update=none .organise-media.sample.env .organise-media.env
+#       vim .organise-media.env
+#   2. Open this directory in Zed to automatically use the local .venv
+#      and recognise the installed dependencies.
+#   3. Run the script with the local environment:
+#       .venv/bin/python organise-media.py
+#   4. Optional - Configure an alias command:
+#       echo "alias photomgmt='/path/to/organise-media/.venv/bin/python /path/to/organise-media/organise-media.py'" >> ~/.bash_aliases
 #       source ~/.bash_aliases
 #
 # Requirements:
@@ -64,7 +68,7 @@ yearNow = now.year
 
 # Load the configuration values from the ENV file
 script_file_path = os.path.dirname(__file__)
-config = dotenv_values("%s/.organise-photos.env" % script_file_path)
+config = dotenv_values("%s/.organise-media.env" % script_file_path)
 
 # Where the media files are and where they're going
 sourceDir = "%s" % (config["PHOTOMGMT_SOURCE_DIR"])
