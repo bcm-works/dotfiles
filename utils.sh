@@ -15,7 +15,7 @@ error() { echo -e "\033[1;31m✗ ${1}\033[0m"; }
 # root based on the location of this file. Assumes
 # this file is one directory deeper than the repo root.
 dir_repo() {
-	echo "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+	echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 }
 
 # Returns the absolute path of the executed script
