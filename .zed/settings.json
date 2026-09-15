@@ -1,0 +1,23 @@
+{
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "basedpyright"
+      ]
+    }
+  },
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "python": {
+          "pythonPath": "tools/organise-media/.venv/bin/python"
+        },
+        "basedpyright": {
+          "analysis": {
+            "configFilePath": "."
+          }
+        }
+      }
+    }
+  }
+}

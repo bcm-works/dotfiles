@@ -30,9 +30,9 @@ tmp
 .tags
 .tags_swap
 
-.zed
-.vscode
-
 **/__pycache__
 **/.venv
 **/venv
+
+.zed/*
+!.zed/settings.json
