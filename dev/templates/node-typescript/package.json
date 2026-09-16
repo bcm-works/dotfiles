@@ -14,7 +14,7 @@
 		"test": "echo \"Error: not implemented yet\" && exit 0"
 	},
 	"imports": {
-		"#src/*": "./src/*.ts"
+		"#/*": "./src/*.ts"
 	},
 	"dependencies": {},
 	"devDependencies": {
@@ -23,7 +23,7 @@
 	},
 	"packageManager": "npm@12.0.2",
 	"engines": {
-		"node": ">=26.8.2",
+		"node": ">=26.9.0",
 		"npm": ">=12.0.2"
 	}
 }
