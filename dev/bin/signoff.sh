@@ -64,5 +64,4 @@ gh api \
   -f "context=signoff" \
   -f "state=success" \
   -f "description=Signed off by $USER_NAME <$USER_EMAIL> ($SECONDS seconds)" && \
-  announce "Signed off on $SHA_SHORT in $SECONDS seconds - " $GREEN && \
-  gh browse $SHA -n
+  announce "Signed off on $SHA_SHORT in $SECONDS seconds, pushed status to GitHub - $(gh browse $SHA -n) " $GREEN
