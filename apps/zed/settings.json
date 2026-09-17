@@ -383,7 +383,7 @@
   },
   "collaboration_panel": {
     "dock": "left",
-    "button": false,
+    "button": true,
   },
   "title_bar": {
     "show_branch_status_icon": true,
