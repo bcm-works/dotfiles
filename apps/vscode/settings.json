@@ -188,7 +188,7 @@
 	"claudeCode.preferredLocation": "sidebar",
 	"chat.editor.wordWrap": "on",
 	"chat.disableAIFeatures": true,
-	"window.zoomLevel": 0.23,
+	"window.zoomLevel": 0.32,
 	"settingsSync.ignoredSettings": [
 		"-window.zoomLevel"
 	],
