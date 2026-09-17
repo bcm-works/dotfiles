@@ -7,7 +7,8 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 - **[apps/obsidian](apps/obsidian/)** - Custom [Obsidian](https://obsidian.md/) config and example note vault
 - **[apps/zed](apps/zed/)** - Custom [Zed](https://zed.dev/) setup and config
 - **[apps/vscode](apps/vscode/)** - Custom [VS Code](https://code.visualstudio.com/) setup and config
-- **[dev](dev/)** - Setup scripts and config for software development tools
+- **[dev](dev/)** - Software development setup scripts and config
+- **[dev/bin](dev/bin/)** - Scripts to support software development
 - **[dev/templates](dev/templates/)** - Custom templates to simplify new software project creation
 - **[games](games/)** - Setup packages and config to improve performance in games
 - **[linux](linux/)** - Linux setup and config
