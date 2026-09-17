@@ -33,9 +33,9 @@ else
     if [[ "$BREW_USER" == "y" ]]; then
       echo ''
       if [[ "$OS" == "macOS" ]]; then
-        bash "$REPO/homebrew/homebrew.user.macos.sh"
+        bash "$REPO/tools/homebrew/homebrew.user.macos.sh"
       else
-        bash "$REPO/homebrew/homebrew.user.linux.sh"
+        bash "$REPO/tools/homebrew/homebrew.user.linux.sh"
       fi
     else
       echo ''

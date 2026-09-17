@@ -9,7 +9,7 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 - **[games](games/)** - Setup packages and config to improve performance in games
 - **[linux](linux/)** - Linux setup and customisation scripts
 - **[obsidian](obsidian/)** - Custom [Obsidian](https://obsidian.md/) configuration and example note vault
-- **[tools](tools/)** - System helper scripts
+- **[tools](tools/)** - Package managers and system utility scripts
 - **[backup.sh](backup.sh)** - Create a new config backup in the Git Ignored `config/backups` directory
 - **[setup.sh](setup.sh)** - Initial setup script
 - **[save.sh](save.sh)** - Save current package names to the package list files

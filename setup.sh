@@ -76,10 +76,10 @@ info 'Add Fonts'
 bash ~/Dotfiles/fonts/fonts.sh
 
 info 'Setup Homebrew'
-bash ~/Dotfiles/homebrew/homebrew.sh
+bash ~/Dotfiles/tools/homebrew/homebrew.sh
 
 info 'Setup Just'
-bash ~/Dotfiles/just/just.sh
+bash ~/Dotfiles/tools/just/just.sh
 
 info 'Setup Git'
 bash ~/Dotfiles/dev/git/git.sh
