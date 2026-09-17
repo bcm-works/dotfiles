@@ -33,10 +33,10 @@ GREEN=32; RED=31; BLUE=34
 announce() { echo -e "\033[0;$2m$1\033[0m"; }
 run() {
   local SPLIT=$SECONDS
-  announce "\nRun $1" $BLUE
+  announce "Running - $1" $BLUE
   eval "$1"
   local INTERVAL=$((SECONDS-SPLIT))
-  announce "Completed $1 in $INTERVAL seconds" $GREEN
+  announce "Completed in $INTERVAL seconds" $GREEN
 }
 
 # Sign off requires a clean repository
@@ -60,9 +60,9 @@ gh api \
   --method POST --silent \
   -H "Accept: application/vnd.github+json" \
   -H "X-GitHub-Api-Version: 2026-03-10" \
-  /repos/$OWNER/$REPO/statuses/$SHA \
+  "/repos/$OWNER/$REPO/statuses/$SHA" \
   -f "context=signoff" \
   -f "state=success" \
-  -f "description=Signed off by $USER_NAME <$USER_EMAIL> ($SECONDS seconds)"
-
-announce "Signed off on $SHA_SHORT in $SECONDS seconds" $GREEN
+  -f "description=Signed off by $USER_NAME <$USER_EMAIL> ($SECONDS seconds)" && \
+  announce "Signed off on $SHA_SHORT in $SECONDS seconds - " $GREEN && \
+  gh browse $SHA -n
