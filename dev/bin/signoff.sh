@@ -49,6 +49,7 @@ fi
 
 # Required step(s) for sign off
 #   - This could include unit test commands, linting, etc
+#   - Use the "run" function so the output is consistent and the "$SECONDS" counter is updated.
 
 run "du -h --max-depth=1 $HOME | sort -rh"
 
