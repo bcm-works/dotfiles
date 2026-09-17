@@ -153,9 +153,6 @@ else
   info 'Installing Discord via Flatpak'
   flatpak install --assumeyes --or-update com.discordapp.Discord
 
-  info 'Installing Lutris via Flatpak'
-  flatpak install --assumeyes --or-update net.lutris.Lutris
-
   info 'Installing ProtonPlus via Flatpak'
   flatpak install --assumeyes --or-update com.vysp3r.ProtonPlus
 
