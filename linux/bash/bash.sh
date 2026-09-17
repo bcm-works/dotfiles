@@ -21,7 +21,7 @@ backup_config
 
 info 'Setup Git Bash features'
 
-bash "$REPO/dev/git/git-bash.sh"
+bash "$REPO/dev/git-bash.sh"
 
 info 'Add symlink to the customised Bash config file'
 

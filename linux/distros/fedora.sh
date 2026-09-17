@@ -32,4 +32,4 @@ sudo dnf install -y \
 
 info 'Fedora: Setup Flatpak'
 
-bash "$REPO/linux/packages/flatpak.sh"
+bash "$REPO/tools/flatpak.sh"

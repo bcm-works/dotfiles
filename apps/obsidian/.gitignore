@@ -1,3 +1,5 @@
+!config/
+
 # Ignore sensitive files
 config/bookmarks.json
 config/starred.json

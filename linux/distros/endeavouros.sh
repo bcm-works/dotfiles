@@ -62,6 +62,6 @@ if [ -f "$REPO/config/packages/endeavouros.list.txt" ]; then
 fi
 
 info 'EndeavourOS: Setup Flatpak'
-bash "$REPO/linux/packages/flatpak.sh"
+bash "$REPO/tools/flatpak.sh"
 
 success 'EndeavourOS: Setup complete, a restart is recommended'

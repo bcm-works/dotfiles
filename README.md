@@ -3,13 +3,16 @@
 Configuration files, programs, packages and scripts I use for personal, gaming and software development use.
 
 - **[ai](ai/)** - AI docs and setup scripts
+- **[apps](apps/)** - App setup scripts and custom config
+- **[apps/obsidian](apps/obsidian/)** - Custom [Obsidian](https://obsidian.md/) config and example note vault
+- **[apps/zed](apps/zed/)** - Custom [Zed](https://zed.dev/) setup and config
+- **[apps/vscode](apps/vscode/)** - Custom [VS Code](https://code.visualstudio.com/) setup and config
 - **[dev](dev/)** - Setup scripts and config for software development tools
 - **[dev/templates](dev/templates/)** - Custom templates to simplify new software project creation
-- **[docker](docker/)** - [Docker](https://docker.com/) setup and tools
 - **[games](games/)** - Setup packages and config to improve performance in games
 - **[linux](linux/)** - Linux setup and customisation scripts
-- **[obsidian](obsidian/)** - Custom [Obsidian](https://obsidian.md/) configuration and example note vault
 - **[tools](tools/)** - Package managers and system utility scripts
+- **[tools/docker.sh](tools/docker.sh)** - [Docker](https://docker.com/) setup
 - **[backup.sh](backup.sh)** - Create a new config backup in the Git Ignored `config/backups` directory
 - **[setup.sh](setup.sh)** - Initial setup script
 - **[save.sh](save.sh)** - Save current package names to the package list files

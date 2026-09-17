@@ -28,7 +28,7 @@ sudo apt -qq --assume-yes install \
 
 info 'Mint: Setup Flatpak'
 
-bash "$REPO/linux/packages/flatpak.sh"
+bash "$REPO/tools/flatpak.sh"
 
 info 'Mint: Disabling printer notifications'
 

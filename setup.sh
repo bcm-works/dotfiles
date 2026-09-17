@@ -82,19 +82,19 @@ info 'Setup Just'
 bash ~/Dotfiles/tools/just/just.sh
 
 info 'Setup Git'
-bash ~/Dotfiles/dev/git/git.sh
+bash ~/Dotfiles/dev/git.sh
 
 info 'Setup Flatpak'
-bash ~/Dotfiles/linux/packages/flatpak.sh
+bash ~/Dotfiles/tools/flatpak.sh
 
 info 'Setup Keychron keyboards'
-bash ~/Dotfiles/linux/hardware/keychron-keyboards.sh
+bash ~/Dotfiles/tools/hardware/keychron-keyboards.sh
 
 info 'Setup Zed'
-bash ~/Dotfiles/dev/zed/zed.sh
+bash ~/Dotfiles/apps/zed/zed.sh
 
 info 'Setup Vim'
-bash ~/Dotfiles/linux/vim/vim.sh
+bash ~/Dotfiles/apps/vim/vim.sh
 
 info 'Setup Node'
 bash ~/Dotfiles/dev/node.sh
@@ -106,10 +106,10 @@ info 'Setup Go'
 bash ~/Dotfiles/dev/go.sh
 
 info 'Setup Chrome'
-bash ~/Dotfiles/linux/packages/chrome.sh
+bash ~/Dotfiles/apps/chrome.sh
 
 info 'Setup Docker'
-bash ~/Dotfiles/docker/docker.sh
+bash ~/Dotfiles/tools/docker.sh
 
 DISTRO_SETUP_SCRIPT="$REPO/linux/distros/$OSC.sh"
 if [[ -f "$DISTRO_SETUP_SCRIPT" ]]; then
@@ -124,7 +124,7 @@ if [[ -f "$DESKENV_SETUP_SCRIPT" ]]; then
 fi
 
 info 'Setup Symlinks'
-bash ~/Dotfiles/linux/symlinks/symlinks.sh
+bash ~/Dotfiles/tools/symlinks/symlinks.sh
 
 success 'Setup script completed.'
 warn 'A reboot is recommended.'

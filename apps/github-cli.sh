@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# GitHub setup
+# GitHub CLI setup
 # 	- Requires Homebrew - https://brew.sh/
 #   - Installs the GitHub CLI - https://cli.github.com/
 #   - Prompts user login, attempts to create a new SSH key and upload it to GitHub

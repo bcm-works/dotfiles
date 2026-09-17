@@ -148,7 +148,7 @@ cp "$HOME/.config/gamemode.ini" "$HOME/.config/gamemode.ini.old"
 cp "$DIR/config/gamemode.ini" "$HOME/.config/gamemode.ini"
 
 if ! command -v flatpak > /dev/null 2>&1 ; then
-  warn "Skipping Flatpak installs, please setup Flatpak first - bash $REPO/linux/packages/flatpak.sh"
+  warn "Skipping Flatpak installs, please setup Flatpak first - bash $REPO/tools/flatpak.sh"
 else
   info 'Installing Discord via Flatpak'
   flatpak install --assumeyes --or-update com.discordapp.Discord

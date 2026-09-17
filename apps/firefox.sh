@@ -26,7 +26,7 @@ if [[ "$OS" == "Ubuntu" ]]; then
 	sudo -v
 
 	info 'Copying over rules file'
-  sudo cp "$REPO/linux/packages/firefox-apparmor-rule.txt" "/etc/apparmor.d/firefox-local"
+  sudo cp "$REPO/apps/firefox-apparmor-rule.txt" "/etc/apparmor.d/firefox-local"
 
 	warn 'Reloading shell to apply changes'
 	source "$HOME/.bashrc"
