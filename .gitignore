@@ -34,5 +34,5 @@ tmp
 **/.venv
 **/venv
 
-.zed/*
-!.zed/settings.json
+.zed/
+.vscode/
