@@ -54,14 +54,14 @@ fi
 run "du -h --max-depth=1 $HOME | sort -rh"
 
 # Report successful sign off to GitHub
-#
-# gh api \
-#   --method POST --silent \
-#   -H "Accept: application/vnd.github+json" \
-#   -H "X-GitHub-Api-Version: 2026-03-10" \
-#   /repos/$OWNER/$REPO/statuses/$SHA \
-#   -f "context=signoff" \
-#   -f "state=success" \
-#   -f "description=Signed off by $USER_NAME <$USER_EMAIL> ($SECONDS seconds)"
+
+gh api \
+  --method POST --silent \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  /repos/$OWNER/$REPO/statuses/$SHA \
+  -f "context=signoff" \
+  -f "state=success" \
+  -f "description=Signed off by $USER_NAME <$USER_EMAIL> ($SECONDS seconds)"
 
 announce "Signed off on $SHA_SHORT in $SECONDS seconds" $GREEN
