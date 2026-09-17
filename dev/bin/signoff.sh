@@ -4,7 +4,9 @@
 # Dev signoff
 #  - CI processing can be slow, so if a local dev machine can run tests, this tool can facilitate that and then sign the commit
 #  - Best used as part of a 'pre-push' Git Hook.
-#  - Based on https://gist.github.com/dhh/c5051aae633ff91bc4ce30528e4f0b60
+#  - Inspired by:
+# 	- https://github.com/basecamp/gh-signoff
+#   - https://gist.github.com/dhh/c5051aae633ff91bc4ce30528e4f0b60
 #
 #
 
@@ -49,8 +51,11 @@ run "du -h --max-depth=1 $HOME | sort -rh"
 # Report successful sign off to GitHub
 # gh api \
 #   --method POST --silent \
-#   -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" \
+#   -H "Accept: application/vnd.github+json" \
+#   -H "X-GitHub-Api-Version: 2026-03-10" \
 #   /repos/$OWNER/$REPO/statuses/$SHA \
-#   -f "context=signoff" -f "state=success" -f "description=Signed off by $USER_NAME <$USER_EMAIL> ($SECONDS seconds)"
+#   -f "context=signoff" \
+#   -f "state=success" \
+#   -f "description=Signed off by $USER_NAME <$USER_EMAIL> ($SECONDS seconds)"
 
 announce "Signed off on $SHA_SHORT in $SECONDS seconds" $GREEN
