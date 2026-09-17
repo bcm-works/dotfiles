@@ -2,11 +2,12 @@
 #
 #
 # Dev signoff
-#  - CI processing can be slow, so if a local dev machine can run tests, this tool can facilitate that and then sign the commit
-#  - Best used as part of a 'pre-push' Git Hook.
-#  - Inspired by:
-# 	- https://github.com/basecamp/gh-signoff
-#   - https://gist.github.com/dhh/c5051aae633ff91bc4ce30528e4f0b60
+#   - CI processing can be slow, so if a local dev machine can run tests, this tool can facilitate that and then sign the commit
+#   - Best used as part of a 'pre-push' Git Hook.
+#   - Related GitHub API docs: https://docs.github.com/en/rest/commits/statuses?apiVersion=2026-03-10#create-a-commit-status
+#   - Inspired by:
+#     - https://github.com/basecamp/gh-signoff
+#     - https://gist.github.com/dhh/c5051aae633ff91bc4ce30528e4f0b60
 #
 #
 
@@ -46,9 +47,11 @@ fi
 
 # Required step(s) for sign off
 #   - This could include unit test commands, linting, etc
+
 run "du -h --max-depth=1 $HOME | sort -rh"
 
 # Report successful sign off to GitHub
+#
 # gh api \
 #   --method POST --silent \
 #   -H "Accept: application/vnd.github+json" \
