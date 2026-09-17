@@ -71,7 +71,7 @@ elif [ "$(os_debian_based)" ]; then
   sudo apt update -qq > /dev/null 2>&1
 
   sudo apt -qq --assume-yes install \
-    cmake \
+    git curl cmake \
     systemd \
     libsystemd-dev \
     systemd-dev \
@@ -80,13 +80,15 @@ elif [ "$(os_debian_based)" ]; then
     libsystemd-dev \
     pkg-config \
     ninja-build \
-    git \
     dbus-user-session \
+    build-essential \
     libdbus-1-dev \
     libinih-dev \
-    build-essential \
-    dkms \
-    curl > /dev/null 2>&1
+    libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 \
+    libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 \
+    libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 \
+    steam-libs-amd64:amd64 \
+    dkms > /dev/null 2>&1
 
   info "$OS - Installing Steam"
 
