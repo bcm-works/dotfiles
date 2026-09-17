@@ -10,9 +10,10 @@ Configuration files, programs, packages and scripts I use for personal, gaming a
 - **[dev](dev/)** - Setup scripts and config for software development tools
 - **[dev/templates](dev/templates/)** - Custom templates to simplify new software project creation
 - **[games](games/)** - Setup packages and config to improve performance in games
-- **[linux](linux/)** - Linux setup and customisation scripts
+- **[linux](linux/)** - Linux setup and config
 - **[tools](tools/)** - Package managers and system utility scripts
 - **[tools/docker.sh](tools/docker.sh)** - [Docker](https://docker.com/) setup
+- **[tools/homebrew](tools/homebrew/)** - [Homebrew](https://brew.sh/) setup
 - **[backup.sh](backup.sh)** - Create a new config backup in the Git Ignored `config/backups` directory
 - **[setup.sh](setup.sh)** - Initial setup script
 - **[save.sh](save.sh)** - Save current package names to the package list files
