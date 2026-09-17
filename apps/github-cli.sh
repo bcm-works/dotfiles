@@ -23,7 +23,7 @@ if [[ "$OS" == "Windows" ]]; then
   exit 0
 fi
 
-# Install and configure GitHub CLI
+# Install and configure the GitHub CLI
 
 brew reinstall gh
 
@@ -31,8 +31,7 @@ gh auth login \
 	--web --clipboard \
 	--git-protocol ssh \
 	--skip-ssh-key \
-	--hostname github.com \
-	--scopes gist,read:org,repo,read:packages
+	--scopes repo,read:user,read:packages
 
 gh auth setup-git --hostname github.com
 gh config set git_protocol ssh
@@ -78,9 +77,7 @@ if [[ -n "$DOTFILES_USER_EMAIL" && -n "$DOTFILES_USER_NAME" ]]; then
 
 	info "GitHub CLI auth update to allow adding a new SSH key"
 
-	gh auth refresh \
-		--clipboard \
-		--hostname github.com \
+	gh auth refresh --clipboard \
 		--scopes admin:public_key,admin:ssh_signing_key
 
 	info "Add SSH Public Key to GitHub, and use for signing"
@@ -99,6 +96,11 @@ if [[ -n "$DOTFILES_USER_EMAIL" && -n "$DOTFILES_USER_NAME" ]]; then
 	git config --global gpg.ssh.allowedsignersfile $HOME/.ssh/allowed_signers
 
 	echo "$(git config --get user.email) namespaces=\"git\" $(cat $SSH_KEY.pub)" >> $HOME/.ssh/allowed_signers
+
+	info "GitHub CLI auth update to limit tool access to repo level"
+
+	gh auth refresh --clipboard \
+		--scopes repo,read:user,read:packages
 else
 	warn "Skipping SSH key setup, 'DOTFILES_USER_EMAIL' and 'DOTFILES_USER_NAME' must be set."
 fi

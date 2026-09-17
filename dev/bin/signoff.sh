@@ -5,6 +5,7 @@
 #   - CI processing can be slow, so if a local dev machine can run tests, this tool can facilitate that and then sign the commit
 #   - Requires the GitHub CLI: https://cli.github.com/
 #   - Requires authentication via the GitHub CLI: https://cli.github.com/manual/gh_auth_login
+#     - gh auth login --clipboard --web --skip-ssh-key --scopes repo,read:user,read:packages
 #   - Related GitHub API docs: https://docs.github.com/en/rest/commits/statuses?apiVersion=2026-03-10#create-a-commit-status
 #   - Inspired by:
 #     - https://github.com/basecamp/gh-signoff
