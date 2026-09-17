@@ -3,9 +3,8 @@
 #
 # Dev signoff
 #  - CI processing can be slow, so if a local dev machine can run tests, this tool can facilitate that and then sign the commit
-#  - Best used as part of a 'pre-commit' Git Hook.
+#  - Best used as part of a 'pre-push' Git Hook.
 #  - Based on https://gist.github.com/dhh/c5051aae633ff91bc4ce30528e4f0b60
-#
 #
 #
 
