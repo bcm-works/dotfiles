@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
 #
-# Dev signoff
+# Dev signoff tool for GitHub repositories
 #   - CI processing can be slow, so if a local dev machine can run tests, this tool can facilitate that and then sign the commit
+# 	- GitHub will then natively display the status on the commit on relevant detail and list pages
 #   - Requires the GitHub CLI: https://cli.github.com/
 #   - Requires authentication via the GitHub CLI: https://cli.github.com/manual/gh_auth_login
 #     - gh auth login --clipboard --web --skip-ssh-key --scopes repo,read:user,read:packages
