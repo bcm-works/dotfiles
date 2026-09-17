@@ -15,12 +15,15 @@
 #
 
 # Abort sign off on any error
+
 set -e
 
 # Start the benchmark timer
+
 SECONDS=0
 
-# Repository introspection
+# Extract info about the repo and the Git user
+
 OWNER=$(gh repo view --json owner --jq .owner.login)
 REPO=$(gh repo view --json name --jq .name)
 SHA=$(git rev-parse HEAD)
@@ -29,6 +32,7 @@ USER_NAME=$(git config user.name)
 USER_EMAIL=$(git config user.email)
 
 # Progress reporting
+
 GREEN=32; RED=31; BLUE=34
 announce() { echo -e "\033[0;$2m$1\033[0m"; }
 run() {
@@ -40,6 +44,7 @@ run() {
 }
 
 # Sign off requires a clean repository
+
 if [[ -n $(git status --porcelain) ]]; then
   announce "Can't sign off on a dirty repository!" $RED
   git status
@@ -54,6 +59,11 @@ fi
 
 run "sleep 3"
 
+
+# Stop the signoff timer and save the total value
+
+SECONDS_TOTAL=$SECONDS
+
 # Report successful sign off to GitHub
 
 gh api \
@@ -63,5 +73,5 @@ gh api \
   "/repos/$OWNER/$REPO/statuses/$SHA" \
   -f "context=signoff" \
   -f "state=success" \
-  -f "description=Signed off by $USER_NAME <$USER_EMAIL> ($SECONDS seconds)" && \
-  announce "Signed off on $SHA_SHORT in $SECONDS seconds, pushed status to GitHub - $(gh browse $SHA -n) " $GREEN
+  -f "description=Signed off by $USER_NAME <$USER_EMAIL> ($SECONDS_TOTAL seconds)" && \
+  announce "Signed off on $SHA_SHORT in $SECONDS_TOTAL seconds, pushed status to GitHub - $(gh browse $SHA -n) " $GREEN
