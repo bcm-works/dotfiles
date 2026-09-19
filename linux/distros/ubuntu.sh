@@ -18,17 +18,13 @@ fi
 warn 'Ubuntu: Requesting sudo'
 sudo -v
 
-info 'Ubuntu: Update package lists'
-
-sudo apt update -qq > /dev/null 2>&1
-
 info 'Ubuntu: Install base system packages'
-
-sudo add-apt-repository universe
+sudo add-apt-repository --yes universe > /dev/null 2>&1
 sudo apt update -qq > /dev/null 2>&1
 sudo apt -qq --assume-yes install \
   curl git zip vim \
   ddcutil blueman libfuse2t64 \
+  pavucontrol alsamixer \
   xclip wl-clipboard \
   language-pack-en language-pack-en-base \
   language-pack-gnome-en language-pack-gnome-en-base \
