@@ -57,18 +57,18 @@ while read -r LINE; do
 
 	info "  Processing symlink - '$TARGET_CLEAN' > '$SOURCE_CLEAN'"
 
-	if [ ! -d $SOURCE ] && [ ! -L $SOURCE ]; then
-		error "  Skipping as source '$SOURCE_CLEAN' doesn't exist"
-	elif [ -d $TARGET ]; then
-		error "  Skipping as target '$TARGET_CLEAN' already exists"
+	if [ ! -d "$SOURCE" ] && [ ! -L "$SOURCE" ]; then
+		warn "  Skipping as source '$SOURCE_CLEAN' doesn't exist"
+	elif [ -d "$TARGET" ]; then
+		warn "  Skipping as target '$TARGET_CLEAN' already exists"
 	else
 		info "  Creating symlink - '$TARGET_CLEAN' > '$SOURCE_CLEAN'"
 
 		TARGET_PARENT=$(dirname "$TARGET")
-		sudo mkdir -p $TARGET_PARENT
-		sudo chown -R $USER_NAME:$GROUP_NAME $TARGET_PARENT
+		sudo mkdir -p "$TARGET_PARENT"
+		sudo chown -R $USER_NAME:$GROUP_NAME "$TARGET_PARENT"
 
-	  sudo ln -s $SOURCE $TARGET
-	  sudo chown -R $USER_NAME:$GROUP_NAME $TARGET
+	  sudo ln -s "$SOURCE" "$TARGET"
+	  sudo chown -R $USER_NAME:$GROUP_NAME "$TARGET"
 	fi
 done < "$LIST_FILE"
