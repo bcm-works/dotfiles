@@ -22,14 +22,10 @@ cd "$DIR"
 NOW="$(date +%Y%m%d%H%M%S)"
 
 LOG_FILE="$DIR/backup-linux-user.log"
-LOG_FMT="+%Y-%m-%d %H:%M:%S"
-touch "$LOG_FILE"
 
 [[ ! -f "$DIR/.backup-linux-user.env" ]] && cp "$DIR/.backup-linux-user.sample.env" "$DIR/.backup-linux-user.env"
 
 source "$DIR/.backup-linux-user.env"
-
-mkdir -p "$BACKUP_DIR"
 
 SOURCE_DIR="$HOME"
 BACKUP_USER_NAME="$(id -un)"
@@ -37,20 +33,26 @@ BACKUP_USER_NAME="$(id -un)"
 # Exit if the source directory doesn't exist
 
 if [ ! -d "$SOURCE_DIR" ]; then
-  echo $(date "$LOG_FMT") "Error - Source directory ($SOURCE_DIR) not found, please check the path in the script" >> "$LOG_FILE"
+  log_file "$LOG_FILE" "Error - Source directory ($SOURCE_DIR) not found, please check the path in the script"
   exit 0
 fi
 
+# Exit if the zip binary isn't found
+
+if ! command -v zip > /dev/null 2>&1 ; then
+	log_file "$LOG_FILE" "Error - the 'zip' package is required"
+fi
+
 # Construct backup paths
+
+mkdir -p "$BACKUP_DIR"
 
 BACKUP_FILE="${OS_CLEAN}-user-${BACKUP_USER_NAME}_$(date +%Y%m%d-%H%M%S).zip"
 BACKUP_PATH="$BACKUP_DIR/$BACKUP_FILE"
 
 # Start the backup process
 
-echo $(date "$LOG_FMT") "Starting backup of '$SOURCE_DIR' to '$BACKUP_PATH'" >> "$LOG_FILE"
-
-mkdir -p "$BACKUP_DIR"
+log_file "$LOG_FILE" "Starting backup of '$SOURCE_DIR' to '$BACKUP_PATH'"
 
 CONFIG_BACKUP_DIR_NAME="backup-config_$NOW"
 CONFIG_BACKUP_DIR="$SOURCE_DIR/$CONFIG_BACKUP_DIR_NAME"
@@ -83,19 +85,19 @@ fi
 
 # KDE config
 
-if [ -f "$HOME/.local/share/kdeglobals" ]; then
-	cp -f "$HOME/.local/share/kdeglobals" "$CONFIG_BACKUP_DIR/kdeglobals"
+if [ -d "$HOME/.local/share/kdeglobals" ]; then
+	cp -r "$HOME/.local/share/kdeglobals" "$CONFIG_BACKUP_DIR/kdeglobals"
 fi
 
 # Hyprland config
 
-if [ -f "$HOME/.config/hypr" ]; then
+if [ -d "$HOME/.config/hypr" ]; then
 	cp -r "$HOME/.config/hypr" "$CONFIG_BACKUP_DIR/hyprland-config"
 fi
 
 # Kitty terminal config
 
-if [ -f "$HOME/.config/kitty" ]; then
+if [ -d "$HOME/.config/kitty" ]; then
 	cp -r "$HOME/.config/kitty" "$CONFIG_BACKUP_DIR/kitty-config"
 fi
 
@@ -200,7 +202,6 @@ zip \
   .password-store/* \
   .pki/* \
   .ssh/* \
-  Git/* \
   -x "**/node_modules/*" \
   -x "**/.git/*" \
   -x "**/cache/*" \
@@ -217,4 +218,4 @@ zip \
 
 rm -rf "$CONFIG_BACKUP_DIR"
 
-echo $(date "$LOG_FMT") "Finished." >> "$LOG_FILE"
+log_file "$LOG_FILE" "Finished."
