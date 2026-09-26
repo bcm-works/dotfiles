@@ -25,7 +25,8 @@ LOG_FILE="$DIR/backup-linux-user.log"
 LOG_FMT="+%Y-%m-%d %H:%M:%S"
 touch "$LOG_FILE"
 
-cp --update=none "$DIR/.backup-linux-user.sample.env" "$DIR/.backup-linux-user.env"
+[[ ! -f "$DIR/.backup-linux-user.env" ]] && cp "$DIR/.backup-linux-user.sample.env" "$DIR/.backup-linux-user.env"
+
 source "$DIR/.backup-linux-user.env"
 
 mkdir -p "$BACKUP_DIR"
@@ -86,7 +87,19 @@ if [ -f "$HOME/.local/share/kdeglobals" ]; then
 	cp -f "$HOME/.local/share/kdeglobals" "$CONFIG_BACKUP_DIR/kdeglobals"
 fi
 
-# User cron list
+# Hyprland config
+
+if [ -f "$HOME/.config/hypr" ]; then
+	cp -r "$HOME/.config/hypr" "$CONFIG_BACKUP_DIR/hyprland-config"
+fi
+
+# Kitty terminal config
+
+if [ -f "$HOME/.config/kitty" ]; then
+	cp -r "$HOME/.config/kitty" "$CONFIG_BACKUP_DIR/kitty-config"
+fi
+
+# User cron tasks list
 
 if command -v crontab > /dev/null 2>&1 ; then
   crontab -l > "$CONFIG_BACKUP_DIR/crontab-user.txt"
