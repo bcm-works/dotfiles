@@ -102,6 +102,8 @@ os() {
       echo 'Mint';
     elif [[ "$DISTRO_NAME" == 'Pop!_OS' ]]; then
       echo 'PopOS';
+    elif [[ "$DISTRO_NAME" == 'CachyOS Linux' ]]; then
+      echo 'CachyOS';
     else
       echo "${DISTRO_NAME}";
     fi
