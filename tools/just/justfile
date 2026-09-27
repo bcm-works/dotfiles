@@ -124,34 +124,33 @@ refresh: update clean
 [group('system')]
 update:
   #!/usr/bin/env bash
-  OS=$(just --justfile "{{ justfile() }}" os);
+  OS=$(just --justfile "{{ justfile() }}" os_clean);
   OS_DEBIAN=$(just --justfile "{{ justfile() }}" os_debian_based);
   echo "i Starting update task";
   echo "! Requesting sudo";
   sudo -v;
-  if [[ "$OS" == 'EndeavourOS' ]]; then
-    echo 'i EndeavourOS - System updates';
-    sudo pacman -Sy > /dev/null 2>&1;
-    sudo pacman -Su > /dev/null 2>&1;
-    yay -Sua > /dev/null 2>&1;
-  elif [[ "$OS" == 'Fedora' ]]; then
+  if [[ "$OS" == 'fedora' ]]; then
     echo 'i Fedora - Updating packages';
     sudo dnf upgrade --refresh -y > /dev/null 2>&1;
     echo 'i Fedora - Updating firmware';
     sudo fwupdmgr get-updates > /dev/null 2>&1;
     sudo fwupdmgr update -y > /dev/null 2>&1;
-  elif [[ "$OS" == 'Fedora Atomic' ]]; then
+  elif [[ "$OS" == 'fedora-atomic' ]]; then
     echo 'i Fedora Atomic - Updating packages';
     rpm-ostree upgrade --quiet;
+  fi
+  if command -v pacman > /dev/null 2>&1; then
+    echo 'i Pacman - Updating packages';
+    sudo pacman -Sy > /dev/null 2>&1;
+    sudo pacman -Su > /dev/null 2>&1;
+  fi
+  if command -v yay > /dev/null 2>&1; then
+    echo 'i Yay - Updating packages';
+    yay -Sua > /dev/null 2>&1;
   fi
   if command -v apt > /dev/null 2>&1 ; then
     echo "i APT - Updating APT packages";
     sudo apt update -y -qq > /dev/null 2>&1;
-    #
-    # Force package upgrades, even when they're in the phasing stage.
-    # sudo apt upgrade -y -qq -o APT::Get::Always-Include-Phased-Updates=true > /dev/null 2>&1;
-    #
-    # Standard package upgrades
     sudo apt upgrade -y -qq > /dev/null 2>&1;
   fi
   if command -v snap > /dev/null 2>&1 ; then
