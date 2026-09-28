@@ -74,7 +74,10 @@ fi
 # Custom themes and icons
 
 if [ -d "$HOME/.local/share/icons" ]; then
-	cp -r "$HOME/.local/share/icons" "$CONFIG_BACKUP_DIR/icons-user"
+	cp -r "$HOME/.local/share/icons" "$CONFIG_BACKUP_DIR/icons-user-local"
+fi
+if [ -d "$HOME/.icons" ]; then
+	cp -r "$HOME/.icons" "$CONFIG_BACKUP_DIR/icons-user"
 fi
 if [ -d "/usr/share/icons" ]; then
 	cp -r "/usr/share/icons" "$CONFIG_BACKUP_DIR/icons-system"
