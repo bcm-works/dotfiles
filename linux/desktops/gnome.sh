@@ -32,6 +32,7 @@ info 'Installing supporting packages for Gnome Shell Extensions'
 if [[ "$OS" == "Ubuntu" ]]; then
   sudo apt install -y \
     gnome-browser-connector \
+    ddcutil \
     python3 \
     pipx > /dev/null 2>&1
 elif [[ "$OS" == "EndeavourOS" ]]; then
@@ -50,11 +51,18 @@ fi
 pipx ensurepath > /dev/null 2>&1
 pipx install --force gnome-extensions-cli --system-site-packages > /dev/null 2>&1
 
+source "$HOME/.bashrc"
+
 if [[ -f "$REPO/config/packages/gnome-extension.list.txt" ]]; then
 	info "Installing Gnome Shell Extensions from '$REPO/config/packages/gnome-extension.list.txt'"
 	xargs -I {} gnome-extensions-cli install {} < "$REPO/config/packages/gnome-extension.list.txt"
 else
 	warn "Skipping Gnome Shell Extensions installs, file not found at '$REPO/config/packages/gnome-extension.list.txt'"
+fi
+
+if command -v flatpak > /dev/null 2>&1 ; then
+	info "Installing ExtensionManager via Flatpak"
+	flatpak install com.mattjakeman.ExtensionManager > /dev/null 2>&1
 fi
 
 # Helper function to check if a Dconf Settings Schema exists
@@ -217,7 +225,6 @@ fi
 
 gsettings set org.gnome.shell last-selected-power-profile 'performance'
 gsettings set org.gnome.desktop.interface show-battery-percentage true
-gsettings set org.gnome.mutter experimental-features '["scale-monitor-framebuffer", "variable-refresh-rate", "xwayland-native-scaling"]'
 
 # App: Console
 
@@ -255,7 +262,6 @@ fi
 
 # App: Settings
 
-gsettings set org.gnome.Settings show-development-warning false
 gsettings set org.gnome.Settings last-panel 'system'
 
 # Window Management

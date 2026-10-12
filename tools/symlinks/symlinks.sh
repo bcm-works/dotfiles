@@ -57,7 +57,7 @@ while read -r LINE; do
 
 	info "  Processing symlink - '$TARGET_CLEAN' > '$SOURCE_CLEAN'"
 
-	if [ ! -d "$SOURCE" ] && [ ! -L "$SOURCE" ]; then
+	if [ ! -d "$SOURCE" ] && [ ! -f "$SOURCE" ] && [ ! -L "$SOURCE" ]; then
 		warn "  Skipping as source '$SOURCE_CLEAN' doesn't exist"
 	elif [ -d "$TARGET" ]; then
 		warn "  Skipping as target '$TARGET_CLEAN' already exists"

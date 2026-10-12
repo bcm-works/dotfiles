@@ -59,12 +59,6 @@ if [ -d "$HOME/.cargo" ]; then
 	source "$HOME/.cargo/env" > /dev/null 2>&1
 fi
 
-# Railway - Configure if it's installed to the default location
-
-if [ -f "$HOME/.railway" ]; then
-	source "$HOME/.railway/env"
-fi
-
 # Bun - Configure if it's installed to the default location
 
 if [ -d "$HOME/.bun" ]; then
@@ -116,9 +110,8 @@ fi
 # Railway CLI
 
 if [ -f "$HOME/.railway/env" ]; then
-	source "$HOME/.railway/env"
+  source "$HOME/.railway/env"
 fi
-
 
 # Aliases - Docker
 
