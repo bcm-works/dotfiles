@@ -78,7 +78,7 @@ elif [ "$(os_debian_based)" ]; then
     pkg-config \
     meson \
     libsystemd-dev \
-    pkg-config \
+    pkg-config cabextract \
     ninja-build \
     dbus-user-session \
     build-essential \

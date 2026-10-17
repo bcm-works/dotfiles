@@ -7,10 +7,11 @@
 
 source "$HOME/Dotfiles/utils.sh"
 REPO="$(dir_repo)"
+DIR="$(dir_this)"
 OS="$(os)"
 cd "$REPO"
 
-SOURCE_COLOURS="$REPO/linux/grub/grub-colours.ubuntu.config"
+SOURCE_COLOURS="$REPO/tools/grub/grub-colours.ubuntu.config"
 TARGET_COLOURS="/etc/grub.d/06_local_colours"
 
 if [[ "$OS" != "Ubuntu" ]]; then
