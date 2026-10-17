@@ -72,22 +72,15 @@ elif [ "$(os_debian_based)" ]; then
 
   sudo apt -qq --assume-yes install \
     git curl cmake \
-    systemd \
-    libsystemd-dev \
-    systemd-dev \
-    pkg-config \
-    meson \
-    libsystemd-dev \
-    pkg-config cabextract \
-    ninja-build \
-    dbus-user-session \
-    build-essential \
-    libdbus-1-dev \
-    libinih-dev \
+    systemd systemd-dev libsystemd-dev \
+    pkg-config meson libsystemd-dev \
+    dbus-user-session vulkan-tools \
+    pkg-config cabextract ninja-build build-essential \
+    libdbus-1-dev libinih-dev \
     libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 \
     libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 \
     libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 \
-    steam-libs-amd64:amd64 \
+    steam-libs-amd64:amd64 steam-libs-i386 \
     dkms > /dev/null 2>&1
 
   info "$OS - Installing Steam"
@@ -101,12 +94,6 @@ elif [ "$(os_debian_based)" ]; then
   curl --output "$STEAM_DEB" "https://repo.steampowered.com/steam/archive/stable/steam_latest-stable.deb" > /dev/null 2>&1
   sudo apt -qq --assume-yes install "$STEAM_DEB"
   rm -rf "$STEAM_DEB"
-
-  sudo apt -qq --assume-yes install \
-  	steam-libs-i386 steam-libs-amd64:amd64 \
-   	libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 \
-    libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 \
-    libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 > /dev/null 2>&1
 fi
 
 if [[ "$OS" == "Ubuntu" ]]; then
