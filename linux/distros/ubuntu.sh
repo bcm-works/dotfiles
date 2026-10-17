@@ -23,7 +23,7 @@ sudo add-apt-repository --yes universe > /dev/null 2>&1
 sudo apt update -qq > /dev/null 2>&1
 sudo apt -qq --assume-yes install \
   curl git zip vim \
-  ddcutil blueman libfuse2t64 \
+  ddcutil ddcui blueman libfuse2t64 \
   pavucontrol alsamixer \
   xclip wl-clipboard \
   language-pack-en language-pack-en-base \
