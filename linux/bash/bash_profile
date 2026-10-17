@@ -161,4 +161,3 @@ export TERM=xterm-256color
 export EDITOR="vim"
 export VISUAL="vim"
 export DO_NOT_TRACK=1
-. "/home/murty/.deno/env"

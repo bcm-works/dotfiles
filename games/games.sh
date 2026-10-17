@@ -72,11 +72,18 @@ elif [ "$(os_debian_based)" ]; then
 
   sudo apt -qq --assume-yes install \
     git curl cmake \
-    systemd systemd-dev libsystemd-dev \
-    pkg-config meson libsystemd-dev \
-    dbus-user-session vulkan-tools \
-    pkg-config cabextract ninja-build build-essential \
-    libdbus-1-dev libinih-dev \
+    systemd \
+    libsystemd-dev \
+    systemd-dev \
+    pkg-config \
+    meson \
+    libsystemd-dev \
+    pkg-config \
+    ninja-build \
+    dbus-user-session \
+    build-essential \
+    libdbus-1-dev \
+    libinih-dev \
     libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 \
     libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 \
     libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 \
