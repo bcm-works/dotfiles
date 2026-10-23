@@ -32,7 +32,7 @@ fi
 
 if [ ! "$(command -v opencode)" ]; then
 	info 'Installing OpenCode'
-	curl -fsSL https://opencode.ai/install | bash > /dev/null 2>&1
+	curl -fsSL https://opencode.ai/v2/install | bash > /dev/null 2>&1
 else
 	info 'Updating OpenCode'
 	opencode upgrade --method curl > /dev/null 2>&1
