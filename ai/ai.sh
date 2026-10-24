@@ -60,21 +60,12 @@ esac
 if [[ "$OS" == "Windows" ]]; then
   warn "Please manually install the AI Code Generation tools you need."
   echo ''
-  if [[ "$TARGET" == "all" || "$TARGET" == "opencode" ]]; then
-    info " - OpenCode - https://opencode.ai/"
-  fi
-  if [[ "$TARGET" == "all" || "$TARGET" == "agy" ]]; then
-    info " - Google Antigravity - https://antigravity.google/product/antigravity-cli"
-  fi
-  if [[ "$TARGET" == "all" || "$TARGET" == "codex" ]]; then
-    info " - OpenAI Codex - https://developers.openai.com/codex/cli"
-  fi
-  if [[ "$TARGET" == "all" || "$TARGET" == "claude" ]]; then
-    info " - Claude Code - https://code.claude.com/docs/en/quickstart"
-  fi
-  if [[ "$TARGET" == "all" || "$TARGET" == "copilot" ]]; then
-    info " - GitHub Copilot - https://github.com/features/copilot/cli"
-  fi
+  info " - OpenCode - https://opencode.ai/"
+  info " - Google Antigravity - https://antigravity.google/product/antigravity-cli"
+  info " - OpenAI Codex - https://developers.openai.com/codex/cli"
+  info " - Claude Code - https://code.claude.com/docs/en/quickstart"
+  info " - GitHub Copilot - https://github.com/features/copilot/cli"
+
   exit 0
 fi
 
