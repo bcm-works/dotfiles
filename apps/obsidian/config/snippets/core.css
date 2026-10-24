@@ -7,25 +7,6 @@ body {
   --highlight-tertiary: #5bec95;
   --highlight-quaternary: #ffa763;
 
-  /*
-  Flexoki
-  MIT License
-  Copyright (c) 2023 Steph Ango
-  https://stephango.com/flexoki
-  */
-  /* --color-red: #AF3029;
-  --color-orange: #BC5215;
-  --color-yellow: #AD8301;
-  --color-green: #66800B;
-  --color-cyan: #24837B;
-  --color-blue: #205EA6;
-  --color-purple: #5E409D;
-  --color-pink: #A02F6F;
-  --highlight-primary: #24837B;
-  --highlight-secondary: #5E409D;
-  --highlight-tertiary: #66800B;
-  --highlight-quaternary: #BC5215; */
-
   /* Other overrides */
   --h1-color: var(--highlight-primary) !important;
   --link-external-color: var(--highlight-primary);
@@ -48,13 +29,14 @@ body.is-mobile {
 }
 
 body.theme-dark {
-  --color-base-00: #000;
-  --ribbon-background: var(--color-base-00) !important;
-  --tab-container-background: var(--color-base-00) !important;
-  --titlebar-background: var(--color-base-00) !important;
-  --titlebar-background-focused: var(--color-base-00) !important;
-  --titlebar-background-secondary: var(--color-base-00) !important;
-  --background-secondary: var(--color-base-00) !important;
+  --background-primary: #000 !important;
+  --background-secondary: #333 !important;
+  --ribbon-background: var(--background-secondary) !important;
+  --tab-container-background: var(--background-secondary) !important;
+  --titlebar-background: var(--background-secondary) !important;
+  --titlebar-background-focused: var(--background-secondary) !important;
+  --titlebar-background-secondary: var(--background-secondary) !important;
+  --background-secondary: var(--background-secondary) !important;
 }
 
 body.theme-light {

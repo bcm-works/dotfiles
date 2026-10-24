@@ -1,0 +1,47 @@
+.remarkable-sync-status {
+	margin-top: 4px;
+	font-size: 0.85em;
+}
+
+.remarkable-sync-status-ok {
+	color: var(--text-success);
+}
+
+.remarkable-sync-status-error {
+	color: var(--text-error);
+}
+
+.remarkable-sync-dot {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin-right: 8px;
+}
+
+.remarkable-sync-dot-connected {
+	background-color: var(--color-green);
+}
+
+.remarkable-sync-dot-disconnected {
+	background-color: var(--text-muted);
+}
+
+.remarkable-sync-donate-img {
+	height: 60px;
+}
+
+/* Spin the ribbon sync icon while a sync is in progress. */
+.remarkable-sync-spinning svg {
+	animation: remarkable-sync-spin 1s linear infinite;
+	transform-origin: center;
+}
+
+@keyframes remarkable-sync-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
