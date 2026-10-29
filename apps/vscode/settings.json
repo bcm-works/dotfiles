@@ -105,7 +105,6 @@
 	"window.confirmSaveUntitledWorkspace": false,
 	"window.customTitleBarVisibility": "auto",
 	"window.menuBarVisibility": "visible",
-	"workbench.activityBar.location": "top",
 	"workbench.colorCustomizations": {
 		"activityBar.activeBorder": "#23c5b0",
 		"activityBar.background": "#000",
@@ -204,5 +203,8 @@
 		"https://raw.githubusercontent.com/microsoft/vscode/": true,
 		"https://schemastore.azurewebsites.net/": true,
 		"https://www.schemastore.org/": true
-	}
+	},
+  "editor.detectIndentation": false,
+  "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.tabs.enabled": false
 }

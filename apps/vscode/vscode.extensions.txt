@@ -10,4 +10,5 @@ ms-vscode.atom-keybindings
 ms-vsliveshare.vsliveshare
 raunofreiberg.vesper
 ronnidc.nunjucks
+sst-dev.opencode
 vue.volar
