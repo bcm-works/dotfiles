@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "ms-vscode.atom-keybindings",
+    "angelo-breuer.clock",
+    "ms-azuretools.vscode-containers",
+    "denoland.vscode-deno",
+    "ms-vscode-remote.remote-containers",
+    "docker.docker",
+    "editorconfig.editorconfig",
+    "irongeek.vscode-env",
+    "golang.go",
+    "raunofreiberg.vesper",
+    "vue.volar"
+  ]
+}

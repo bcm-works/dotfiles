@@ -7,8 +7,5 @@ irongeek.vscode-env
 ms-azuretools.vscode-containers
 ms-vscode-remote.remote-containers
 ms-vscode.atom-keybindings
-ms-vsliveshare.vsliveshare
 raunofreiberg.vesper
-ronnidc.nunjucks
-sst-dev.opencode
 vue.volar
