@@ -2,8 +2,8 @@
 
 ## Tools
 
-- [ai.sh](ai.sh) - Install and update popular AI tools
-- [templates](templates/) - Templates for initial AI config and AGENTS.md files
+- [ai.sh](ai.sh) - Install and update AI Code Gen tools.
+- [templates](templates/) - Templates for initial AI config, `AGENTS.md` and supporting docs.
 
 ## Links
 
