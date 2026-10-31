@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# Linux: Ubuntu 26.04 setup
+# Linux: Ubuntu 26.10 setup
 #
 #
 
@@ -29,7 +29,6 @@ sudo apt -qq --assume-yes install \
   language-pack-en language-pack-en-base \
   language-pack-gnome-en language-pack-gnome-en-base \
   hunspell-en-au hunspell-en-gb \
-  gnome-software software-properties-gtk \
   gnome-browser-connector \
   gnome-console \
   gnome-system-monitor \
@@ -37,13 +36,6 @@ sudo apt -qq --assume-yes install \
   gnome-terminal \
   gnome-tweaks \
   python3 python3-gpg python-is-python3 pipx > /dev/null 2>&1
-
-info 'Ubuntu: Configure system updates'
-
-gsettings set com.ubuntu.update-notifier show-updates-status-icon true
-gsettings set com.ubuntu.update-notifier show-livepatch-status-icon true
-gsettings set com.ubuntu.update-notifier no-show-notifications false
-gsettings set com.ubuntu.update-notifier notify-ubuntu-advantage-available false
 
 info 'Ubuntu: Update Snap config to only keep two older versions of packages'
 

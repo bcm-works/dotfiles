@@ -190,6 +190,7 @@ gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
 gsettings set org.gnome.desktop.peripherals.mouse speed '0.3745'
+gsettings set org.gnome.desktop.interface show-battery-percentage true
 
 # Privacy
 
@@ -216,15 +217,6 @@ gsettings set org.gnome.shell always-show-log-out true
 if [[ "$OS" == "Ubuntu" ]]; then
   gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend true
 fi
-
-# Power and performance
-
-if powerprofilesctl > /dev/null 2>&1; then
-  powerprofilesctl set performance
-fi
-
-gsettings set org.gnome.shell last-selected-power-profile 'performance'
-gsettings set org.gnome.desktop.interface show-battery-percentage true
 
 # App: Console
 
@@ -267,10 +259,9 @@ gsettings set org.gnome.Settings last-panel 'system'
 # Window Management
 
 if has_schema "org.gnome.mutter"; then
-  gsettings set org.gnome.mutter edge-tiling false
+  gsettings set org.gnome.mutter edge-tiling true
   gsettings set org.gnome.mutter attach-modal-dialogs true
   gsettings set org.gnome.mutter center-new-windows true
-  gsettings set org.gnome.mutter edge-tiling false
 fi
 
 if has_schema "org.gnome.shell.extensions.tiling-assistant"; then

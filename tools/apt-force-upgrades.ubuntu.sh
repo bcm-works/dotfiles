@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# Linux: Force APT package upgrades in Ubuntu 26.04
+# Linux: Force APT package upgrades in Ubuntu
 #
 #
 
@@ -35,3 +35,4 @@ sudo apt update -qq > /dev/null 2>&1;
 
 info 'Starting package upgrades'
 sudo apt upgrade -y -qq -o APT::Get::Always-Include-Phased-Updates=true > /dev/null 2>&1;
+
