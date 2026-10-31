@@ -2,8 +2,6 @@
 
 ## Rules
 
-- This repository contains a static website, backend API and a CLI tool.
-- For the repository structure and tech stack, read [/README.md](README.md).
 - If `sudo` is needed, do not invoke it, print the command and explain why instead.
 - Prefer simple, direct solutions over additional abstractions or speculative flexibility.
 - Keep changes focused on the requested outcome; avoid unrelated cleanup.
@@ -18,8 +16,3 @@ Fetch information from the following websites to clarify suggested changes:
 
 - GitHub public code: https://raw.githubusercontent.com/
 - GitHub documentation: https://docs.github.com/
-- Deno documentation: https://docs.deno.com/
-- Deno Lume documentation: https://lume.land/docs/
-- Deno packages (JSR): https://jsr.io/
-- Node packages (NPM): https://www.npmjs.com/
-- Go documentation: https://go.dev/doc/

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "bcm",
+    "mode": "dark"
+  },
+  "animations": false,
+  "keybinds": {
+    "leader": "ctrl+x",
+    "command.palette.show": "ctrl+p,ctrl+k",
+    "session.list": "<leader>l",
+    "agent.cycle": "shift+tab",
+    "app.debug": "none"
+  },
+  "mouse": true,
+  "cursor": {
+    "style": "block",
+    "blinking": true
+  },
+  "tabs": {
+    "mode": "auto",
+    "scope": "cwd",
+    "layout": "horizontal",
+    "indicators": "numbers"
+  },
+  "diffs": {
+    "source": "branch",
+    "wrap": "word",
+    "tree": true,
+    "single": false,
+    "view": "auto"
+  },
+  "attention": {
+    "notifications": false,
+    "sound": false
+  }
+}
