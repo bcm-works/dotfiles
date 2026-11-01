@@ -2,8 +2,11 @@
 
 ## Tools
 
+- [docs](docs/) - My `AGENTS.md` template and supporting docs.
+- [claude-code](claude-code/) - My Claude Code project config template.
+- [opencode](opencode/) - My OpenCode project config template.
+- [docs](docs/) - My `AGENTS.md` template and supporting docs.
 - [ai.sh](ai.sh) - Install and update AI Code Gen tools.
-- [templates](templates/) - Templates for initial AI config, `AGENTS.md` and supporting docs.
 
 ## Links
 
