@@ -52,10 +52,7 @@ elif [ "$(os_debian_based)" ]; then
 
 	warn 'Reloading shell to apply changes'
 	source "$HOME/.bashrc"
-
-	warn "Finished installing Python, a restart is recommended."
-  exit 0
 else
-	error 'Please install Python 3 manually - https://www.python.org/downloads/'
+	error 'Please install Python manually - https://www.python.org/downloads/'
   exit 0
 fi
