@@ -19,8 +19,9 @@ warn 'Ubuntu: Requesting sudo'
 sudo -v
 
 info 'Ubuntu: Install base system packages'
-sudo add-apt-repository --yes universe > /dev/null 2>&1
+
 sudo apt update -qq > /dev/null 2>&1
+
 sudo apt -qq --assume-yes install \
   curl git zip vim \
   ddcutil ddcui blueman libfuse2t64 \
@@ -29,6 +30,7 @@ sudo apt -qq --assume-yes install \
   language-pack-en language-pack-en-base \
   language-pack-gnome-en language-pack-gnome-en-base \
   hunspell-en-au hunspell-en-gb \
+	software-properties-common \
   gnome-browser-connector \
   gnome-console \
   gnome-system-monitor \
@@ -37,11 +39,13 @@ sudo apt -qq --assume-yes install \
   gnome-tweaks \
   python3 python3-gpg python-is-python3 pipx > /dev/null 2>&1
 
+sudo add-apt-repository --yes universe > /dev/null 2>&1
+
 info 'Ubuntu: Update Snap config to only keep two older versions of packages'
 
 sudo snap set system refresh.retain=2 > /dev/null 2>&1;
 
-info 'Ubuntu: Configure ddcutil to allow for screen brightness control'
+info 'Ubuntu: Configure ddcutil to allow for monitor brightness control'
 
 sudo gpasswd --add $USER i2c > /dev/null 2>&1
 
