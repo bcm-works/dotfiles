@@ -19,9 +19,9 @@ fi
 FONT_DIR="$HOME/.local/share/fonts"
 mkdir -p "$FONT_DIR"
 
-info "Copying over Commit Mono Nerd Fonts from https://www.nerdfonts.com/font-downloads"
+info "Copying over font files"
 
-cp "$DIR/font-commit-mono/"*.otf "$FONT_DIR/"
+cp -f "$DIR/font-"*/*.otf "$FONT_DIR/"
 
 if [[ "$OS" == "EndeavourOS" ]]; then
 	warn 'EndeavourOS: Requesting sudo'
