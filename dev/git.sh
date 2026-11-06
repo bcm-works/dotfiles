@@ -70,4 +70,4 @@ else
 	warn "Please install Git LFS manually: https://git-lfs.com/"
 fi
 
-warn "If you use GitHub, you may want to run: bash $REPO/apps/github-cli.sh"
+warn "If you use GitHub, you may want to run: bash $REPO/dev/github-cli.sh"
