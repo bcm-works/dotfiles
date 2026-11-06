@@ -98,6 +98,24 @@ if [ -d "$HOME/.config/hypr" ]; then
 	cp -r "$HOME/.config/hypr" "$CONFIG_BACKUP_DIR/hyprland-config"
 fi
 
+# Niri config
+
+if [ -d "$HOME/.config/niri" ]; then
+	cp -r "$HOME/.config/niri" "$CONFIG_BACKUP_DIR/niri-config"
+fi
+
+# Pond config
+
+if [ -d "$HOME/.config/pond-interface" ]; then
+	cp -r "$HOME/.config/pond-interface" "$CONFIG_BACKUP_DIR/pond-interface-config"
+fi
+
+# Fish config for Pond
+
+if [ -f "/usr/share/pond-fish-config/pond-config.fish" ]; then
+	cp -f "/usr/share/pond-fish-config/pond-config.fish" "$CONFIG_BACKUP_DIR/pond-config.fish"
+fi
+
 # Kitty terminal config
 
 if [ -d "$HOME/.config/kitty" ]; then
