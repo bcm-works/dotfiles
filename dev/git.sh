@@ -8,6 +8,8 @@
 source "$HOME/Dotfiles/utils.sh"
 REPO="$(dir_repo)"
 OS="$(os)"
+OS_DEBIAN="$(os_debian_based)"
+OS_ARCH="$(os_arch_based)"
 cd "$REPO"
 
 info "Setup Git Bash features"
@@ -58,13 +60,20 @@ git config --global alias.cbr "checkout -b"
 git config --global alias.lg "log --pretty=format:'%Cblue%h%Creset %s %Cgreen%an, %cr %Creset' --abbrev-commit --date=relative"
 git config --global alias.graph "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
-if [ "$(os_debian_based)" ]; then
+if [ OS_DEBIAN ]; then
 	warn 'Requesting sudo'
   sudo -v
 
   info "Installing Git LFS"
 
 	sudo apt -qq --assume-yes install git-lfs > /dev/null 2>&1
+	git lfs install > /dev/null 2>&1
+elif [ OS_ARCH ]; then
+	warn 'Requesting sudo'
+  sudo -v
+
+	info "Installing Git LFS"
+	sudo pacman -Syu --noconfirm git-lfs > /dev/null 2>&1
 	git lfs install > /dev/null 2>&1
 else
 	warn "Please install Git LFS manually: https://git-lfs.com/"

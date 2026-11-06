@@ -121,7 +121,16 @@ os_clean() {
   echo "$(os | tr '[:upper:]' '[:lower:]' | tr ' ' '-')";
 }
 
-# Checks if the OS is Debian based, return "true" or "false" as a string.
+# Checks if the OS is Arch based, returns "true" or "false" as a string.
+os_arch_based() {
+	if grep -qE '^ID_LIKE=.*arch' /etc/os-release || grep -qE '^ID="?arch"?' /etc/os-release; then
+			echo "true"
+	else
+			echo "false"
+	fi
+}
+
+# Checks if the OS is Debian based, returns "true" or "false" as a string.
 os_debian_based() {
   OS="$(os)"
 
