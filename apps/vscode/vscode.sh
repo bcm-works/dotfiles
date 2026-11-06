@@ -2,14 +2,13 @@
 #
 #
 # Setup VS Code - https://code.visualstudio.com/
-#   - The package list can be updated with: code --list-extensions > "./vscode.extensions.txt"
+#   - Update recommended extensions based on installed extensions: ./vscode-extensions-save.sh
 #
 #
 
 source "$HOME/Dotfiles/utils.sh"
 REPO="$(dir_repo)"
 DIR="$(dir_this)"
-BIN="$REPO/bin"
 OS="$(os)"
 cd "$REPO"
 
@@ -44,14 +43,7 @@ mkdir -p "$CONFIG_DIR"
 info 'Backing up current config'
 [ -f "$CONFIG_DIR/settings.json" ] && mv "$CONFIG_DIR/settings.json" "$CONFIG_DIR/settings.json.bak"
 
-info 'Adding Symlink to custom config'
+info 'Adding Symlink to custom settings file'
 ln -s "$DIR/settings.json" "$CONFIG_DIR/settings.json"
-
-# Install all packages from the package list file
-cat "$DIR/vscode.extensions.txt" | while read extension
-do
-  info "Installing extension '$extension'"
-  $INSTALL_CMD $extension > /dev/null 2>&1
-done
 
 success 'VS Code setup completed'

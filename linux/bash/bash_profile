@@ -162,3 +162,4 @@ export EDITOR="vim"
 export VISUAL="vim"
 export DO_NOT_TRACK=1
 
+. "$HOME/.cargo/env"

@@ -1,15 +1,19 @@
 {
-  "recommendations": [
-    "ms-vscode.atom-keybindings",
-    "angelo-breuer.clock",
-    "ms-azuretools.vscode-containers",
-    "denoland.vscode-deno",
-    "ms-vscode-remote.remote-containers",
-    "docker.docker",
-    "editorconfig.editorconfig",
-    "irongeek.vscode-env",
-    "golang.go",
-    "raunofreiberg.vesper",
-    "vue.volar"
-  ]
+	"recommendations": [
+		"angelo-breuer.clock",
+		"denoland.vscode-deno",
+		"docker.docker",
+		"editorconfig.editorconfig",
+		"golang.go",
+		"irongeek.vscode-env",
+		"ms-python.debugpy",
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"ms-python.vscode-python-envs",
+		"ms-vscode.atom-keybindings",
+		"ms-vscode.makefile-tools",
+		"nefrob.vscode-just-syntax",
+		"raunofreiberg.vesper",
+		"vue.volar"
+	]
 }
