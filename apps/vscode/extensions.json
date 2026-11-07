@@ -1,6 +1,7 @@
 {
 	"recommendations": [
 		"angelo-breuer.clock",
+		"be5invis.vscode-icontheme-nomo-dark",
 		"denoland.vscode-deno",
 		"docker.docker",
 		"editorconfig.editorconfig",
