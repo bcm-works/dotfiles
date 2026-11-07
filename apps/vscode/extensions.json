@@ -1,22 +1,22 @@
 {
-	"recommendations": [
-		"angelo-breuer.clock",
-		"be5invis.vscode-icontheme-nomo-dark",
-		"denoland.vscode-deno",
-		"docker.docker",
-		"editorconfig.editorconfig",
-		"GitHub.vscode-pull-request-github",
-		"golang.go",
-		"irongeek.vscode-env",
-		"ms-python.debugpy",
-		"ms-python.python",
-		"ms-python.vscode-pylance",
-		"ms-python.vscode-python-envs",
-		"ms-vscode.atom-keybindings",
-		"ms-vscode.makefile-tools",
-		"nefrob.vscode-just-syntax",
-		"RadhakantaRoy.vs-color-preview",
-		"raunofreiberg.vesper",
-		"vue.volar"
-	]
+  "recommendations": [
+    "angelo-breuer.clock",
+    "be5invis.vscode-icontheme-nomo-dark",
+    "denoland.vscode-deno",
+    "docker.docker",
+    "editorconfig.editorconfig",
+    "github.vscode-pull-request-github",
+    "golang.go",
+    "irongeek.vscode-env",
+    "ms-python.debugpy",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.vscode-python-envs",
+    "ms-vscode.atom-keybindings",
+    "ms-vscode.makefile-tools",
+    "radhakantaroy.vs-color-preview",
+    "raunofreiberg.vesper",
+    "skellock.just",
+    "vue.volar",
+  ]
 }

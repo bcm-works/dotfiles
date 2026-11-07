@@ -54,6 +54,13 @@ os_clean:
   source "$HOME/Dotfiles/utils.sh";
   echo "$(os_clean)";
 
+# Checks if the OS is Arch Linux based, returns "true" or "false" as strings.
+[group('tools')]
+os_arch_based:
+  #!/usr/bin/env bash
+  source "$HOME/Dotfiles/utils.sh";
+  echo "$(os_arch_based)";
+
 # Checks if the OS is Debian based, returns "true" or "false" as strings.
 [group('tools')]
 os_debian_based:
@@ -88,7 +95,7 @@ port port_number:
 # Get a disk partition label using the partition name (eg: nvme0n1p1)
 [group('system')]
 partition_label partition_name:
-	find /dev/disk/ -lname '*{{ partition_name }}' | grep /dev/disk/by-partlabel/ | sed 's/\/dev\/disk\/by-partlabel\///'
+  find /dev/disk/ -lname '*{{ partition_name }}' | grep /dev/disk/by-partlabel/ | sed 's/\/dev\/disk\/by-partlabel\///'
 
 # Backup Linux user data
 [group('system')]
@@ -103,12 +110,12 @@ ai-install:
 # View the AI readme
 [group('ai')]
 ai-docs:
-	#!/usr/bin/env bash
-	if command -v glow > /dev/null 2>&1 ; then
-		glow "$HOME/Dotfiles/ai/README.md"
-	else
-		cat "$HOME/Dotfiles/ai/README.md"
-	fi
+  #!/usr/bin/env bash
+  if command -v glow > /dev/null 2>&1 ; then
+    glow "$HOME/Dotfiles/ai/README.md"
+  else
+    cat "$HOME/Dotfiles/ai/README.md"
+  fi
 
 # Show your current public IP address
 [group('system')]
@@ -118,51 +125,52 @@ ip:
 # Run 'update' then 'clean'
 [group('system')]
 refresh: update clean
-	echo "! Both 'update' and 'clean' tasks are finished, a system reboot is recommended."
+  echo "! Both 'update' and 'clean' tasks are finished, a system reboot is recommended."
 
 # Update system packages and apps
 [group('system')]
 update:
   #!/usr/bin/env bash
+  source "$HOME/Dotfiles/utils.sh";
   OS=$(just --justfile "{{ justfile() }}" os_clean);
   OS_DEBIAN=$(just --justfile "{{ justfile() }}" os_debian_based);
-  echo "i Starting update task";
-  echo "! Requesting sudo";
+  info "Starting update task";
+  warn "Requesting sudo";
   sudo -v;
   if [[ "$OS" == 'fedora' ]]; then
-    echo 'i Fedora - Updating packages';
+    info 'Fedora - Updating packages';
     sudo dnf upgrade --refresh -y > /dev/null 2>&1;
-    echo 'i Fedora - Updating firmware';
+    info 'Fedora - Updating firmware';
     sudo fwupdmgr get-updates > /dev/null 2>&1;
     sudo fwupdmgr update -y > /dev/null 2>&1;
   elif [[ "$OS" == 'fedora-atomic' ]]; then
-    echo 'i Fedora Atomic - Updating packages';
+    info 'Fedora Atomic - Updating packages';
     rpm-ostree upgrade --quiet;
   fi
   if command -v pacman > /dev/null 2>&1; then
-    echo 'i Pacman - Updating packages';
+    info 'Pacman - Updating packages';
     sudo pacman -Sy > /dev/null 2>&1;
     sudo pacman -Su > /dev/null 2>&1;
   fi
   if command -v yay > /dev/null 2>&1; then
-    echo 'i Yay - Updating packages';
+    info 'Yay - Updating packages';
     yay -Sua > /dev/null 2>&1;
   fi
   if command -v apt > /dev/null 2>&1 ; then
-    echo "i APT - Updating APT packages";
+    info 'APT - Updating packages';
     sudo apt update -y -qq > /dev/null 2>&1;
     sudo apt upgrade -y -qq > /dev/null 2>&1;
   fi
   if command -v snap > /dev/null 2>&1 ; then
-    echo 'i Snap - Updating packages';
+    info 'Snap - Updating packages';
     sudo snap refresh > /dev/null 2>&1;
   fi
   if command -v flatpak > /dev/null 2>&1 ; then
-    echo 'i Flatpak - Updating packages';
+    info 'Flatpak - Updating packages';
     flatpak update -y > /dev/null 2>&1;
   fi
   if command -v brew > /dev/null 2>&1 ; then
-    echo 'i Homebrew - Updating packages';
+    info 'Homebrew - Updating packages';
     brew update > /dev/null 2>&1;
     brew upgrade > /dev/null 2>&1;
   fi
@@ -171,41 +179,44 @@ update:
 [group('system')]
 clean:
   #!/usr/bin/env bash
-  OS=$(just os);
-  echo "i Starting clean task";
-  echo '! Requesting sudo';
+  source "$HOME/Dotfiles/utils.sh";
+  OS==$(just --justfile "{{ justfile() }}" os);
+  OS_ARCH=$(just --justfile "{{ justfile() }}" os_arch_based);
+  OS_DEBIAN=$(just --justfile "{{ justfile() }}" os_debian_based);
+  info "Starting clean task";
+  warn 'Requesting sudo';
   sudo -v;
-  if [[ "$OS" == 'EndeavourOS' ]]; then
-    echo 'i EndeavourOS - Cleanup packages';
+  if [ OS_ARCH ]; then
+    info "$OS - Cleanup packages";
     paccache -rvk2 > /dev/null 2>&1;
     paccache -ruk0 > /dev/null 2>&1;
     sudo pacman -Rns $(pacman -Qtdq) --noconfirm > /dev/null 2>&1;
-    echo 'i EndeavourOS - Empty cache';
+    info "$OS - Empty cache";
     rm -rf "$HOME/.cache/"* > /dev/null 2>&1;
-    echo 'i EndeavourOS - Remove obsolete packages and caches';
+    info "$OS - Remove obsolete packages and caches";
     sudo paccache -ruk0 > /dev/null 2>&1;
     sudo pacman -Rns $(pacman -Qdtq) --noconfirm > /dev/null 2>&1;
-    echo 'i EndeavourOS - Remove old system journal logs';
+    info "$OS - Remove old system journal logs";
     journalctl --vacuum-time=4weeks > /dev/null 2>&1;
   elif [[ "$OS" == 'Fedora' ]]; then
-    echo 'i Fedora - Cleanup packages';
+    info 'Fedora - Cleanup packages';
     sudo dnf autoremove -y > /dev/null 2>&1;
     sudo dnf clean all > /dev/null 2>&1;
-  elif [ "$(just os_debian_based)" ]; then
-    echo "i $OS - Cleanup APT packages";
+  elif [ $OS_DEBIAN ]; then
+    info "$OS - Cleanup APT packages";
     sudo apt autoremove -y > /dev/null 2>&1;
     sudo apt clean -y > /dev/null 2>&1;
     sudo apt autoclean -y > /dev/null 2>&1;
   fi
   if command -v flatpak > /dev/null 2>&1 ; then
-    echo 'i Flatpak - Cleanup cache';
+    info 'Flatpak - Cleanup cache';
     rm -rf "$HOME/.cache/flatpak"
     mkdir -p "$HOME/.cache/flatpak"
-    echo 'i Flatpak - Cleanup packages';
+    info 'Flatpak - Cleanup packages';
     flatpak uninstall -y --unused --delete-data > /dev/null 2>&1;
   fi
   if command -v brew > /dev/null 2>&1 ; then
-    echo 'i Homebrew - Cleanup packages';
+    info 'Homebrew - Cleanup packages';
     brew cleanup > /dev/null 2>&1;
   fi
 
