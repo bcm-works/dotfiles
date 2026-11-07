@@ -8,6 +8,7 @@
     "github.vscode-pull-request-github",
     "golang.go",
     "irongeek.vscode-env",
+    "kdl-org.kdl",
     "ms-python.debugpy",
     "ms-python.python",
     "ms-python.vscode-pylance",
@@ -17,6 +18,6 @@
     "radhakantaroy.vs-color-preview",
     "raunofreiberg.vesper",
     "skellock.just",
-    "vue.volar",
+    "vue.volar"
   ]
 }
