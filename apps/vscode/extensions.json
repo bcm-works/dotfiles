@@ -4,6 +4,7 @@
 		"denoland.vscode-deno",
 		"docker.docker",
 		"editorconfig.editorconfig",
+		"GitHub.vscode-pull-request-github",
 		"golang.go",
 		"irongeek.vscode-env",
 		"ms-python.debugpy",
