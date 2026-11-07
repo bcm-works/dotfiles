@@ -201,5 +201,6 @@
   "editor.formatOnType": true,
   "[just]": {
     "editor.defaultFormatter": "nefrob.vscode-just-syntax"
-  }
+  },
+  "kdl.enable": false
 }
