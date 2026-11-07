@@ -180,7 +180,7 @@ update:
 clean:
   #!/usr/bin/env bash
   source "$HOME/Dotfiles/utils.sh";
-  OS==$(just --justfile "{{ justfile() }}" os);
+  OS=$(just --justfile "{{ justfile() }}" os);
   OS_ARCH=$(just --justfile "{{ justfile() }}" os_arch_based);
   OS_DEBIAN=$(just --justfile "{{ justfile() }}" os_debian_based);
   info "Starting clean task";
