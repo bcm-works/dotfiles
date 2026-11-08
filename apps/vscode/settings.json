@@ -8,7 +8,7 @@
   "clock.format": "h:MMtt",
   "clock.iconName": "none",
   "css.validate": false,
-  "debug.console.fontSize": 16,
+  "debug.console.fontSize": 18,
   "diffEditor.ignoreTrimWhitespace": false,
   "docker.extension.enableComposeLanguageServer": false,
   "editor.autoClosingBrackets": "never",
@@ -70,7 +70,7 @@
     }
   ],
   "markdown.preview.fontFamily": "Paper Mono Regular",
-  "markdown.preview.fontSize": 16,
+  "markdown.preview.fontSize": 18,
   "security.promptForLocalFileProtocolHandling": false,
   "security.workspace.trust.enabled": true,
   "security.workspace.trust.untrustedFiles": "open",
@@ -86,7 +86,7 @@
   ],
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.fontFamily": "Paper Mono Regular",
-  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontSize": 18,
   "terminal.integrated.scrollback": 2500,
   "terminal.integrated.tabs.defaultColor": "terminal.ansiCyan",
   "terminal.integrated.tabStopWidth": 4,
@@ -166,10 +166,10 @@
   "terminal.integrated.bellDuration": 0,
   "terminal.integrated.defaultProfile.linux": "bash",
   "scm.inputFontSize": 0,
-  "chat.editor.fontSize": 16,
-  "chat.fontSize": 16,
+  "chat.editor.fontSize": 18,
+  "chat.fontSize": 18,
   "terminal.integrated.initialHint": false,
-  "screencastMode.fontSize": 35,
+  "screencastMode.fontSize": 20,
   "git.branchSortOrder": "alphabetically",
   "git.openAfterClone": "alwaysNewWindow",
   "git.untrackedChanges": "separate",
@@ -199,8 +199,5 @@
   "workbench.iconTheme": "vs-nomo-dark",
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
-  "[just]": {
-    "editor.defaultFormatter": "nefrob.vscode-just-syntax"
-  },
   "kdl.enable": false
 }
