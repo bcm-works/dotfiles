@@ -186,7 +186,7 @@ clean:
   info "Starting clean task";
   warn 'Requesting sudo';
   sudo -v;
-  if [ OS_ARCH ]; then
+  if [[ "$OS_ARCH" == "true" ]]; then
     info "$OS - Cleanup packages";
     paccache -rvk2 > /dev/null 2>&1;
     paccache -ruk0 > /dev/null 2>&1;
@@ -202,7 +202,7 @@ clean:
     info 'Fedora - Cleanup packages';
     sudo dnf autoremove -y > /dev/null 2>&1;
     sudo dnf clean all > /dev/null 2>&1;
-  elif [ $OS_DEBIAN ]; then
+  elif [[ "$OS_DEBIAN" == "true" ]]; then
     info "$OS - Cleanup APT packages";
     sudo apt autoremove -y > /dev/null 2>&1;
     sudo apt clean -y > /dev/null 2>&1;

@@ -123,10 +123,19 @@ os_clean() {
 
 # Checks if the OS is Arch based, returns "true" or "false" as a string.
 os_arch_based() {
-	if grep -qE '^ID_LIKE=.*arch' /etc/os-release || grep -qE '^ID="?arch"?' /etc/os-release; then
-			echo "true"
+	if [ ! -r "/etc/os-release" ]; then
+		echo "false"
+		return
+	fi
+
+	local ID=""
+	local ID_LIKE=""
+	source "/etc/os-release"
+
+	if [[ " $ID $ID_LIKE " == *" arch "* ]]; then
+		echo "true"
 	else
-			echo "false"
+		echo "false"
 	fi
 }
 
