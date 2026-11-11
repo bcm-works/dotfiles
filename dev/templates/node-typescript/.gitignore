@@ -6,6 +6,8 @@ dist
 *.env
 !*.sample.env
 !.sample.env
+!*.example.env
+!.example.env
 
 *.log
 

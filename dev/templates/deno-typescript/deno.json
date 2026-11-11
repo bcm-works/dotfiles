@@ -1,8 +1,4 @@
 {
-	"nodeModulesDir": "none",
-	"preferPackageJson": false,
-	"minimumDependencyAge": 14,
-	"lock": true,
 	"imports": {
 		"@/": "./src/"
 	},
@@ -28,6 +24,10 @@
 			"command": "deno task"
 		}
 	},
+	"nodeModulesDir": "auto",
+	"preferPackageJson": false,
+	"minimumDependencyAge": 14,
+	"lock": true,
 	"compilerOptions": {
 		"allowUnreachableCode": false,
 		"noImplicitAny": true,
