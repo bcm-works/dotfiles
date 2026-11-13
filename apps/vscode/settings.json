@@ -199,5 +199,6 @@
   "workbench.iconTheme": "vs-nomo-dark",
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
-  "kdl.enable": false
+  "kdl.enable": false,
+  "kdl.loglevel": "off"
 }
