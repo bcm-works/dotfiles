@@ -37,9 +37,12 @@ info 'Load NVM'
 
 source "$NVM_DIR/nvm.sh" > /dev/null 2>&1
 
-info 'Installing the latest Node 26 release and setting that as the default version'
+info 'Installing the latest Node 26 release'
 
 nvm install 26 > /dev/null 2>&1
+
+info 'Setting this as the default Node version'
+
 nvm alias default 26 > /dev/null 2>&1
 
 info 'Installing the latest version of NPM'
@@ -59,9 +62,7 @@ npm config set --global workspaces false
 npm config set --global init-private true
 
 warn 'Reloading shell to apply changes'
+
 source "$HOME/.bashrc"
 
-success 'Node and NPM installed'
-
-info "Node version: $(node --version)"
-info "NPM version: $(npm --version)"
+success "Node $(node --version) and NPM $(npm --version) installed"

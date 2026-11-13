@@ -7,6 +7,7 @@
 
 source "$HOME/Dotfiles/utils.sh"
 CFG="$(dir_repo)/config/packages"
+mkdir -p "$CFG"
 cd "$CFG"
 
 if [ "$(command -v brew)" ]; then

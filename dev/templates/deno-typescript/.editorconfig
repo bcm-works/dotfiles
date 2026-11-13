@@ -7,15 +7,9 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
-indent_style = tab
+indent_style = space
 indent_size = 2
-max_line_length = 120
+max_line_length = 125
 
-[*.{md,json,jsonc,toml,yml}]
-insert_final_newline = false
-
-[{Dockerfile,.editorconfig,.gitignore,.gitmodules}]
-insert_final_newline = false
-
-[{*.sh,*.bash}]
+[{.nvmrc,.tool-versions}]
 insert_final_newline = false
