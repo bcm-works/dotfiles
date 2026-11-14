@@ -56,9 +56,6 @@ source "$HOME/.bashrc"
 if [[ -f "$REPO/config/packages/gnome-extension.list.txt" ]]; then
 	info "Installing Gnome Shell Extensions from '$REPO/config/packages/gnome-extension.list.txt'"
 	xargs -I {} gnome-extensions-cli install {} < "$REPO/config/packages/gnome-extension.list.txt"
-
-  info "Applying config for the Panel Date Format extension"
-  dconf write /org/gnome/shell/extensions/panel-date-format/format '%I%M' > /dev/null 2>&1
 else
 	warn "Skipping Gnome Shell Extensions installs, file not found at '$REPO/config/packages/gnome-extension.list.txt'"
 fi
@@ -129,12 +126,45 @@ gsettings set org.gnome.desktop.wm.preferences focus-new-windows 'smart'
 gsettings set org.gnome.desktop.wm.preferences auto-raise true
 gsettings set org.gnome.desktop.wm.preferences auto-raise-delay 0
 
+if has_schema "org.gnome.mutter"; then
+  gsettings set org.gnome.mutter edge-tiling true
+  gsettings set org.gnome.mutter attach-modal-dialogs true
+  gsettings set org.gnome.mutter center-new-windows true
+fi
+
+if has_schema "org.gnome.shell.extensions.tiling-assistant"; then
+  gsettings set org.gnome.shell.extensions.tiling-assistant enable-raise-tile-group false
+  gsettings set org.gnome.shell.extensions.tiling-assistant enable-tiling-popup false
+  gsettings set org.gnome.shell.extensions.tiling-assistant tiling-popup-all-workspace false
+  gsettings set org.gnome.shell.extensions.tiling-assistant enable-tile-animations true
+  gsettings set org.gnome.shell.extensions.tiling-assistant enable-untile-animations true
+  gsettings set org.gnome.shell.extensions.tiling-assistant window-gap 0
+  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout0 '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout1 '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout2 '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout3 '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant auto-tile '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant toggle-tiling-popup '[]'
+  gsettings set org.gnome.shell.extensions.tiling-assistant overridden-settings '{"org.gnome.mutter.edge-tiling": <false>}'
+fi
+
 # Extensions
 
 gsettings set org.gnome.shell allow-extension-installation true
 gsettings set org.gnome.shell disable-user-extensions false
 gsettings set org.gnome.shell always-show-log-out true
 gsettings set org.gnome.shell development-tools true
+
+# Extension: Unified Panel
+
+dconf write /org/gnome/shell/extensions/unified-panel/clock-format '%I%M' > /dev/null 2>&1
+dconf write /org/gnome/shell/extensions/unified-panel/clock-font-size 11 > /dev/null 2>&1
+dconf write /org/gnome/shell/extensions/unified-panel/custom-clock true > /dev/null 2>&1
+dconf write /org/gnome/shell/extensions/unified-panel/columns 2 > /dev/null 2>&1
+dconf write /org/gnome/shell/extensions/unified-panel/calendar-show-events false > /dev/null 2>&1
+dconf write /org/gnome/shell/extensions/unified-panel/calendar-show-weather false > /dev/null 2>&1
+dconf write /org/gnome/shell/extensions/unified-panel/calendar-show-world-clocks false > /dev/null 2>&1
+dconf write /org/gnome/shell/extensions/unified-panel/layout "['notifications:right', 'calendar:hidden', 'quick-settings:left', 'media:hidden', 'header:left']" > /dev/null 2>&1
 
 # App: Nautilus
 
@@ -258,29 +288,5 @@ fi
 # App: Settings
 
 gsettings set org.gnome.Settings last-panel 'system'
-
-# Window Management
-
-if has_schema "org.gnome.mutter"; then
-  gsettings set org.gnome.mutter edge-tiling true
-  gsettings set org.gnome.mutter attach-modal-dialogs true
-  gsettings set org.gnome.mutter center-new-windows true
-fi
-
-if has_schema "org.gnome.shell.extensions.tiling-assistant"; then
-  gsettings set org.gnome.shell.extensions.tiling-assistant enable-raise-tile-group false
-  gsettings set org.gnome.shell.extensions.tiling-assistant enable-tiling-popup false
-  gsettings set org.gnome.shell.extensions.tiling-assistant tiling-popup-all-workspace false
-  gsettings set org.gnome.shell.extensions.tiling-assistant enable-tile-animations true
-  gsettings set org.gnome.shell.extensions.tiling-assistant enable-untile-animations true
-  gsettings set org.gnome.shell.extensions.tiling-assistant window-gap 0
-  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout0 '[]'
-  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout1 '[]'
-  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout2 '[]'
-  gsettings set org.gnome.shell.extensions.tiling-assistant activate-layout3 '[]'
-  gsettings set org.gnome.shell.extensions.tiling-assistant auto-tile '[]'
-  gsettings set org.gnome.shell.extensions.tiling-assistant toggle-tiling-popup '[]'
-  gsettings set org.gnome.shell.extensions.tiling-assistant overridden-settings '{"org.gnome.mutter.edge-tiling": <false>}'
-fi
 
 success 'Gnome setup completed'
