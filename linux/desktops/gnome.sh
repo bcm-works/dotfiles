@@ -56,6 +56,9 @@ source "$HOME/.bashrc"
 if [[ -f "$REPO/config/packages/gnome-extension.list.txt" ]]; then
 	info "Installing Gnome Shell Extensions from '$REPO/config/packages/gnome-extension.list.txt'"
 	xargs -I {} gnome-extensions-cli install {} < "$REPO/config/packages/gnome-extension.list.txt"
+
+  info "Applying config for the Panel Date Format extension"
+  dconf write /org/gnome/shell/extensions/panel-date-format/format '%I%M' > /dev/null 2>&1
 else
 	warn "Skipping Gnome Shell Extensions installs, file not found at '$REPO/config/packages/gnome-extension.list.txt'"
 fi
