@@ -6,11 +6,13 @@
 #
 
 source "$HOME/Dotfiles/utils.sh"
-REPO="$(dir_repo)"
 OS="$(os)"
+OS_DEBIAN="$(os_debian_based)"
+OS_ARCH="$(os_arch_based)"
+REPO="$(dir_repo)"
 cd "$REPO"
 
-if [ "$(os_debian_based)" ]; then
+if [[ "$OS_DEBIAN" == "true" ]]; then
   warn 'Requesting sudo'
   sudo -v
 
