@@ -157,8 +157,8 @@ gsettings set org.gnome.shell development-tools true
 
 # Extension: Unified Panel
 
-dconf write /org/gnome/shell/extensions/unified-panel/clock-format '%I%M' > /dev/null 2>&1
-dconf write /org/gnome/shell/extensions/unified-panel/clock-font-size 11 > /dev/null 2>&1
+dconf write /org/gnome/shell/extensions/unified-panel/clock-format '%I\n%M' > /dev/null 2>&1
+dconf write /org/gnome/shell/extensions/unified-panel/clock-font-size 12 > /dev/null 2>&1
 dconf write /org/gnome/shell/extensions/unified-panel/custom-clock true > /dev/null 2>&1
 dconf write /org/gnome/shell/extensions/unified-panel/columns 2 > /dev/null 2>&1
 dconf write /org/gnome/shell/extensions/unified-panel/calendar-show-events false > /dev/null 2>&1
