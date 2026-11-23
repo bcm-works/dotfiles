@@ -155,17 +155,6 @@ gsettings set org.gnome.shell disable-user-extensions false
 gsettings set org.gnome.shell always-show-log-out true
 gsettings set org.gnome.shell development-tools true
 
-# Extension: Unified Panel
-
-dconf write /org/gnome/shell/extensions/unified-panel/clock-format '%I\n%M' > /dev/null 2>&1
-dconf write /org/gnome/shell/extensions/unified-panel/clock-font-size 12 > /dev/null 2>&1
-dconf write /org/gnome/shell/extensions/unified-panel/custom-clock true > /dev/null 2>&1
-dconf write /org/gnome/shell/extensions/unified-panel/columns 2 > /dev/null 2>&1
-dconf write /org/gnome/shell/extensions/unified-panel/calendar-show-events false > /dev/null 2>&1
-dconf write /org/gnome/shell/extensions/unified-panel/calendar-show-weather false > /dev/null 2>&1
-dconf write /org/gnome/shell/extensions/unified-panel/calendar-show-world-clocks false > /dev/null 2>&1
-dconf write /org/gnome/shell/extensions/unified-panel/layout "['notifications:right', 'calendar:hidden', 'quick-settings:left', 'media:hidden', 'header:left']" > /dev/null 2>&1
-
 # App: Nautilus
 
 gsettings set org.gnome.nautilus.window-state maximized false
