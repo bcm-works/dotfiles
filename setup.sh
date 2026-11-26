@@ -93,6 +93,9 @@ bash ~/Dotfiles/tools/hardware/keychron-keyboards.sh
 info 'Setup Zed'
 bash ~/Dotfiles/apps/zed/zed.sh
 
+info 'Setup VS Code'
+bash ~/Dotfiles/apps/vscode/vscode.sh
+
 info 'Setup Vim'
 bash ~/Dotfiles/apps/vim/vim.sh
 
@@ -106,7 +109,7 @@ info 'Setup Go'
 bash ~/Dotfiles/dev/go.sh
 
 info 'Setup Chrome'
-bash ~/Dotfiles/apps/chrome.sh
+bash ~/Dotfiles/apps/chrome/chrome.sh
 
 info 'Setup Docker'
 bash ~/Dotfiles/tools/docker.sh

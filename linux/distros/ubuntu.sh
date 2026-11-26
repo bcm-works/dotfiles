@@ -24,9 +24,8 @@ sudo apt update -qq > /dev/null 2>&1
 
 sudo apt -qq --assume-yes install \
   curl git zip vim \
-  ddcutil ddcui blueman libfuse2t64 \
-  pavucontrol alsamixer \
-  xclip wl-clipboard \
+  ddcutil ddcui blueman libfuse2t64 pavucontrol \
+  xclip wl-clipboard lm-sensors \
   language-pack-en language-pack-en-base \
   language-pack-gnome-en language-pack-gnome-en-base \
   hunspell-en-au hunspell-en-gb \
@@ -36,6 +35,7 @@ sudo apt -qq --assume-yes install \
   gnome-system-monitor \
   gnome-sushi \
   gnome-terminal \
+  gnome-software \
   gnome-tweaks \
   python3 python3-gpg python-is-python3 pipx > /dev/null 2>&1
 
@@ -53,3 +53,4 @@ info 'Ubuntu: Upgrading APT packages'
 
 sudo apt update -qq > /dev/null 2>&1
 sudo apt upgrade -y -qq > /dev/null 2>&1;
+

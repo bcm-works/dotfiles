@@ -88,7 +88,7 @@ elif [ "$(os_debian_based)" ]; then
     libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 \
     libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 \
     steam-libs-amd64:amd64 steam-libs-i386 \
-    dkms > /dev/null 2>&1
+    cabextract dkms linux-headers-$(uname -r) > /dev/null 2>&1
 
   info "$OS - Installing Steam"
 

@@ -187,6 +187,7 @@ gsettings set org.gtk.gtk4.Settings.FileChooser show-type-column true
 
 # Keyboard shortcuts
 
+gsettings set org.gtk.Settings.Debug enable-inspector-keybinding false
 gsettings set org.gnome.shell.keybindings toggle-application-view '["<Super>space"]'
 gsettings set org.gnome.shell.keybindings toggle-overview '["<Control><Super>Up"]'
 gsettings set org.gnome.shell.keybindings show-screen-recording-ui '[]'
