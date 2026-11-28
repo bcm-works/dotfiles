@@ -183,6 +183,12 @@ if [ -f "/var/lib/AccountsService/icons/$BACKUP_USER_NAME" ]; then
   cp "/var/lib/AccountsService/icons/$BACKUP_USER_NAME" "$CONFIG_BACKUP_DIR/$BACKUP_USER_NAME"
 fi
 
+# File manager hidden files and directories list
+
+if [ -f "$HOME/.hidden" ]; then
+  cp "$HOME/.hidden" "$CONFIG_BACKUP_DIR/.hidden"
+fi
+
 # Run the ZIP command with specific inclusions and exclusions
 
 cd $SOURCE_DIR
