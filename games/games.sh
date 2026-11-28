@@ -50,11 +50,9 @@ elif [[ "$OS" == "Fedora" ]]; then
     sudo dnf install -y "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
 
     sudo dnf install -y \
-    	nvidia-smi \
-    	akmod-nvidia \
+    	nvidia-smi akmod-nvidia \
     	xorg-x11-drv-nvidia-cuda \
-    	kernel-devel-matched \
-    	kernel-headers > /dev/null 2>&1
+    	kernel-devel-matched kernel-headers > /dev/null 2>&1
 
     sudo akmods --force
     sudo dracut --force
@@ -71,19 +69,12 @@ elif [ "$(os_debian_based)" ]; then
   sudo apt update -qq > /dev/null 2>&1
 
   sudo apt -qq --assume-yes install \
-    git curl cmake \
-    systemd \
-    libsystemd-dev \
-    systemd-dev \
-    pkg-config \
-    meson \
-    libsystemd-dev \
-    pkg-config \
-    ninja-build \
-    dbus-user-session \
-    build-essential \
-    libdbus-1-dev \
-    libinih-dev \
+    git curl cmake systemd systemd-dev \
+    build-essential libsystemd-dev  \
+    pkg-config meson \
+    libsystemd-dev pkg-config \
+    ninja-build dbus-user-session \
+    libdbus-1-dev libinih-dev \
     libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 \
     libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 \
     libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 \
